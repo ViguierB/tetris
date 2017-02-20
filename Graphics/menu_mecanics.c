@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 17:40:56 2017 augustin leconte
+** Last update Mon Feb 20 17:53:00 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -58,22 +58,20 @@ void print_cursor(int pos)
   attroff(COLOR_PAIR(1));
 }
 
-char  *ncurses()
+char  *ncurses(int *pos)
 {
-  int pos;
   int c;
 
-  pos = 0;
-  print_cursor(pos);
+  print_cursor(*pos);
   refresh();
   while ((c = getch()) != KEY_F(1))
     {
       if (c == KEY_DOWN)
-	move_forward(1, &pos);
+	move_forward(1, pos);
       else if (c == KEY_UP)
-	move_forward(-1, &pos);
+	move_forward(-1, pos);
       else if (c == 10)
-        return (fire(pos));
+        return (fire(*pos));
     }
   return (NULL);
 }

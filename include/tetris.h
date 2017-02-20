@@ -58,7 +58,7 @@ ncurse
 void move_forward(int i, int *pos);
 char *fire(int pos);
 void print_cursor(int pos);
-char  *ncurses();
+char  *ncurses(int *);
 
 /*
 prints

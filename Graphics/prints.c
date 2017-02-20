@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 17:32:40 2017 augustin leconte
+** Last update Mon Feb 20 17:51:28 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -93,8 +93,10 @@ int  main()
   int i;
   int c;
   char *str;
+  int pos;
 
   i = 0;
+  pos = 0;
   initscr();
   clear();
   noecho();
@@ -107,7 +109,7 @@ int  main()
       play();
       quit();
       print_line(LINES - 7);
-      str = ncurses();
+      str = ncurses(&pos);
       refresh();
       if ((c = getch()) != KEY_F(1))
       {
