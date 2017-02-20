@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 14:38:05 2017 augustin leconte
+** Last update Mon Feb 20 16:31:55 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -89,22 +89,25 @@ void quit()
 int  main()
 {
   int i;
+  int c;
+  char *str;
 
   i = 0;
   initscr();
   clear();
   noecho();
   curs_set(FALSE);
-  while (1)
-  {
-    clear();
-    print_name();
-    print_line(7);
-    play();
-    quit();
-    print_line(LINES - 7);
-    refresh();
-}
+  while ((c = getch()) != KEY_F(1))
+    {
+      clear();
+      print_name();
+      print_line(7);
+      play();
+      quit();
+      print_line(LINES - 7);
+      str = ncurses();
+      refresh();
+    }
   endwin();
   return (0);
 }

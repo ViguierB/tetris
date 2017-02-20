@@ -5,7 +5,11 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Mon Feb 20 16:53:17 2017 Benjamin Viguier
+<<<<<<< HEAD
+** Last update Mon Feb 20 17:04:13 2017 Benjamin Viguier
+=======
+** Last update Mon Feb 20 16:17:43 2017 augustin leconte
+>>>>>>> 93d76465075c351dde258f32327b00ba4f6851cc
 */
 
 #ifndef TETRIS_H_
@@ -43,5 +47,18 @@ int	without_next_parms(t_params *params, int *i, int ac, char **av);
 int	debug_parms(t_params *params, int *i, int ac, char **av);
 int	help_parms(t_params *params, int *i, int ac, char **av);
 int	get_params(t_params *params, int ac, char **av);
+
+// ncurse //
+// menu_mecanics //
+void move_forward(int i, int *pos);
+char *fire(int pos);
+void print_cursor(int pos);
+char  *ncurses();
+
+// prints //
+void print_line(int where);
+void print_name();
+void play();
+void quit();
 
 #endif /* !TETRIS_H_ */
