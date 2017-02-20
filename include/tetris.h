@@ -48,14 +48,21 @@ int	debug_parms(t_params *params, int *i, int ac, char **av);
 int	help_parms(t_params *params, int *i, int ac, char **av);
 int	get_params(t_params *params, int ac, char **av);
 
-// ncurse //
-// menu_mecanics //
+/*
+ncurse
+*/
+
+/*
+ menu_mecanics
+*/
 void move_forward(int i, int *pos);
 char *fire(int pos);
 void print_cursor(int pos);
 char  *ncurses();
 
-// prints //
+/*
+prints
+*/
 void print_line(int where);
 void print_name();
 void play();
