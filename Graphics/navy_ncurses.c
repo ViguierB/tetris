@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Feb 16 14:46:05 2017 Alexandre Chamard-bois
+** Last update Mon Feb 20 13:28:47 2017 augustin leconte
 */
 
 #include "my2.h"
@@ -50,19 +50,6 @@ char *fire(t_pos pos)
     mvprintw(LINES - 5, 0, "%s\n", str);
   }
   return (str);
-}
-
-void ncurses_navy2(int tab1[8][8], int tab2[8][8], t_pos pos)
-{
-  print_tabs(tab1, tab2);
-  attron(A_STANDOUT);
-  if (tab2[pos.x][(pos.y / 2)] == 0)
-    mvprintw(29 + pos.x, (COLS / 2) - 6 + pos.y, ".");
-  else if (tab2[pos.x][(pos.y / 2)] == 2)
-    mvprintw(29 + pos.x, (COLS / 2) - 6 + pos.y, "o");
-  else if (tab2[pos.x][(pos.y / 2)] == 1)
-    mvprintw(29 + pos.x, (COLS / 2) - 6 + pos.y, "x");
-    attroff(A_STANDOUT);
 }
 
 char  *ncurses_navy(int tab1[8][8], int tab2[8][8])
