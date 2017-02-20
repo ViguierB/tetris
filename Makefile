@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu>
 ##
 ## Started on  Fri Jan 27 17:43:23 2017 Alexandre Chamard-bois
-## Last update Mon Feb 20 10:19:59 2017 augustin leconte
+## Last update Mon Feb 20 10:41:36 2017 augustin leconte
 ##
 
 
@@ -16,6 +16,9 @@ CFLAGS		=	-W -Wall -Werror -Wextra -g3 -lncurses
 CPPFLAGS	=	-I./include/
 
 SRCS			=	main.c												\
+						print_h.c											\
+						print.c												\
+						utils.c												\
 
 OBJS			=	$(SRCS:.c=.o)
 
