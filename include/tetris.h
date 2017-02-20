@@ -70,4 +70,9 @@ void play();
 void quit();
 void help();
 
+/*
+redirections
+*/
+void exiting();
+
 #endif /* !TETRIS_H_ */
