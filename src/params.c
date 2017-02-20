@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Mon Feb 20 17:18:38 2017 Benjamin Viguier
+** Last update Mon Feb 20 17:25:13 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -49,7 +49,7 @@ int		exec_fct(t_params *params, int *i, int ac, char **av)
       if (my_strcmp(elm->cmd, splited[0]) == 0)
 	{
 	  if ((elm->fct)(params, i, ac, av) < 0)
-	    my_printf("[%s] Bad value.\n");
+	    my_printf("[%s] Bad value.\n", splited[0]);
 	  return (0);
 	}
       free(*splited);
