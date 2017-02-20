@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 19:35:01 2017 augustin leconte
+** Last update Mon Feb 20 19:44:42 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -45,6 +45,15 @@ char *fire(int pos)
   return ("quit");
 }
 
+void cursor(int i)
+{
+  mvprintw(i, COLS - 10, "   //");
+  mvprintw(i + 1, COLS - 10, "  //");
+  mvprintw(i + 2, COLS - 10, "<>");
+  mvprintw(i + 3, COLS - 10, "  \\\\");
+  mvprintw(i + 4, COLS - 10, "   \\\\");
+}
+
 void print_cursor(int pos)
 {
   start_color();
@@ -52,29 +61,11 @@ void print_cursor(int pos)
   init_pair(2, COLOR_WHITE, COLOR_BLACK);
   attron(COLOR_PAIR(1));
   if (pos == 0)
-  {
-    mvprintw(20, COLS - 10, "   //");
-    mvprintw(21, COLS - 10, "  //");
-    mvprintw(22, COLS - 10, "<>");
-    mvprintw(23, COLS - 10, "  \\\\");
-    mvprintw(24, COLS - 10, "   \\\\");
-  }
+cursor(20);
   else if (pos == 1)
-  {
-    mvprintw(30, COLS - 10, "   //");
-    mvprintw(31, COLS - 10, "  //");
-    mvprintw(32, COLS - 10, "<>");
-    mvprintw(33, COLS - 10, "  \\\\");
-    mvprintw(34, COLS - 10, "   \\\\");
-  }
+  cursor(30);
   else if (pos == 2)
-  {
-    mvprintw(40, COLS - 10, "   //");
-    mvprintw(41, COLS - 10, "  //");
-    mvprintw(42, COLS - 10, "<>");
-    mvprintw(43, COLS - 10, "  \\\\");
-    mvprintw(44, COLS - 10, "   \\\\");
-  }
+cursor(40);
   attroff(COLOR_PAIR(1));
 }
 
