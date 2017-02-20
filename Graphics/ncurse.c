@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 13:51:03 2017 augustin leconte
+** Last update Mon Feb 20 13:54:38 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -39,11 +39,11 @@ void print_name()
   init_pair(2, COLOR_WHITE, COLOR_BLACK);
   len = my_strlen("_______  ______   _______    ____            _____") / 2;
   attron(COLOR_PAIR(1));
-  mvprintw(1, COLS / 2 - len, "_______  ______   _______    ____            ____");
-  mvprintw(2, COLS / 2 - len, "   |     |           |       |   \\    |     / ");
-  mvprintw(3, COLS / 2 - len, "   |     |__         |       |_  /    |     \\__");
-  mvprintw(4, COLS / 2 - len, "   |     |           |       |  \\     |        \\");
-  mvprintw(5, COLS / 2 - len, "   |     |_____      |       |   \\    |     ___/");
+  mvprintw(1, COLS / 2 - len, "_______  ______  _______  ____          ____");
+  mvprintw(2, COLS / 2 - len, "   |     |          |     |   \\   |    / ");
+  mvprintw(3, COLS / 2 - len, "   |     |__        |     |_  /   |    \\__");
+  mvprintw(4, COLS / 2 - len, "   |     |          |     |  \\    |       \\");
+  mvprintw(5, COLS / 2 - len, "   |     |_____     |     |   \\   |    ___/");
   print_line(7);
   print_line(LINES - 13);
   refresh();
