@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ## 
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
-## Last update Mon Feb 20 13:42:47 2017 Benjamin Viguier
+## Last update Mon Feb 20 13:51:09 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -29,26 +29,26 @@ OBJ	=	$(patsubst %,$(ODIR)/%,$(_OBJ))
 
 NAME	=	tetris
 
-all	:	$(NAME)
+all		:	$(NAME)
 
-$(ODIR)/%.o: $(SDIR)/%.c
+$(ODIR)/%.o	: $(SDIR)/%.c
 	$(CC) $(CFLAGS)	-c -o $@ $<
 
-$(NAME)	:	mlib $(OBJ)
+$(NAME)		:	mlib $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
-clean	:
+clean		:
 	rm -f $(OBJ)
 
-fclean	:	clean
+fclean		:	clean
 	rm -f $(NAME)
 
-ffclean	:	fclib fclean
+ffclean		:	fclib fclean
 
-re	:	fclib fclean all
+re		:	fclib fclean all
 
-fclib	:
+fclib		:
 	cd ./lib/my/ && $(MAKE) fclean && cd -
 
-mlib	:
+mlib		:
 	cd ./lib/my/ && $(MAKE) && cd -

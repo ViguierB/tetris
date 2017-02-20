@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.net>
 ## 
 ## Started on  Tue Nov  8 18:23:40 2016 Benjamin Viguier
-## Last update Fri Feb 17 13:51:58 2017 Benjamin Viguier
+## Last update Mon Feb 20 13:50:40 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -54,20 +54,25 @@ SRC	=	my_strlen.c		\
 
 CFLAGS	+=	-I./include/
 
-OBJ	=	$(SRC:.c=.o)
+_OBJ    =	$(SRC:.c=.o)
+
+OBJ	=	$(patsubst %,$(ODIR)/%,$(_OBJ))
 
 NAME	=	libmy.a
 
-all	:	$(NAME)
+all		:	$(NAME)
 
-$(NAME)	:	$(OBJ)
+$(ODIR)/%.o	:	$(SDIR)/%.c
+	$(CC) $(CFLAGS)	-c -o $@ $<
+
+$(NAME)		:	$(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-clean	:
+clean		:
 	rm -f $(OBJ)
 
-fclean	:	clean
+fclean		:	clean
 	rm -f $(NAME)
 
-re	:	fclean all
+re		:	fclean all

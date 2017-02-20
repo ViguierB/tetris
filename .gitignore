@@ -1,2 +1,13 @@
-tetris
+//Temporary files
+*~
+#*
+*#
+*.#*
+
+//Binary Files
+*.a
 *.o
+tetris
+
+//Tests Directory
+tests/
