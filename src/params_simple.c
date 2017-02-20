@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Mon Feb 20 17:01:51 2017 Benjamin Viguier
+** Last update Mon Feb 20 17:14:34 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -102,7 +102,8 @@ int	help_parms(t_params *params, int *i, int ac, char **av)
 	    " using the K key (def: top arrow)\n"
 	    "\t-kd –key-drop=K\t\tDROP the tetrimino using the"
 	    " K key (def: down arrow)\n"
-	    "\t-kq –key-quit=K\t\tQUIT the game using the K key (def: ’Q’ key)\n"
+	    "\t-kq –key-quit=K\t\tQUIT the game using"
+	    " the K key (def: ’Q’ key)\n"
 	    "\t-kp –key-pause=K\tPAUSE/RESTART the game using"
 	    " the K key (def: space bar)\n"
 	    "\t–map-size=row,col\tset the numbers of rows and"
