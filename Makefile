@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ## 
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
-## Last update Mon Feb 20 13:51:09 2017 Benjamin Viguier
+## Last update Mon Feb 20 13:56:20 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -18,10 +18,6 @@ SRC	= 	main.c		\
 CFLAGS	+=	-I./include/
 
 LDFLAGS	=	-L./lib/my/ -lmy -lncurses
-
-ODIR	=	obj
-
-SDIR	=	src
 
 _OBJ	=	$(SRC:.c=.o)
 
