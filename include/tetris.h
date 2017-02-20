@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Mon Feb 20 10:41:13 2017 augustin leconte
+** Last update Mon Feb 20 16:17:43 2017 augustin leconte
 */
 
 #include <stdio.h>
@@ -22,3 +22,16 @@ void print_h();
 
 // utils //
 int my_strlen(char *);
+
+// ncurse //
+  // menu_mecanics //
+  void move_forward(int i, int *pos);
+  char *fire(int pos);
+  void print_cursor(int pos);
+  char  *ncurses();
+
+  // prints //
+  void print_line(int where);
+  void print_name();
+  void play();
+  void quit();

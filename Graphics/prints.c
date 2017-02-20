@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 14:38:05 2017 augustin leconte
+** Last update Mon Feb 20 16:18:06 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -103,6 +103,7 @@ int  main()
     play();
     quit();
     print_line(LINES - 7);
+    ncurses();
     refresh();
 }
   endwin();

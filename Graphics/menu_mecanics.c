@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 16:12:39 2017 augustin leconte
+** Last update Mon Feb 20 16:30:05 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -41,24 +41,24 @@ void print_cursor(int pos)
   attron(COLOR_PAIR(1));
   if (pos == 0)
   {
-    mvprintw(20, COLS - 5, "   /");
-    mvprintw(21, COLS - 5, "  /");
-    mvprintw(22, COLS - 5, "<>");
-    mvprintw(23, COLS - 5, "  \\");
-    mvprintw(24, COLS - 5, "   \\");
+    mvprintw(21, COLS - 10, "   //");
+    mvprintw(22, COLS - 10, "  //");
+    mvprintw(23, COLS - 10, "<>");
+    mvprintw(24, COLS - 10, "  \\\\");
+    mvprintw(25, COLS - 10, "   \\\\");
   }
   else if (pos == 1)
   {
-    mvprintw(30, COLS - 5, "   /");
-    mvprintw(31, COLS - 5, "  /");
-    mvprintw(32, COLS - 5, "<>");
-    mvprintw(33, COLS - 5, "  \\");
-    mvprintw(34, COLS - 5, "   \\");
+    mvprintw(31, COLS - 10, "   //");
+    mvprintw(32, COLS - 10, "  //");
+    mvprintw(33, COLS - 10, "<>");
+    mvprintw(34, COLS - 10, "  \\\\");
+    mvprintw(35, COLS - 10, "   \\\\");
   }
   attroff(COLOR_PAIR(1));
 }
 
-char  *ncurses_navy(int tab1[8][8], int tab2[8][8])
+char  *ncurses()
 {
   int pos;
   int c;
@@ -73,6 +73,7 @@ char  *ncurses_navy(int tab1[8][8], int tab2[8][8])
       else if (c == 10)
         return (fire(pos));
       print_cursor(pos);
+      refresh();
     }
   return (NULL);
 }
