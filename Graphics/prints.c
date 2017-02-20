@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 17:51:28 2017 augustin leconte
+** Last update Mon Feb 20 18:59:39 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -101,7 +101,8 @@ int  main()
   clear();
   noecho();
   curs_set(FALSE);
-  while (1)
+    keypad(stdscr, TRUE);
+  while ((c = getch()) != 127)
     {
       clear();
       print_name();
@@ -109,13 +110,11 @@ int  main()
       play();
       quit();
       print_line(LINES - 7);
-      str = ncurses(&pos);
+      c = getch();
+      printw("%d", c);
+      str = ncurses(&pos, c);
+      print_cursor(pos);
       refresh();
-      if ((c = getch()) != KEY_F(1))
-      {
-        endwin();
-        return (0);
-      }
     }
   endwin();
   return (0);
