@@ -1,9 +1,9 @@
 ##
 ## Makefile for tetris in /home/benji_epitech/C_Graph_Prog/wolf3d
-## 
+##
 ## Made by Benjamin Viguier
 ## Login   <benjamin.viguier@epitech.eu>
-## 
+##
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
 ## Last update Mon Feb 20 13:42:47 2017 Benjamin Viguier
 ##
