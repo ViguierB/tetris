@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 17:38:06 2017 augustin leconte
+** Last update Mon Feb 20 17:40:56 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -65,6 +65,7 @@ char  *ncurses()
 
   pos = 0;
   print_cursor(pos);
+  refresh();
   while ((c = getch()) != KEY_F(1))
     {
       if (c == KEY_DOWN)
@@ -73,8 +74,6 @@ char  *ncurses()
 	move_forward(-1, &pos);
       else if (c == 10)
         return (fire(pos));
-      print_cursor(pos);
-      refresh();
     }
   return (NULL);
 }
