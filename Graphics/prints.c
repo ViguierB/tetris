@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 16:31:55 2017 augustin leconte
+** Last update Mon Feb 20 17:32:40 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -15,6 +15,8 @@
 #include <curses.h>
 #include <ncurses.h>
 #include "tetris.h"
+
+int my_strlen();
 
 void print_line(int where)
 {
@@ -97,7 +99,7 @@ int  main()
   clear();
   noecho();
   curs_set(FALSE);
-  while ((c = getch()) != KEY_F(1))
+  while (1)
     {
       clear();
       print_name();
@@ -107,6 +109,11 @@ int  main()
       print_line(LINES - 7);
       str = ncurses();
       refresh();
+      if ((c = getch()) != KEY_F(1))
+      {
+        endwin();
+        return (0);
+      }
     }
   endwin();
   return (0);
