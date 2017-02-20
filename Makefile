@@ -5,7 +5,7 @@
 ## Login   <alexandre.chamard-bois@epitech.eu>
 ##
 ## Started on  Fri Jan 27 17:43:23 2017 Alexandre Chamard-bois
-## Last update Mon Feb 20 10:17:31 2017 augustin leconte
+## Last update Mon Feb 20 10:19:59 2017 augustin leconte
 ##
 
 
@@ -22,7 +22,7 @@ OBJS			=	$(SRCS:.c=.o)
 NAME			=	tetris
 
 all:
-				$(CC) $(SRC) $(CFLAGS) $(CPPFLAGS) -o $(NAME)
+				$(CC) $(SRCS) $(CFLAGS) $(CPPFLAGS) -o $(NAME)
 
 clean:
 				rm -rf $(OBJS)
