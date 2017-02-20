@@ -5,30 +5,19 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 13:28:47 2017 augustin leconte
+** Last update Mon Feb 20 15:14:23 2017 augustin leconte
 */
 
 #include "my2.h"
 
-char transform_pos(t_pos pos)
+void move_forward(int i, int j, t_pos *pos)
 {
-  if ((pos.y / 2) == 0)
-    return ('A');
-  if ((pos.y / 2) == 1)
-    return ('B');
-  if ((pos.y / 2) == 2)
-    return ('C');
-  if ((pos.y / 2) == 3)
-    return ('D');
-  if ((pos.y / 2) == 4)
-    return ('E');
-  if ((pos.y / 2) == 5)
-    return ('F');
-  if ((pos.y / 2) == 6)
-    return ('G');
-  if ((pos.y / 2) == 7)
-    return ('H');
-return ('0');
+  if (pos->x + i < 8 && pos->y + (j * 2) < 16 && pos->x + i >= 0
+  && pos->y + (j * 2) >= 0)
+    {
+      pos->x += i;
+      pos->y += j * 2;
+    }
 }
 
 char *fire(t_pos pos)
@@ -66,10 +55,6 @@ char  *ncurses_navy(int tab1[8][8], int tab2[8][8])
 	move_forward(1, 0, &pos);
       else if (c == KEY_UP)
 	move_forward(-1, 0, &pos);
-      else if (c == KEY_RIGHT)
-	move_forward(0, 1, &pos);
-      else if (c == KEY_LEFT)
-	move_forward(0, -1, &pos);
       else if (c == 10)
         return (fire(pos));
   refresh();
@@ -77,12 +62,4 @@ char  *ncurses_navy(int tab1[8][8], int tab2[8][8])
   ncurses_navy2(tab1, tab2, pos);
     }
   return (NULL);
-}
-
-char *bonus(int tab1[8][8], int tab2[8][8])
-{
-  char *str;
-
-  str = ncurses_navy(tab1, tab2);
-  return (str);
 }
