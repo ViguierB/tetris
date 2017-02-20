@@ -5,14 +5,12 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ##
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
-## Last update Mon Feb 20 16:46:33 2017 Benjamin Viguier
+## Last update Mon Feb 20 17:06:22 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
 
 SRC	= 	main.c		\
-		print.c		\
-		print_h.c	\
 		utils.c		\
 		params.c	\
 		params_simple.c
