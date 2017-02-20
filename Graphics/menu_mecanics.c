@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 18:59:25 2017 augustin leconte
+** Last update Mon Feb 20 19:02:56 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -15,6 +15,15 @@
 #include <curses.h>
 #include <ncurses.h>
 #include "tetris.h"
+
+void init_game()
+{
+  print_name();
+  print_line(7);
+  play();
+  quit();
+  print_line(LINES - 7);
+}
 
 void move_forward(int i, int *pos)
 {
