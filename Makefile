@@ -1,36 +1,54 @@
 ##
-## Makefile for ok in /home/alexandre/Documents/tek-1/PSU_2016_navy/
+## Makefile for tetris in /home/benji_epitech/C_Graph_Prog/wolf3d
+## 
+## Made by Benjamin Viguier
+## Login   <benjamin.viguier@epitech.eu>
+## 
+## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
+## Last update Mon Feb 20 13:40:56 2017 Benjamin Viguier
 ##
-## Made by Alexandre Chamard-bois
-## Login   <alexandre.chamard-bois@epitech.eu>
-##
-## Started on  Fri Jan 27 17:43:23 2017 Alexandre Chamard-bois
-## Last update Mon Feb 20 10:41:36 2017 augustin leconte
-##
 
+include $(shell pwd)/include/depend.mk
 
-CC				=	gcc
+SRC	= 	main.c		\
+		print.c		\
+		print_h.c	\
+		utils.c
 
-CFLAGS		=	-W -Wall -Werror -Wextra -g3 -lncurses
+CFLAGS	+=	-I./include/
 
-CPPFLAGS	=	-I./include/
+LDFLAGS	=	-L./lib/my/ -lmy -lncurses
 
-SRCS			=	main.c												\
-						print_h.c											\
-						print.c												\
-						utils.c												\
+ODIR	=	obj
 
-OBJS			=	$(SRCS:.c=.o)
+SDIR	=	src
 
-NAME			=	tetris
+_OBJ	=	$(SRC:.c=.o)
 
-all:
-				$(CC) $(SRCS) $(CFLAGS) $(CPPFLAGS) -o $(NAME)
+OBJ	=	$(patsubst %,$(ODIR)/%,$(_OBJ))
 
-clean:
-				rm -rf $(OBJS)
+NAME	=	tetris
 
-fclean: clean
-				rm -rf $(NAME)
+all	:	$(NAME)
 
-re:			fclean all
+$(ODIR)/%.o: $(SDIR)/%.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+$(NAME)	:	mlib $(OBJ)
+	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
+
+clean	:
+	rm -f $(OBJ)
+
+fclean	:	clean
+	rm -f $(NAME)
+
+ffclean	:	fclib fclean
+
+re	:	fclib fclean all
+
+fclib	:
+	cd ./lib/my/ && $(MAKE) fclean && cd -
+
+mlib	:
+	cd ./lib/my/ && $(MAKE) && cd -
