@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ## 
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
-## Last update Mon Feb 20 13:40:56 2017 Benjamin Viguier
+## Last update Mon Feb 20 13:42:47 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -32,7 +32,7 @@ NAME	=	tetris
 all	:	$(NAME)
 
 $(ODIR)/%.o: $(SDIR)/%.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) $(CFLAGS)	-c -o $@ $<
 
 $(NAME)	:	mlib $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
