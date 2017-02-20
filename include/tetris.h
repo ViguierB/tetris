@@ -68,5 +68,6 @@ void print_line(int where);
 void print_name();
 void play();
 void quit();
+void help();
 
 #endif /* !TETRIS_H_ */
