@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Dec 12 13:19:11 2016 Benjamin Viguier
-** Last update Wed Feb 15 16:32:52 2017 Benjamin Viguier
+** Last update Mon Feb 20 16:15:02 2017 Benjamin Viguier
 */
 
 #ifndef LIBMY_H_
@@ -79,6 +79,8 @@ int	my_memisempty(void *ptr, size_t size);
 char	*my_ftrim(char *str);
 char	*my_trim(char *str);
 int	my_isnum(char *str);
+int	my_atoi(char *str);
+int	my_strtod(char *str, int *res);
 
 /*
 ** my_fd functions
