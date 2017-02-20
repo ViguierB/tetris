@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Mon Feb 20 19:03:33 2017 augustin leconte
+** Last update Mon Feb 20 19:05:33 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -102,8 +102,7 @@ int  main()
   noecho();
   curs_set(FALSE);
   keypad(stdscr, TRUE);
-init_game();
-  str = ncurses(&pos, c);
+  init_game();
   print_cursor(pos);
   refresh();
   while ((c = getch()) != 127)
