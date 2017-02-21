@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 14:26:07 2017 augustin leconte
+** Last update Tue Feb 21 14:33:01 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -72,7 +72,7 @@ void print_tab(char tab[30][40])
   {
     j = -1;
     while (++j < 39)
-      mvprintw((LINES / 2) + i, (COLS / 2) - 20 + j, "%c", tab[i][j]);
+      mvprintw((LINES / 2) + i - 5, (COLS / 2) - 19 + j, "%c", tab[i][j]);
   }
   printw("\n");
 }
