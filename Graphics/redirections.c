@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 08:59:38 2017 augustin leconte
+** Last update Tue Feb 21 09:12:26 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -47,13 +47,47 @@ void print_ufo()
   attroff(COLOR_PAIR(1));
 }
 
+void fill_tab(char tab[30][30])
+{
+  int i;
+  int j;
+
+  i = -1;
+  while (++i < 30)
+  {
+    j = 0;
+    tab[i][0] = '|';
+    tab[i][29] = '|';
+    while (++j < 29)
+      tab[i][j] = ' ';
+  }
+  j = 0;
+  while (++j < 29)
+    tab[30][j] = '_';
+}
+
+void print_tab(char tab[30][30])
+{
+  int i;
+
+  i = -1;
+  while (++i < 30)
+    mvprintw((LINES / 2) + i, (COLS / 2) - 15, "%s\n", tab[i]);
+}
+
 void playing()
 {
+  char tab[30][30];
+
+  fill_tab(tab);
   clear();
   print_ufo();
+  print_tab(tab);
+  refresh();
   while (getch() != 10)
   {
     print_ufo();
+    print_tab(tab);
     refresh();
   }
 }
