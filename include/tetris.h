@@ -5,11 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-<<<<<<< HEAD
-** Last update Mon Feb 20 17:04:13 2017 Benjamin Viguier
-=======
-** Last update Mon Feb 20 16:17:43 2017 augustin leconte
->>>>>>> 93d76465075c351dde258f32327b00ba4f6851cc
+** Last update Tue Feb 21 11:12:17 2017 Benjamin Viguier
 */
 
 #ifndef TETRIS_H_
