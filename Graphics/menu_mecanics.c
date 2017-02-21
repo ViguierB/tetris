@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 19:47:17 2017 augustin leconte
+** Last update Tue Feb 21 08:47:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -39,10 +39,10 @@ void move_forward(int i, int *pos)
 char *fire(int pos)
 {
   if (pos == 0)
-    return ("play");
+    playing();
   else if (pos == 2)
     return ("help");
-  exiting();  
+  exiting();
   return ("quit");
 }
 

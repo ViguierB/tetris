@@ -74,5 +74,7 @@ void help();
 redirections
 */
 void exiting();
+void playing();
+void print_ufo();
 
 #endif /* !TETRIS_H_ */
