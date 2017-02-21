@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Dec 12 13:19:11 2016 Benjamin Viguier
-** Last update Mon Feb 20 16:15:02 2017 Benjamin Viguier
+** Last update Tue Feb 21 11:00:59 2017 Benjamin Viguier
 */
 
 #ifndef LIBMY_H_
@@ -16,7 +16,7 @@
 # define S_IN 0
 # define S_OUT 1
 # define S_ERR 2
-# define MY_FD_BUFF_LEN 512
+# define MY_FD_BUFF_LEN 1024
 # define PSQ(x) ((x) * (x))
 # define MIN(a, b) (((a) < (b)) ? (a) : (b))
 # define MAX(a, b) (((a) > (b)) ? (a) : (b))
@@ -89,5 +89,7 @@ t_my_fd	*my_fd_from_fd(const int fd);
 t_my_fd	*my_fopen(char *path, int flags);
 void	my_fclose(t_my_fd *to_free);
 char	*my_getline(t_my_fd *pack);
+ssize_t	my_fread(t_my_fd *pack, char *buffer, size_t size);
+int	my_fread_to_end(t_my_fd *fd, char **res);
 
 #endif /* !LIBMY_H_ */
