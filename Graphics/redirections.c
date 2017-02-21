@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 14:17:46 2017 augustin leconte
+** Last update Tue Feb 21 14:26:07 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -52,12 +52,13 @@ void fill_tab(char tab[30][40])
   {
     j = 0;
     tab[i][j] = '|';
-    while (++j < 39)
-      tab[i][j] = '-';
+    while (++j < 38)
+      tab[i][j] = ' ';
       tab[i][j] = '|';
   }
+  i--;
   j = 0;
-  while (++j < 39)
+  while (++j < 38)
     tab[i][j] = '_';
 }
 
