@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Mon Feb 20 17:14:34 2017 Benjamin Viguier
+** Last update Tue Feb 21 14:32:02 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -80,6 +80,7 @@ int	debug_parms(t_params *params, int *i, int ac, char **av)
   i = (void*) i;
   (void) ac;
   av = (void*) av;
+  my_printf("*** DEBUG MODE ***\n");
   params->d = 1;
   return (0);
 }
