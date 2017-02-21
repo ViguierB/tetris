@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Tue Feb 21 16:41:21 2017 augustin leconte
+** Last update Tue Feb 21 19:14:13 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -54,7 +54,7 @@ void helping()
   refresh();
   while ((c = getch()) != 10)
   {
-    if (c = KEY_LEFT)
+    if (c == KEY_LEFT)
       ntetris();
     clear();
     print_name();
