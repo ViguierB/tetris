@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Tue Feb 21 14:36:59 2017 augustin leconte
+** Last update Tue Feb 21 16:16:56 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -47,31 +47,22 @@ int	get_params(t_params *params, int ac, char **av);
 /*
 ncurse
 */
-
-/*
- menu_mecanics
-*/
 void init_game();
 void move_forward(int i, int *pos);
 char *fire(int pos);
 void print_cursor(int pos);
 char  *ncurses(int *, int);
-
-/*
-prints
-*/
 void print_line(int where);
 void print_name();
 void play();
 void quit();
 void help();
-
-/*
-redirections
-*/
+void cursor(int);
 void exiting();
 void playing();
 void helping();
 void print_ufo();
+void print_tab(char tab[30][40]);
+void fill_tab(char tab[30][40]);
 
 #endif /* !TETRIS_H_ */
