@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 08:58:19 2017 augustin leconte
+** Last update Tue Feb 21 08:59:38 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -50,11 +50,12 @@ void print_ufo()
 void playing()
 {
   clear();
-  while (1)
-  {
   print_ufo();
-  refresh();
-}
+  while (getch() != 10)
+  {
+    print_ufo();
+    refresh();
+  }
 }
 //
 //          |
