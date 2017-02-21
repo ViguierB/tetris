@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Mon Feb 20 16:30:05 2017 augustin leconte
+** Last update Tue Feb 21 08:47:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -16,21 +16,43 @@
 #include <ncurses.h>
 #include "tetris.h"
 
+void init_game()
+{
+  print_name();
+  print_line(7);
+  play();
+  quit();
+  help();
+  print_line(LINES - 7);
+}
+
 void move_forward(int i, int *pos)
 {
-  if (*pos + i < 2 && *pos + i >= 0)
+  if (*pos + i < 3 && *pos + i >= 0)
     *pos += i;
-  else if (*pos + i >= 2)
+  else if (*pos + i >= 3)
     *pos = 0;
   else if (*pos + i < 0)
-    *pos = 1;
+    *pos = 2;
 }
 
 char *fire(int pos)
 {
   if (pos == 0)
-    return ("play");
+    playing();
+  else if (pos == 2)
+    return ("help");
+  exiting();
   return ("quit");
+}
+
+void cursor(int i)
+{
+  mvprintw(i, COLS - 10, "   //");
+  mvprintw(i + 1, COLS - 10, "  //");
+  mvprintw(i + 2, COLS - 10, "<>");
+  mvprintw(i + 3, COLS - 10, "  \\\\");
+  mvprintw(i + 4, COLS - 10, "   \\\\");
 }
 
 void print_cursor(int pos)
@@ -40,40 +62,21 @@ void print_cursor(int pos)
   init_pair(2, COLOR_WHITE, COLOR_BLACK);
   attron(COLOR_PAIR(1));
   if (pos == 0)
-  {
-    mvprintw(21, COLS - 10, "   //");
-    mvprintw(22, COLS - 10, "  //");
-    mvprintw(23, COLS - 10, "<>");
-    mvprintw(24, COLS - 10, "  \\\\");
-    mvprintw(25, COLS - 10, "   \\\\");
-  }
+cursor(20);
   else if (pos == 1)
-  {
-    mvprintw(31, COLS - 10, "   //");
-    mvprintw(32, COLS - 10, "  //");
-    mvprintw(33, COLS - 10, "<>");
-    mvprintw(34, COLS - 10, "  \\\\");
-    mvprintw(35, COLS - 10, "   \\\\");
-  }
+  cursor(30);
+  else if (pos == 2)
+cursor(40);
   attroff(COLOR_PAIR(1));
 }
 
-char  *ncurses()
+char  *ncurses(int *pos, int c)
 {
-  int pos;
-  int c;
-
-  pos = 0;
-  while ((c = getch()) != KEY_F(1))
-    {
-      if (c == KEY_DOWN)
-	move_forward(1, &pos);
+    if (c == KEY_DOWN)
+	move_forward(1, pos);
       else if (c == KEY_UP)
-	move_forward(-1, &pos);
+	move_forward(-1, pos);
       else if (c == 10)
-        return (fire(pos));
-      print_cursor(pos);
-      refresh();
-    }
+        return (fire(*pos));
   return (NULL);
 }

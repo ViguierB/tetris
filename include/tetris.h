@@ -55,10 +55,11 @@ ncurse
 /*
  menu_mecanics
 */
+void init_game();
 void move_forward(int i, int *pos);
 char *fire(int pos);
 void print_cursor(int pos);
-char  *ncurses();
+char  *ncurses(int *, int);
 
 /*
 prints
@@ -67,5 +68,13 @@ void print_line(int where);
 void print_name();
 void play();
 void quit();
+void help();
+
+/*
+redirections
+*/
+void exiting();
+void playing();
+void print_ufo();
 
 #endif /* !TETRIS_H_ */
