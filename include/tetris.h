@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Tue Feb 21 11:12:17 2017 Benjamin Viguier
+** Last update Tue Feb 21 14:36:59 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -71,6 +71,7 @@ redirections
 */
 void exiting();
 void playing();
+void helping();
 void print_ufo();
 
 #endif /* !TETRIS_H_ */
