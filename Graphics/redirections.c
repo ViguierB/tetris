@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 09:21:55 2017 augustin leconte
+** Last update Tue Feb 21 10:16:47 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -93,10 +93,3 @@ void playing()
   endwin();
   return;
 }
-//
-//          |
-//       .-"^"-.
-//      /_....._\
-//  .-"`         `"-.
-// (  ooo  ooo  ooo  )
-//  '-.,_________,.-'
