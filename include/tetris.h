@@ -74,5 +74,6 @@ void print_ufo();
 void print_tab(char tab[30][40]);
 int  ntetris();
 void fill_tab(char tab[30][40]);
+void error();
 
 #endif /* !TETRIS_H_ */

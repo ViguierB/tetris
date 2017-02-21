@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Tue Feb 21 16:38:23 2017 augustin leconte
+** Last update Tue Feb 21 19:20:25 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -46,15 +46,12 @@ int  ntetris()
 
   i = 0;
   init(&pos);
+  if (COLS < 57 || LINES < 55)
+    error();
   while ((c = getch()) != 127)
     {
       if (COLS < 57 || LINES < 55)
-          while (COLS < 57 || LINES < 55)
-          {
-          clear();
-          mvprintw(LINES/2, COLS/2, "Veuillez agrandir le terminal");
-          refresh();
-        }
+        error();
       clear();
       init_game();
       ncurses(&pos, c);
