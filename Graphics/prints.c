@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Tue Feb 21 16:19:55 2017 augustin leconte
+** Last update Tue Feb 21 16:38:23 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -38,7 +38,7 @@ void init(int *pos)
   refresh();
 }
 
-int  main()
+int  ntetris()
 {
   int i;
   int c;

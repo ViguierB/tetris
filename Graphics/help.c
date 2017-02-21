@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Tue Feb 21 16:07:15 2017 augustin leconte
+** Last update Tue Feb 21 16:41:21 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -44,14 +44,18 @@ void helpe()
 
 void helping()
 {
+  int c;
+
   clear();
   print_name();
   print_line(7);
   helpe();
   print_line(LINES - 7);
   refresh();
-  while (getch() != 10)
+  while ((c = getch()) != 10)
   {
+    if (c = KEY_LEFT)
+      ntetris();
     clear();
     print_name();
     print_line(7);

@@ -72,6 +72,7 @@ void playing();
 void helping();
 void print_ufo();
 void print_tab(char tab[30][40]);
+int  ntetris();
 void fill_tab(char tab[30][40]);
 
 #endif /* !TETRIS_H_ */
