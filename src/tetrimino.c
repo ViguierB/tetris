@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Tue Feb 21 11:36:46 2017 Benjamin Viguier
+** Last update Tue Feb 21 11:46:44 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -17,7 +17,7 @@
 int	set_sharp(t_tetrimino *tetri)
 {
   char	**splited;
-  
+
   splited = my_split(tetri->buffer, '\n', NULL);
   if (!splited)
     return (-1);
