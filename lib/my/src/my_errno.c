@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Fri Feb 17 13:31:12 2017 Benjamin Viguier
-** Last update Fri Feb 17 13:34:46 2017 Benjamin Viguier
+** Last update Tue Feb 21 11:43:16 2017 Benjamin Viguier
 */
 
 #include "my_errno.h"
@@ -14,7 +14,7 @@
 void		intern_errno__(int *val, int opt)
 {
   static int	my_errno_val;
-  
+
   if (opt == MERRNO_SET)
     my_errno_val = *val;
   else if (opt == MERRNO_GET)
