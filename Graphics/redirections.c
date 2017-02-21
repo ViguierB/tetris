@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 08:48:24 2017 augustin leconte
+** Last update Tue Feb 21 08:58:19 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -42,8 +42,8 @@ void print_ufo()
   mvprintw(6, COLS / 2 - len, " _____/__________________________________________________\\____");
   mvprintw(7, COLS / 2 - len, "/                                                             \\");
   mvprintw(8, COLS / 2 - len, "\\_____________________________________________________________/");
-  mvprintw(9, COLS / 2 - len, "    \\                                                     /");
-  mvprintw(10, COLS / 2 - len, "     \\____________________________________________________/");
+  mvprintw(9, COLS / 2 - len, "   \\                                                      /");
+  mvprintw(10, COLS / 2 - len, "    \\____________________________________________________/");
   attroff(COLOR_PAIR(1));
 }
 
