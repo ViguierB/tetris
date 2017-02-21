@@ -5,17 +5,12 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-<<<<<<< HEAD
-** Last update Tue Feb 21 16:16:56 2017 augustin leconte
-=======
-** Last update Tue Feb 21 15:25:54 2017 Benjamin Viguier
->>>>>>> f914bb3882df607ada8f7cdd5eeaa72a79487dea
 */
 
 #ifndef TETRIS_H_
 # define TETRIS_H_
 
-# include "libmy.h" 
+# include "libmy.h"
 
 typedef struct	s_params
 {
