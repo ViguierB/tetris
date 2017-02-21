@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Tue Feb 21 16:14:16 2017 augustin leconte
+** Last update Tue Feb 21 16:19:55 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -42,7 +42,6 @@ int  main()
 {
   int i;
   int c;
-  char *str;
   int pos;
 
   i = 0;
@@ -58,8 +57,7 @@ int  main()
         }
       clear();
       init_game();
-      str = ncurses(&pos, c);
-      printw("%s\n", str);
+      ncurses(&pos, c);
       print_cursor(pos);
       refresh();
     }
