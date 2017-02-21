@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 14:41:23 2017 augustin leconte
+** Last update Tue Feb 21 14:42:58 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -79,7 +79,7 @@ void print_tab(char tab[30][40])
 
 void helpe()
 {
-  printw("USAGE\n"
+  mvprintw(10, 0, "USAGE\n"
       "\t./tetris [OPTION] ...\n"
       "DESCRIPTION\n"
       "\t-l –l=num\t\tstart at level num (def: 1)\n"
@@ -103,9 +103,9 @@ void helpe()
 
 void helping()
 {
+  clear();
   print_name();
   print_line(7);
-  clear();
   helpe();
   print_line(LINES - 7);
   refresh();
