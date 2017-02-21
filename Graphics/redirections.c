@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 09:12:26 2017 augustin leconte
+** Last update Tue Feb 21 09:21:55 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -90,6 +90,8 @@ void playing()
     print_tab(tab);
     refresh();
   }
+  endwin();
+  return;
 }
 //
 //          |
