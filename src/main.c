@@ -5,19 +5,22 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Mon Feb 20 17:23:17 2017 Benjamin Viguier
+** Last update Tue Feb 21 14:12:39 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
-#include "libmy.h"
+#include "tetrimino.h"
 
 int		main(int ac, char **av)
 {
-  t_params	params;
+  t_data	tetris;
 
-  get_params(&params, ac, av);
-  if (params.h)
+  my_memset(&tetris, 0, sizeof(tetris));
+  get_params(&(tetris.params), ac, av);
+  if (tetris.params.h)
     return (0);
-  my_showmem((void*) &params, sizeof(params));
+  tetris.tetrims = get_all_tetriminos();
+  if (tetris.params.d)
+    debug_tetrimino(tetris.tetrims);
   return (0);
 }
