@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Wed Feb 22 17:31:12 2017 augustin leconte
+** Last update Wed Feb 22 17:42:53 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -50,8 +50,8 @@ void helping()
   {
     if (COLS < 57 || LINES < 55)
       error();
-    mvprintw(LINES - 5, COLS - 12, "Go Back = B");
     clear();
+    mvprintw(LINES - 5, COLS - 12, "Go Back = B");
     print_name();
     print_line(7);
     helpe();
