@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Wed Feb 22 17:29:46 2017 augustin leconte
+** Last update Wed Feb 22 17:31:12 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -20,19 +20,19 @@ int my_strlen();
 
 void helpe()
 {
-  mvprintw(10, 0, "Usage: ./tetris [OPTION] ...\n"
+  mvprintw(10, 0, "Usage:\n \t./tetris [OPTION] ...\n\n"
   	    "Options:\n"
-  	    "  --help\t\tDisplay this help\n"
-  	    "  -l --level={num}\tStart Tetris at level num\n"
-  	    "  -kl --key-left={K}\tMove tetrimino on LEFT with key K\n"
-  	    "  -kr --key-right={K}\tMove tetrimino on RIGHT with key K\n"
-  	    "  -kt --key-turn={k]\tTurn tetrimino with key K\n"
-  	    "  -kd --key-drop={K}\tSet default DROP on key K\n"
-  	    "  -kq --key-quit={K}\tQuit program when press key K\n"
-  	    "  -kp --key-pause={K}\tPause and restart game when press key K\n"
-  	    "  --map-size={row,col}\tSet game size at row, col\n"
-  	    "  -w --without-next\tHide next tetrimino\n"
-  	    "  -d --debug\t\tDebug mode\n");
+  	    "  \t--help\t\t\tDisplay this help\n"
+  	    "  \t-l --level={num}\tStart Tetris at level num\n"
+  	    "  \t-kl --key-left={K}\tMove tetrimino on LEFT with key K\n"
+  	    "  \t-kr --key-right={K}\tMove tetrimino on RIGHT with key K\n"
+  	    "  \t-kt --key-turn={k]\tTurn tetrimino with key K\n"
+  	    "  \t-kd --key-drop={K}\tSet default DROP on key K\n"
+  	    "  \t-kq --key-quit={K}\tQuit program when press key K\n"
+  	    "  \t-kp --key-pause={K}\tPause and restart game when press key K\n"
+  	    "  \t--map-size={row,col}\tSet game size at row, col\n"
+  	    "  \t-w --without-next\tHide next tetrimino\n"
+  	    "  \t-d --debug\t\tDebug mode\n");
 }
 
 void helping()
