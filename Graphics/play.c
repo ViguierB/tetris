@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Feb 21 19:19:14 2017 augustin leconte
+** Last update Wed Feb 22 10:12:45 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,14 +27,16 @@ void playing()
   clear();
   print_ufo();
   print_tab(tab);
+  mvprintw(LINES - 5, COLS - 12, "Go Back = B");
   refresh();
   if (COLS < 57 || LINES < 55)
     error();
   while ((c = getch()) != 10)
   {
+    mvprintw(LINES - 5, COLS - 12, "Go Back = B");
     if (COLS < 57 || LINES < 55)
       error();
-    if (c == KEY_LEFT)
+    if (c == 98)
       ntetris();
     print_ufo();
     print_tab(tab);
