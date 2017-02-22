@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Wed Feb 22 16:35:44 2017 Benjamin Viguier
+** Last update Wed Feb 22 16:53:22 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -86,7 +86,12 @@ int	get_params(t_params *params, int ac, char **av)
   while (i < ac)
     {
       if (exec_fct(params, &i, ac, av) < 0)
-	my_printf("[%s] Bad parameter.\n", av[i]);
+	{
+	  my_printf("[%s] Bad parameter.\n", av[i]);
+	  params->h = 1;
+	  help_parms(params, NULL, 0, NULL);
+	  break;
+	}
       i++;
     }
   return (0);
