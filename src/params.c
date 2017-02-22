@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Mon Feb 20 17:25:13 2017 Benjamin Viguier
+** Last update Wed Feb 22 16:35:44 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -15,25 +15,26 @@
 static const t_fct_parms	g_fct_tab[] =
   {
     {"-l", &lvl_parms},
+    {"--level", &lvl_parms},
     {"-kl", &key_parms},
-    {"-key-left", &key_parms},
+    {"--key-left", &key_parms},
     {"-kr", &key_parms},
-    {"-key-right", &key_parms},
+    {"--key-right", &key_parms},
     {"-kt", &key_parms},
-    {"-key-top", &key_parms},
+    {"--key-top", &key_parms},
     {"-kd", &key_parms},
-    {"-key-drop", &key_parms},
+    {"--key-drop", &key_parms},
     {"-kq", &key_parms},
-    {"-key-quit", &key_parms},
+    {"--key-quit", &key_parms},
     {"-kp", &key_parms},
     {"-key-pause", &key_parms},
-    {"-map-size", &size_parms},
+    {"--map-size", &size_parms},
     {"-w", &without_next_parms},
-    {"-without-next", &without_next_parms},
+    {"--without-next", &without_next_parms},
     {"-d", &debug_parms},
-    {"-debug", &debug_parms},
+    {"--debug", &debug_parms},
     {"-h", &help_parms},
-    {"-help", &help_parms},
+    {"--help", &help_parms},
     {NULL, NULL}
   };
 
