@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Feb 23 12:15:25 2017 augustin leconte
+** Last update Thu Feb 23 12:54:59 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -30,14 +30,10 @@ void move_forward(int i, int *pos)
 int fire(int pos, sfMusic *music)
 {
   if (pos == 0)
-    return (playing());
+    return (playing(music));
   else if (pos == 2)
-  {
-    sfMusic_destroy(music);
-    helping();
-  }
+    return (helping());
   if (music)
-    sfMusic_destroy(music);
   exiting();
 return (0);
 }

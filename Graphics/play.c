@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Feb 23 12:14:57 2017 augustin leconte
+** Last update Thu Feb 23 12:56:02 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -19,9 +19,8 @@
 
 int my_strlen();
 
-int playing()
+int playing(sfMusic *Tetris)
 {
-  sfMusic *Tetris;
   int c;
   char tab[30][40];
 
@@ -43,15 +42,11 @@ int playing()
     if (COLS < 57 || LINES < 55)
       error();
     if (c == 98)
-     {
-       sfMusic_destroy(Tetris);
       ntetris();
-    }
     print_ufo();
     print_tab(tab);
     refresh();
   }
-  sfMusic_destroy(Tetris);
   endwin();
   return (0);
 }
