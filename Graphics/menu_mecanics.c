@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Tue Feb 21 16:10:11 2017 augustin leconte
+** Last update Thu Feb 23 10:48:43 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -14,6 +14,7 @@
 #include <wait.h>
 #include <curses.h>
 #include <ncurses.h>
+#include <SFML/Audio.h>
 #include "tetris.h"
 
 void move_forward(int i, int *pos)
@@ -26,12 +27,20 @@ void move_forward(int i, int *pos)
     *pos = 2;
 }
 
-char *fire(int pos)
+char *fire(int pos, sfMusic *music)
 {
   if (pos == 0)
+  {
+    sfMusic_destroy(music);
     playing();
+  }
   else if (pos == 2)
+  {
+    sfMusic_destroy(music);
     helping();
+  }
+  if (music)
+    sfMusic_destroy(music);
   exiting();
   return (NULL);
 }
@@ -60,13 +69,13 @@ cursor(40);
   attroff(COLOR_PAIR(1));
 }
 
-char  *ncurses(int *pos, int c)
+char  *ncurses(int *pos, int c, sfMusic *music)
 {
     if (c == KEY_DOWN)
 	move_forward(1, pos);
       else if (c == KEY_UP)
 	move_forward(-1, pos);
       else if (c == 10)
-        return (fire(*pos));
+        return (fire(*pos, music));
   return (NULL);
 }

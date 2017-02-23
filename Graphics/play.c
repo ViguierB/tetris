@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Feb 22 10:12:45 2017 augustin leconte
+** Last update Thu Feb 23 10:55:39 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -14,15 +14,21 @@
 #include <wait.h>
 #include <curses.h>
 #include <ncurses.h>
+#include <SFML/Audio.h>
 #include "tetris.h"
 
 int my_strlen();
 
 void playing()
 {
+  sfMusic *Tetris;
   int c;
   char tab[30][40];
 
+  Tetris = sfMusic_createFromFile("Tetris.ogg");
+    if (!Tetris)
+        return;
+  sfMusic_play(Tetris);
   fill_tab(tab);
   clear();
   print_ufo();
@@ -37,11 +43,15 @@ void playing()
     if (COLS < 57 || LINES < 55)
       error();
     if (c == 98)
+     {
+       sfMusic_destroy(Tetris);
       ntetris();
+    }
     print_ufo();
     print_tab(tab);
     refresh();
   }
+  sfMusic_destroy(Tetris);
   endwin();
   return;
 }

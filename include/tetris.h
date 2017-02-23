@@ -10,6 +10,7 @@
 #ifndef TETRIS_H_
 # define TETRIS_H_
 
+#include <SFML/Audio.h>
 # include "libmy.h"
 
 typedef struct	s_params
@@ -57,11 +58,11 @@ int	get_params(t_params *params, int ac, char **av);
 ncurse
 */
 void init_game();
-void move_forward(int i, int *pos);
-char *fire(int pos);
-void print_cursor(int pos);
-char  *ncurses(int *, int);
-void print_line(int where);
+void move_forward(int, int *);
+char *fire(int, sfMusic *);
+void print_cursor(int);
+char  *ncurses(int *, int, sfMusic *);
+void print_line(int);
 void print_name();
 void play();
 void quit();
