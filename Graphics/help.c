@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Thu Feb 23 12:14:35 2017 augustin leconte
+** Last update Thu Feb 23 14:24:54 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -35,7 +35,7 @@ void helpe()
   	    "  \t-d --debug\t\tDebug mode\n");
 }
 
-int  helping()
+void  helping()
 {
   clear();
   print_name();
@@ -59,5 +59,4 @@ int  helping()
     refresh();
   }
   ntetris();
-  return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Feb 23 12:56:02 2017 augustin leconte
+** Last update Thu Feb 23 14:27:33 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -19,14 +19,15 @@
 
 int my_strlen();
 
-int playing(sfMusic *Tetris)
+void playing()
 {
+  sfMusic *Tetris;
   int c;
   char tab[30][40];
 
   Tetris = sfMusic_createFromFile("Tetris.ogg");
     if (!Tetris)
-        return (84);
+        return;
   sfMusic_play(Tetris);
   fill_tab(tab);
   clear();
@@ -48,5 +49,4 @@ int playing(sfMusic *Tetris)
     refresh();
   }
   endwin();
-  return (0);
 }

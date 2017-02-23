@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Thu Feb 23 10:49:22 2017 augustin leconte
+** Last update Thu Feb 23 14:27:01 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,12 +27,8 @@ void init_game()
   print_line(LINES - 7);
 }
 
-void init(int *pos, sfMusic *music)
+void init(int *pos)
 {
-  music = sfMusic_createFromFile("Menu.ogg");
-    if (!music)
-        return;
-  sfMusic_play(music);
   initscr();
   clear();
   noecho();
@@ -48,10 +44,9 @@ int  ntetris()
   int i;
   int c;
   int pos;
-  sfMusic *music;
 
   i = 0;
-  init(&pos, music);
+  init(&pos);
   if (COLS < 57 || LINES < 55)
     error();
   while ((c = getch()) != 127)
@@ -60,7 +55,7 @@ int  ntetris()
         error();
       clear();
       init_game();
-      ncurses(&pos, c, music);
+      ncurses(&pos, c);
       print_cursor(pos);
       refresh();
     }

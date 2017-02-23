@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Feb 23 12:54:59 2017 augustin leconte
+** Last update Thu Feb 23 14:30:17 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,15 +27,15 @@ void move_forward(int i, int *pos)
     *pos = 2;
 }
 
-int fire(int pos, sfMusic *music)
+char *fire(int pos)
 {
   if (pos == 0)
-    return (playing(music));
+    playing();
   else if (pos == 2)
-    return (helping());
-  if (music)
-  exiting();
-return (0);
+    helping();
+  else
+    exiting();
+  return (NULL);
 }
 
 void cursor(int i)
@@ -62,12 +62,12 @@ cursor(40);
   attroff(COLOR_PAIR(1));
 }
 
-int ncurses(int *pos, int c, sfMusic *music)
+char *ncurses(int *pos, int c)
 {
     if (c == KEY_DOWN)
 	move_forward(1, pos);
       else if (c == KEY_UP)
 	move_forward(-1, pos);
       else if (c == 10)
-        return (fire(*pos, music));
+        return (fire(*pos));
 }

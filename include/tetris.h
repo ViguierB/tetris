@@ -59,9 +59,9 @@ ncurse
 */
 void init_game();
 void move_forward(int, int *);
-int fire(int, sfMusic *);
+char *fire(int);
 void print_cursor(int);
-int ncurses(int *, int, sfMusic *);
+char *ncurses(int *, int);
 void print_line(int);
 void print_name();
 void play();
@@ -69,8 +69,8 @@ void quit();
 void help();
 void cursor(int);
 void  exiting();
-int playing(sfMusic *);
-int helping();
+void playing();
+void helping();
 void print_ufo();
 void print_tab(char tab[30][40]);
 int  ntetris();
