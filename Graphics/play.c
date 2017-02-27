@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Feb 27 14:08:51 2017 augustin leconte
+** Last update Mon Feb 27 14:12:13 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -19,7 +19,7 @@
 
 int my_strlen();
 
-void info_scores()
+t_score info_scores()
 {
   t_score scores;
 
@@ -33,6 +33,7 @@ void info_scores()
   refresh();
   if (COLS < 57 || LINES < 55)
     error();
+  return (scores);
 }
 
 void init_play(char tab[30][40])
