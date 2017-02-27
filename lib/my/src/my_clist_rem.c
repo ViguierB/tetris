@@ -5,35 +5,78 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 27 15:02:58 2017 Benjamin Viguier
-** Last update Mon Feb 27 15:12:24 2017 Benjamin Viguier
+** Last update Mon Feb 27 15:52:26 2017 Benjamin Viguier
 */
 
 #include "libmy.h"
 
-t_clist		*clist_remove(t_clist_elm *elm)
+t_clist		*clist_remove(t_clist *list, t_clist_elm *elm)
 {
   t_clist	*next;
   t_clist	*prev;
   
   next = elm->next;
   prev = elm->prev;
-  if (elm == next)
-    next = NULL;
-  if (elm == prev)
-    prev = NULL;
-  if (prev)
-    prev->next = next;
-  if (next)
-    next->prev = prev;
+  if (next == elm || prev == elm)
+    {
+      free(elm);
+      return (NULL);
+    }
+  prev->next = next;
+  next->prev = prev;
+  if (elm == list)
+    {
+      free(elm);
+      return (next);
+    }
   free(elm);
-  return (next);
+  return (list);
 }
 
-t_clist		*clist_rem_fdata(t_clist_elm *elm, void (*my_free)(void*))
+t_clist		*clist_rem_fdata(t_clist *list, t_clist_elm *elm, void (*my_free)(void*))
 {
-  t_clist	*next;
-  
   my_free(elm->ptr);
-  next = clist_remove(elm);
-  return (next);
+  list = clist_remove(list, elm);
+  return (list);
+}
+
+
+void		clist_free_data(t_clist *l, void (*myfree)(void*))
+{
+  t_clist_elm	*elm;
+  int		cont;
+
+  elm = l;
+  cont = 1;
+  l->prev->next = l->prev;
+  while (elm && l && cont)
+    {
+      l = l->next;
+      if (elm == l)
+	cont  = 0;
+      if (elm)
+	{
+	  myfree(elm->ptr);
+	  free(elm);
+	}
+      elm = l;
+    }
+}
+
+void		clist_free(t_clist *l)
+{
+  t_clist_elm	*elm;
+  int		cont;
+
+  elm = l;
+  cont = 1;
+  l->prev->next = l->prev;
+  while (elm && l && cont)
+    {
+      l = l->next;
+      if (elm == l)
+	cont  = 0;
+      free(elm);
+      elm = l;
+    }
 }

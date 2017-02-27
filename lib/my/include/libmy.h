@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Dec 12 13:19:11 2016 Benjamin Viguier
-** Last update Mon Feb 27 15:13:00 2017 Benjamin Viguier
+** Last update Mon Feb 27 15:47:48 2017 Benjamin Viguier
 */
 
 #ifndef LIBMY_H_
@@ -51,8 +51,10 @@ t_clist	*clist_push(t_clist *l, void *ptr);
 void	clist_swap_val(t_clist_elm *elm1, t_clist_elm *elm2);
 void	clist_free(t_clist *l);
 void	clist_free_data(t_clist *l, void (*myfree)(void*));
-t_clist	*clist_remove(t_clist_elm *elm);
-t_clist	*clist_rem_fdata(t_clist_elm *elm, void (*my_free)(void*));
+t_clist	*clist_remove(t_clist *list, t_clist_elm *elm);
+t_clist	*clist_rem_fdata(t_clist *list, t_clist_elm *elm, void (*my_free)(void*));
+
+t_clist_elm	*clist_at(t_clist *list, int at);
 
 /*
 ** Basics Functs
