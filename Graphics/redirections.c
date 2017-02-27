@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Tue Feb 21 16:09:19 2017 augustin leconte
+** Last update Mon Feb 27 13:28:53 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -26,14 +26,22 @@ void print_ufo()
   len = my_strlen("/                                                             \\") / 2;
   mvprintw(1, COLS / 2 - len, "                         ______________");
   mvprintw(2, COLS / 2 - len, "                        /              \\");
-  mvprintw(3, COLS / 2 - len, "             __________/________________\\__________");
-  mvprintw(4, COLS / 2 - len, "          __/                                      \\__");
-  mvprintw(5, COLS / 2 - len, "       __/                                            \\__");
-  mvprintw(6, COLS / 2 - len, " _____/__________________________________________________\\____");
-  mvprintw(7, COLS / 2 - len, "/                                                             \\");
-  mvprintw(8, COLS / 2 - len, "\\_____________________________________________________________/");
-  mvprintw(9, COLS / 2 - len, "   \\                                                      /");
-  mvprintw(10, COLS / 2 - len, "    \\____________________________________________________/");
+  mvprintw(3, COLS / 2 - len, "             __________/________________\\_");
+  printw("_________");
+  mvprintw(4, COLS / 2 - len, "          __/                                ");
+  printw("      \\__");
+  mvprintw(5, COLS / 2 - len, "       __/                                 ");
+  printw("           \\__");
+  mvprintw(6, COLS / 2 - len, " _____/_____________________________________");
+  printw("_____________\\____");
+  mvprintw(7, COLS / 2 - len, "/                                      ");
+  printw("                       \\");
+  mvprintw(8, COLS / 2 - len, "\\______________________________________");
+  printw("_______________________/");
+  mvprintw(9, COLS / 2 - len, "   \\                                 ");
+  printw("                     /");
+  mvprintw(10, COLS / 2 - len, "    \\______________________________");
+  printw("______________________/");
 }
 
 void fill_tab(char tab[30][40])
