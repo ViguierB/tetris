@@ -69,7 +69,7 @@ void quit();
 void help();
 void cursor(int);
 void  exiting();
-void playing();
+int playing();
 void helping();
 void print_ufo();
 void print_tab(char tab[30][40]);
