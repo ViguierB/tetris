@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Feb 27 13:58:25 2017 augustin leconte
+** Last update Mon Feb 27 14:00:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -38,8 +38,7 @@ int playing()
   char tab[30][40];
 
   init_play(tab);
-  Tetris = sfMusic_createFromFile("Tetris.ogg");
-    if (!Tetris)
+    if (!(Tetris = sfMusic_createFromFile("Tetris.ogg")))
         return (84);
   sfMusic_play(Tetris);
   while ((c = getch()) != 10)
