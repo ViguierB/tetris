@@ -43,6 +43,13 @@ typedef struct	s_data
   int		counter;
 }		t_data;
 
+typedef struct	s_score
+{
+  int		hs;
+  int		score;
+  int   lines;
+}		t_score;
+
 /*
 ** Params
 */
