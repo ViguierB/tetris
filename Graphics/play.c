@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Feb 27 13:20:11 2017 augustin leconte
+** Last update Mon Feb 27 13:58:25 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -44,6 +44,7 @@ int playing()
   sfMusic_play(Tetris);
   while ((c = getch()) != 10)
   {
+    clear();
     mvprintw(LINES - 5, COLS - 12, "Go Back = B");
     if (COLS < 57 || LINES < 55)
       error();
