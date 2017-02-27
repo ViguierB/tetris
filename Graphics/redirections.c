@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Mon Feb 27 13:28:53 2017 augustin leconte
+** Last update Mon Feb 27 13:30:10 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -22,8 +22,10 @@ int my_strlen();
 void print_ufo()
 {
   int len;
+  char *str;
 
-  len = my_strlen("/                                                             \\") / 2;
+  str = "/                                                             \\";
+  len = my_strlen(str) / 2;
   mvprintw(1, COLS / 2 - len, "                         ______________");
   mvprintw(2, COLS / 2 - len, "                        /              \\");
   mvprintw(3, COLS / 2 - len, "             __________/________________\\_");
