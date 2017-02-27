@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.net>
 ## 
 ## Started on  Tue Nov  8 18:23:40 2016 Benjamin Viguier
-## Last update Tue Feb 21 10:17:57 2017 Benjamin Viguier
+## Last update Mon Feb 27 15:13:51 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -40,7 +40,8 @@ SRC	=	my_strlen.c		\
 		print_bin.c		\
 		my_strconca.c		\
 		my_trim.c		\
-		clist.c			\
+		my_clist.c		\
+		my_clist_rem.c		\
 		my_showmem.c		\
 		my_putnbr_base.c	\
 		my_fd.c			\
