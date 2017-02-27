@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Thu Feb 23 14:27:01 2017 augustin leconte
+** Last update Mon Feb 27 13:13:45 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -46,6 +46,7 @@ int  ntetris()
   int pos;
 
   i = 0;
+  pos = 0;
   init(&pos);
   if (COLS < 57 || LINES < 55)
     error();
