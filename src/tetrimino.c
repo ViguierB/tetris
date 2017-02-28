@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Tue Feb 21 14:57:54 2017 Benjamin Viguier
+** Last update Tue Feb 28 13:52:09 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -80,6 +80,16 @@ int		open_tetrimino(char *file, t_tetrimino *tetri)
   return (0);
 }
 
+int	tetrimino_name_cmp(void *ptr1, void *ptr2)
+{
+  char	*n1;
+  char	*n2;
+
+  my_upper(n1 = my_strdup(((t_tetrimino*) ptr1)->name));
+  my_upper(n2 = my_strdup(((t_tetrimino*) ptr2)->name));
+  return (my_memcmp(n1, n2, my_strlen(n1)));
+}
+
 t_clist		*get_all_tetriminos(void)
 {
   t_tetrimino	*elm;
@@ -102,21 +112,6 @@ t_clist		*get_all_tetriminos(void)
 	  list = clist_push(list, (void*) elm);
 	}
     }
+  clist_sort(list, &tetrimino_name_cmp);
   return (list);
-}
-
-int		debug_tetrimino(t_clist *list)
-{
-  t_clist_elm	*elm;
-  t_tetrimino	*tetri;
-  
-  elm = list;
-  while (elm)
-    {
-      tetri = elm->ptr;
-      my_printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n%s\n",
-	    tetri->name, tetri->w, tetri->h, tetri->color, tetri->buffer);
-      elm = CLIST_NEXT(list, elm);
-    }
-  return (0);
 }

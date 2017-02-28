@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Dec 12 13:19:11 2016 Benjamin Viguier
-** Last update Mon Feb 27 15:47:48 2017 Benjamin Viguier
+** Last update Tue Feb 28 13:46:55 2017 Benjamin Viguier
 */
 
 #ifndef LIBMY_H_
@@ -38,6 +38,7 @@ typedef struct		s_clist
   struct s_clist	*prev;
 }			t_clist;
 typedef t_clist		t_clist_elm;
+typedef int		(*t_elm_cmp)(void *, void *);
 
 typedef unsigned long	t_ulong;
 typedef unsigned int	t_uint;
@@ -53,7 +54,7 @@ void	clist_free(t_clist *l);
 void	clist_free_data(t_clist *l, void (*myfree)(void*));
 t_clist	*clist_remove(t_clist *list, t_clist_elm *elm);
 t_clist	*clist_rem_fdata(t_clist *list, t_clist_elm *elm, void (*my_free)(void*));
-
+void	clist_sort(t_clist *list, t_elm_cmp cmp_fct);
 t_clist_elm	*clist_at(t_clist *list, int at);
 
 /*
@@ -86,6 +87,8 @@ char	*my_trim(char *str);
 int	my_isnum(char *str);
 int	my_atoi(char *str);
 int	my_strtod(char *str, int *res);
+void	my_upper(char *str);
+void	my_lower(char *str);
 
 /*
 ** my_fd functions

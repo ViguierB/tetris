@@ -5,12 +5,13 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Tue Feb 28 11:56:53 2017 Benjamin Viguier
+** Last update Tue Feb 28 13:39:04 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
 #include "tetris.h"
 #include "libmy.h"
+#include "tetrimino.h"
 
 char	*get_char_str(int key)
 {
@@ -54,4 +55,20 @@ int	debug_params(t_params *parms)
 	    str[0], str[1], str[2], str[3], str[4], str[5],
 	    (parms->w == 1) ? "Yes" : "No", parms->l, parms->row, parms->col);
   return (0);
-} 
+}
+
+int		debug_tetrimino(t_clist *list)
+{
+  t_clist_elm	*elm;
+  t_tetrimino	*tetri;
+  
+  elm = list;
+  while (elm)
+    {
+      tetri = elm->ptr;
+      my_printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n%s\n",
+	    tetri->name, tetri->w, tetri->h, tetri->color, tetri->buffer);
+      elm = CLIST_NEXT(list, elm);
+    }
+  return (0);
+}
