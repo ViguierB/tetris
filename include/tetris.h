@@ -60,6 +60,7 @@ int	without_next_parms(t_params *params, int *i, int ac, char **av);
 int	debug_parms(t_params *params, int *i, int ac, char **av);
 int	help_parms(t_params *params, int *i, int ac, char **av);
 int	get_params(t_params *params, int ac, char **av);
+int	debug_params(t_params *parms);
 
 /*
 ncurse

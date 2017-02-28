@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ##
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
-## Last update Tue Feb 21 14:05:06 2017 Benjamin Viguier
+## Last update Tue Feb 28 11:54:57 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -14,7 +14,8 @@ SRC	= 	main.c		\
 		utils.c		\
 		params.c	\
 		params_simple.c	\
-		tetrimino.c
+		tetrimino.c	\
+		debug.c
 
 CFLAGS	+=	-I./include/
 

@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Wed Feb 22 16:47:59 2017 Benjamin Viguier
+** Last update Tue Feb 28 12:05:22 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -35,6 +35,30 @@ int	lvl_parms(t_params *params, int *i, int ac, char **av)
 
 int	key_parms(t_params *params, int *i, int ac, char **av)
 {
+  char	c;
+  char	key;
+
+  (void) ac;
+  key = av[*i][2];
+  if (av[*i][1] == '-')
+    {
+      c = my_split(av[*i], '=', NULL)[1][0];
+      key = av[*i][6];
+    }
+  else
+    c = av[++(*i)][0];
+  if (key == 'l')
+    params->kl = c;
+  if (key == 'r')
+    params->kr = c;
+  if (key == 't')
+    params->kt = c;
+  if (key == 'd')
+    params->kd = c;
+  if (key == 'q')
+    params->kq = c;
+  if (key == 'p')
+    params->kp = c;
   return (0);
 }
 
