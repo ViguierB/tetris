@@ -5,17 +5,30 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Wed Mar  1 15:14:29 2017 Benjamin Viguier
+** Last update Wed Mar  1 15:34:41 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
 #include "tetrimino.h"
 
+static int	duplicata(t_tetrimino *t, t_clist *list)
+{
+  t_clist_elm	*elm;
+
+  elm = list;
+  while (elm->ptr != (void*) t)
+    {
+      if (!(my_strcmp(t->name, ((t_tetrimino*) list->ptr)->name)))
+	return (1);
+      elm = elm->next;
+    }
+  return (0);
+}
+
 static int	multi_check(t_tetrimino *t, t_data *d)
 {
   int		i;
   int		j;
-  int		count;
 
   i = 0;
   if (t->w >= d->params.col || t->h >= d->params.row)
@@ -23,18 +36,14 @@ static int	multi_check(t_tetrimino *t, t_data *d)
   while (i < t->h)
     {
       j = 0;
-      count = 0;
-      my_printf("%s, l = %d |%s|\n", t->name, i, t->sharp[i]);
+      if (my_strlen(t->sharp[i]) > t->w)
+	return (0);
       while (j < my_strlen(t->sharp[i]))
 	{
-	  if (t->sharp[i][j] == '*')
-	    count++;
-	  else if (t->sharp[i][j] != ' ')
-	    {my_printf("oups\n"); return (0);}
+	  if (t->sharp[i][j] != '*' && t->sharp[i][j] != ' ')
+	    return (0);
 	  j++;
 	}
-      if (count > t->w)
-	{my_printf("oups2\n"); return (0);}
       i++;
     }
   if (t->sharp[i])
@@ -51,8 +60,8 @@ void		tetrims_check(t_clist *list, t_data *data)
   while (elm)
     {
       cur = elm->ptr;
-      cur->error = 0;
-      cur->error = !multi_check(cur, data);
+      if (!(cur->error = duplicata(cur, list)))
+	cur->error = !multi_check(cur, data);
       if (cur->error)
 	{
 	  free(cur->buffer);
