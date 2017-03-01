@@ -5,13 +5,14 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Tue Feb 28 13:52:09 2017 Benjamin Viguier
+** Last update Wed Mar  1 14:43:49 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
 #include <fcntl.h>
+#include "tetris.h"
 #include "tetrimino.h"
 
 int	set_sharp(t_tetrimino *tetri)
@@ -84,13 +85,15 @@ int	tetrimino_name_cmp(void *ptr1, void *ptr2)
 {
   char	*n1;
   char	*n2;
+  int	res;
 
-  my_upper(n1 = my_strdup(((t_tetrimino*) ptr1)->name));
-  my_upper(n2 = my_strdup(((t_tetrimino*) ptr2)->name));
-  return (my_memcmp(n1, n2, my_strlen(n1)));
+  n1 = ((t_tetrimino*) ptr1)->name;
+  n2 = ((t_tetrimino*) ptr2)->name;
+  res = my_memcmp(n1, n2, my_strlen(n1));
+  return (res);
 }
 
-t_clist		*get_all_tetriminos(void)
+t_clist		*get_all_tetriminos(t_data *data)
 {
   t_tetrimino	*elm;
   char		*file_path;
@@ -113,5 +116,6 @@ t_clist		*get_all_tetriminos(void)
 	}
     }
   clist_sort(list, &tetrimino_name_cmp);
+  tetrims_check(list, data);
   return (list);
 }

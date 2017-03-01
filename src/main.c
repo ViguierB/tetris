@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Tue Feb 28 11:55:08 2017 Benjamin Viguier
+** Last update Wed Mar  1 14:58:50 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -19,7 +19,7 @@ int		main(int ac, char **av)
   get_params(&(tetris.params), ac, av);
   if (tetris.params.h)
     return (0);
-  tetris.tetrims = get_all_tetriminos();
+  tetris.tetrims = get_all_tetriminos(&tetris);
   if (tetris.params.d)
     {
       debug_params(&(tetris.params));

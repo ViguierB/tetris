@@ -87,5 +87,8 @@ void fill_tab(char tab[30][40]);
 void error();
 t_score info_scores();
 
-
+/*
+** utils
+*/
+void	rtrim(char *str);
 #endif /* !TETRIS_H_ */
