@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Wed Mar  1 15:34:41 2017 Benjamin Viguier
+** Last update Wed Mar  1 15:59:12 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -18,7 +18,7 @@ static int	duplicata(t_tetrimino *t, t_clist *list)
   elm = list;
   while (elm->ptr != (void*) t)
     {
-      if (!(my_strcmp(t->name, ((t_tetrimino*) list->ptr)->name)))
+      if (!(my_strcmp(t->name, ((t_tetrimino*) elm->ptr)->name)))
 	return (1);
       elm = elm->next;
     }
@@ -68,5 +68,25 @@ void		tetrims_check(t_clist *list, t_data *data)
 	  free(cur->sharp);
 	}
       elm = CLIST_NEXT(list, elm);
+    }
+}
+
+void	delete_bad_tetriminos(t_clist **list)
+{
+  t_clist_elm	*elm;
+  t_clist_elm	*tmp;
+  t_tetrimino	*cur;
+
+  elm = *list;
+  while (elm)
+    {
+      cur = elm->ptr;
+      tmp = CLIST_NEXT(*list, elm);
+      if (cur->error)
+	{
+	  free(cur);
+	  *list = clist_remove(*list, elm);
+	}
+      elm = tmp;
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 13:31:22 2017 Benjamin Viguier
-** Last update Tue Feb 28 13:57:04 2017 Benjamin Viguier
+** Last update Wed Mar  1 16:01:02 2017 Benjamin Viguier
 */
 
 #include "libmy.h"
@@ -37,7 +37,7 @@ void		easy_sort(t_clist *list, t_elm_cmp cmp_fct)
   e1 = list;
   while (e1)
     {
-      min = easy_sort_get_min(list, e1->next, cmp_fct);
+      min = easy_sort_get_min(list, e1, cmp_fct);
       if (min != e1)
 	{
 	  tmp = min->ptr;
