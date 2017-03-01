@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:03:30 2017 augustin leconte
-** Last update Tue Feb 21 16:05:22 2017 augustin leconte
+** Last update Wed Mar  1 09:20:22 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -24,11 +24,11 @@ void print_line(int where)
 
   i = -1;
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
-  attron(COLOR_PAIR(1));
+  init_pair(4, COLOR_WHITE, COLOR_WHITE);
+  attron(COLOR_PAIR(4));
   while (++i < COLS)
     mvprintw(where, i, "-");
-  attroff(COLOR_PAIR(1));
+  attroff(COLOR_PAIR(4));
 }
 
 void print_name()
@@ -36,16 +36,15 @@ void print_name()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
-  init_pair(2, COLOR_WHITE, COLOR_BLACK);
+  init_pair(3, COLOR_BLUE, COLOR_BLUE);
+  attron(COLOR_PAIR(3));
   len = my_strlen("_______  ______   _______    ____            _____") / 2;
-  attron(COLOR_PAIR(1));
   mvprintw(1, COLS / 2 - len, "_______  ______  _______  ____          ___");
   mvprintw(2, COLS / 2 - len, "   |     |          |     |   \\   |    / ");
   mvprintw(3, COLS / 2 - len, "   |     |__        |     |_  /   |    \\__");
   mvprintw(4, COLS / 2 - len, "   |     |          |     |  \\    |       \\");
   mvprintw(5, COLS / 2 - len, "   |     |_____     |     |   \\   |    ___/");
-  attroff(COLOR_PAIR(1));
+  attroff(COLOR_PAIR(3));
 }
 
 void play()
@@ -53,19 +52,18 @@ void play()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
-  init_pair(2, COLOR_WHITE, COLOR_BLACK);
+  init_pair(1, COLOR_BLUE, COLOR_BLUE);
+  attron(COLOR_PAIR(3));
   len = my_strlen("|   \\ |         /\\     \\   /") / 2;
-  attron(COLOR_PAIR(1));
   mvprintw(20, COLS / 2 - len, "____");
   mvprintw(21, COLS / 2 - len, "|   \\  |         /\\     \\   /");
   mvprintw(22, COLS / 2 - len, "|___/  |        /__\\     \\ /");
   mvprintw(23, COLS / 2 - len, "|      |       /    \\     |");
   mvprintw(24, COLS / 2 - len, "|      |____  /      \\    |");
-  attroff(COLOR_PAIR(1));
-  attron(COLOR_PAIR(1) | A_UNDERLINE);
+  attroff(COLOR_PAIR(3));
+  attron(COLOR_PAIR(3) | A_UNDERLINE);
   mvprintw(25, COLS / 2 - len, "                              ");
-  attroff(COLOR_PAIR(1) | A_UNDERLINE);
+  attroff(COLOR_PAIR(3) | A_UNDERLINE);
 }
 
 void quit()
@@ -73,10 +71,9 @@ void quit()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
-  init_pair(2, COLOR_WHITE, COLOR_BLACK);
-  len = my_strlen("  __                _______") / 2;
+  init_pair(1, COLOR_BLUE, COLOR_BLUE);
   attron(COLOR_PAIR(1));
+  len = my_strlen("  __                _______") / 2;
   mvprintw(30, COLS / 2 - len, "  __                _______");
   mvprintw(31, COLS / 2 - len, " /  \\  |     |   |     |");
   mvprintw(32, COLS / 2 - len, "|    | |     |   |     |");
@@ -93,8 +90,7 @@ void help()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLACK);
-  init_pair(2, COLOR_WHITE, COLOR_BLACK);
+  init_pair(1, COLOR_BLUE, COLOR_BLUE);
   len = my_strlen("_    _   ____         ____") / 2;
   attron(COLOR_PAIR(1));
   mvprintw(40, COLS / 2 - len, "_    _   ____         ____");

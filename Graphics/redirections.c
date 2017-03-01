@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Mon Feb 27 13:30:10 2017 augustin leconte
+** Last update Wed Mar  1 09:12:37 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -44,6 +44,7 @@ void print_ufo()
   printw("                     /");
   mvprintw(10, COLS / 2 - len, "    \\______________________________");
   printw("______________________/");
+  attroff(COLOR_PAIR(1));
 }
 
 void fill_tab(char tab[30][40])
