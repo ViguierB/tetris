@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:03:30 2017 augustin leconte
-** Last update Wed Mar  1 09:50:33 2017 augustin leconte
+** Last update Wed Mar  1 10:00:25 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -40,13 +40,7 @@ void print_name()
   attron(COLOR_PAIR(3));
   len = my_strlen("_______  ______   _______    ____            _____") / 2;
   mvprintw(1, COLS / 2 - len, "_______  ______  _______  ____          ___");
-  mvprintw(2, COLS / 2 - len + 3, "|");
-  mvprintw(2, COLS / 2 - len + 9, "|");
-  mvprintw(2, COLS / 2 - len + 20, "|");
-  mvprintw(2, COLS / 2 - len + 27, "|");
-  mvprintw(2, COLS / 2 - len + 31, "\\");
-  mvprintw(2, COLS / 2 - len + 33, "|");
-  mvprintw(2, COLS / 2 - len + 40, "/");
+  mvprintw(2, COLS / 2 - len + 3, "|     |          |     |   \\   |    / ");
   mvprintw(3, COLS / 2 - len + 3, "|     |__        |     |_  /   |    \\__");
   mvprintw(4, COLS / 2 - len + 3, "|     |          |     |  \\    |       \\");
   mvprintw(5, COLS / 2 - len + 3, "|     |_____     |     |   \\   |    ___/");
@@ -76,12 +70,15 @@ void quit()
 
   attron(COLOR_PAIR(3));
   len = my_strlen("  __                _______") / 2;
-  mvprintw(30, COLS / 2 - len + 2, "__                _______");
+  mvprintw(30, COLS / 2 - len, "  __                _______");
   mvprintw(31, COLS / 2 - len, " /  \\  |     |   |     |");
   mvprintw(32, COLS / 2 - len, "|    | |     |   |     |");
-  mvprintw(33, COLS / 2 - len + 1, "\\__/   \\___/    |     |");
-  mvprintw(34, COLS / 2 - len + 4, "\\");
+  mvprintw(33, COLS / 2 - len , "\\__/   \\___/    |     |");
+  mvprintw(34, COLS / 2 - len, "    \\");
   attroff(COLOR_PAIR(3));
+  attron(COLOR_PAIR(4) | A_UNDERLINE);
+  mvprintw(35, COLS / 2 - len, "                              ");
+  attroff(COLOR_PAIR(4) | A_UNDERLINE);
 }
 
 void help()
