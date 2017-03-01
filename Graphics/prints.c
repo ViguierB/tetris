@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Wed Mar  1 09:09:50 2017 augustin leconte
+** Last update Wed Mar  1 09:46:57 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -23,7 +23,7 @@ void init_game()
   print_line(7);
   play();
   quit();
-  help();
+  help(); 
   print_line(LINES - 7);
 }
 
