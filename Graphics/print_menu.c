@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:03:30 2017 augustin leconte
-** Last update Wed Mar  1 09:20:22 2017 augustin leconte
+** Last update Wed Mar  1 09:21:39 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -52,7 +52,6 @@ void play()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLUE);
   attron(COLOR_PAIR(3));
   len = my_strlen("|   \\ |         /\\     \\   /") / 2;
   mvprintw(20, COLS / 2 - len, "____");
@@ -61,9 +60,9 @@ void play()
   mvprintw(23, COLS / 2 - len, "|      |       /    \\     |");
   mvprintw(24, COLS / 2 - len, "|      |____  /      \\    |");
   attroff(COLOR_PAIR(3));
-  attron(COLOR_PAIR(3) | A_UNDERLINE);
+  attron(COLOR_PAIR(4) | A_UNDERLINE);
   mvprintw(25, COLS / 2 - len, "                              ");
-  attroff(COLOR_PAIR(3) | A_UNDERLINE);
+  attroff(COLOR_PAIR(4) | A_UNDERLINE);
 }
 
 void quit()
@@ -71,18 +70,17 @@ void quit()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLUE);
-  attron(COLOR_PAIR(1));
+  attron(COLOR_PAIR(3));
   len = my_strlen("  __                _______") / 2;
   mvprintw(30, COLS / 2 - len, "  __                _______");
   mvprintw(31, COLS / 2 - len, " /  \\  |     |   |     |");
   mvprintw(32, COLS / 2 - len, "|    | |     |   |     |");
   mvprintw(33, COLS / 2 - len, " \\__/   \\___/    |     |");
   mvprintw(34, COLS / 2 - len, "    \\");
-  attroff(COLOR_PAIR(1));
-  attron(COLOR_PAIR(1) | A_UNDERLINE);
+  attroff(COLOR_PAIR(3));
+  attron(COLOR_PAIR(4) | A_UNDERLINE);
   mvprintw(35, COLS / 2 - len, "                              ");
-  attroff(COLOR_PAIR(1) | A_UNDERLINE);
+  attroff(COLOR_PAIR(4) | A_UNDERLINE);
 }
 
 void help()
@@ -90,16 +88,15 @@ void help()
   int len;
 
   start_color();
-  init_pair(1, COLOR_BLUE, COLOR_BLUE);
   len = my_strlen("_    _   ____         ____") / 2;
-  attron(COLOR_PAIR(1));
+  attron(COLOR_PAIR(3));
   mvprintw(40, COLS / 2 - len, "_    _   ____         ____");
   mvprintw(41, COLS / 2 - len, "|    |  |       |     |   \\");
   mvprintw(42, COLS / 2 - len, "|====|  |___    |     |___/");
   mvprintw(43, COLS / 2 - len, "|    |  |       |     |");
   mvprintw(44, COLS / 2 - len, "|    |  |_____  |____ |");
-  attroff(COLOR_PAIR(1));
-  attron(COLOR_PAIR(1) | A_UNDERLINE);
+  attroff(COLOR_PAIR(3));
+  attron(COLOR_PAIR(4) | A_UNDERLINE);
   mvprintw(45, COLS / 2 - len, "                          ");
-  attroff(COLOR_PAIR(1) | A_UNDERLINE);
+  attroff(COLOR_PAIR(4) | A_UNDERLINE);
 }
