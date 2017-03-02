@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:03:30 2017 augustin leconte
-** Last update Thu Mar  2 10:58:15 2017 augustin leconte
+** Last update Thu Mar  2 11:18:49 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -80,16 +80,38 @@ void play()
   int len;
 
   attron(COLOR_PAIR(3));
-  len = my_strlen("|   \\ |         /\\     \\   /") / 2;
-  mvprintw(20, COLS / 2 - len, "____");
-  mvprintw(21, COLS / 2 - len, "|   \\  |         /\\     \\   /");
-  mvprintw(22, COLS / 2 - len, "|___/  |        /__\\     \\ /");
-  mvprintw(23, COLS / 2 - len, "|      |       /    \\     |");
-  mvprintw(24, COLS / 2 - len, "|      |____  /      \\    |");
+  len = 35 / 2;
+  mvprintw(20, COLS / 2 - len, "********");
+  mvprintw(20, COLS / 2 - len + 9, "**");
+  mvprintw(20, COLS / 2 - len + 18, "****");
+  mvprintw(20, COLS / 2 - len + 25, "**");
+  mvprintw(20, COLS / 2 - len + 33, "**");
+  mvprintw(21, COLS / 2 - len, "**");
+  mvprintw(21, COLS / 2 - len + 6, "**");
+  mvprintw(21, COLS / 2 - len + 9, "**");
+  mvprintw(21, COLS / 2 - len + 16, "**");
+  mvprintw(21, COLS / 2 - len + 22, "**");
+  mvprintw(21, COLS / 2 - len + 25, "**");
+  mvprintw(21, COLS / 2 - len + 33, "**");
+  mvprintw(22, COLS / 2 - len, "********");
+  mvprintw(22, COLS / 2 - len + 9, "**");
+  mvprintw(22, COLS / 2 - len + 16, "********");
+  mvprintw(22, COLS / 2 - len + 27, "**");
+  mvprintw(22, COLS / 2 - len + 31, "**");
+  mvprintw(23, COLS / 2 - len, "**");
+  mvprintw(23, COLS / 2 - len + 9, "**");
+  mvprintw(23, COLS / 2 - len + 16, "**");
+  mvprintw(23, COLS / 2 - len + 22, "**");
+  mvprintw(23, COLS / 2 - len + 29, "**");
+  mvprintw(24, COLS / 2 - len, "**");
+  mvprintw(24, COLS / 2 - len + 9, "******");
+  mvprintw(24, COLS / 2 - len + 16, "**");
+  mvprintw(24, COLS / 2 - len + 22, "**");
+  mvprintw(24, COLS / 2 - len + 29, "**");
   attroff(COLOR_PAIR(3));
-  attron(COLOR_PAIR(4) | A_UNDERLINE);
-  mvprintw(25, COLS / 2 - len, "                              ");
-  attroff(COLOR_PAIR(4) | A_UNDERLINE);
+  // attron(COLOR_PAIR(4) | A_UNDERLINE);
+  // mvprintw(25, COLS / 2 - len, "                              ");
+  // attroff(COLOR_PAIR(4) | A_UNDERLINE);
 }
 
 void quit()
