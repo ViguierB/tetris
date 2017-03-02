@@ -5,26 +5,31 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Thu Mar  2 13:43:20 2017 augustin leconte
+## Last update Thu Mar  2 14:06:29 2017 augustin leconte
 ##
 
 CC	=	gcc
 
 FLAGS	=	-I../include -L../lib/my/
 
-SRC	= 	main.c							\
-				errors.c						\
-				help.c							\
-				menu_mecanics.c			\
-				play.c							\
-				print_menu.c				\
-				print_menutwo.c			\
-				prints.c						\
-				quit.c							\
-				redirections.c			\
-				params_simple.c		\
-				params.c						\
-				tetrimino.c					\
+SRC	= debug.c						\
+			errors.c					\
+			help.c						\
+			main.c						\
+			menu_mecanics.c		\
+			params_simple.c		\
+			params.c					\
+			play.c						\
+			print_menu.c			\
+			print_menutwo.c		\
+			prints.c					\
+			quit.c						\
+			redirections.c		\
+			term_conf.c				\
+			tetrimino_ext.c		\
+			tetrimino.c				\
+			tetrims_transf.c	\
+			utils.c						\
 
 OBJS	=	$(SRC:.c=.o)
 

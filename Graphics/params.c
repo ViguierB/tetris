@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Wed Feb 22 16:53:22 2017 Benjamin Viguier
+** Last update Tue Feb 28 11:57:18 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -68,7 +68,7 @@ int	init_params(t_params *params)
   params->kr = KEY_RIGHT;
   params->kt = KEY_UP;
   params->kd = KEY_DOWN;
-  params->kq = 'Q';
+  params->kq = 'q';
   params->kp = ' ';
   params->row = 20;
   params->col = 10;

@@ -1,11 +1,11 @@
 /*
 ** term_conf.c for tetris in /home/benji_epitech/System_Unix/PSU_2016_tetris
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Thu Mar  2 11:25:59 2017 Benjamin Viguier
+** Last update Thu Mar  2 14:07:33 2017 augustin leconte
 */
 
 #include <ncurses/curses.h>
@@ -17,7 +17,7 @@ void			my_configure(int opt)
 {
   static struct termios	old;
   struct termios new;
-  
+
   if (opt == INIT)
     ioctl(0, TCGETS, &old);
   else if (opt == SET)
@@ -31,7 +31,7 @@ void			my_configure(int opt)
     ioctl(0, TCSETS, &old);
 }
 
-char	*get_keycode()
-{
-  
-}
+// char	*get_keycode()
+// {
+//
+// }
