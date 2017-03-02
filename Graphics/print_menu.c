@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:03:30 2017 augustin leconte
-** Last update Thu Mar  2 11:30:20 2017 augustin leconte
+** Last update Thu Mar  2 12:07:03 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -122,31 +122,30 @@ void quit()
   len = 36 / 2;
   mvprintw(30, COLS / 2 - len + 2, "******");
   mvprintw(30, COLS / 2 - len + 11, "**");
-  mvprintw(30, COLS / 2 - len + 17, "**");
-  mvprintw(30, COLS / 2 - len + 20, "**");
-  mvprintw(30, COLS / 2 - len + 23, "**********");
+  mvprintw(30, COLS / 2 - len + 19, "**");
+  mvprintw(30, COLS / 2 - len + 22, "**");
+  mvprintw(30, COLS / 2 - len + 25, "**********");
   mvprintw(31, COLS / 2 - len, "**");
   mvprintw(31, COLS / 2 - len + 8, "**");
   mvprintw(31, COLS / 2 - len + 11, "**");
-  mvprintw(31, COLS / 2 - len + 17, "**");
-  mvprintw(31, COLS / 2 - len + 20, "**");
-  mvprintw(31, COLS / 2 - len + 27, "**");
+  mvprintw(31, COLS / 2 - len + 19, "**");
+  mvprintw(31, COLS / 2 - len + 22, "**");
+  mvprintw(31, COLS / 2 - len + 29, "**");
   mvprintw(32, COLS / 2 - len, "**");
   mvprintw(32, COLS / 2 - len + 8, "**");
   mvprintw(32, COLS / 2 - len + 11, "**");
-  mvprintw(32, COLS / 2 - len + 17, "**");
-  mvprintw(32, COLS / 2 - len + 20, "**");
-  mvprintw(32, COLS / 2 - len + 27, "**");
+  mvprintw(32, COLS / 2 - len + 19, "**");
+  mvprintw(32, COLS / 2 - len + 22, "**");
+  mvprintw(32, COLS / 2 - len + 29, "**");
   mvprintw(33, COLS / 2 - len + 2, "******");
   mvprintw(33, COLS / 2 - len + 11, "**");
-  mvprintw(33, COLS / 2 - len + 17, "**");
-  mvprintw(33, COLS / 2 - len + 20, "**");
-  mvprintw(33, COLS / 2 - len + 27, "**");
+  mvprintw(33, COLS / 2 - len + 19, "**");
+  mvprintw(33, COLS / 2 - len + 22, "**");
+  mvprintw(33, COLS / 2 - len + 29, "**");
   mvprintw(34, COLS / 2 - len + 8, "**");
-  mvprintw(34, COLS / 2 - len + 11, "**");
-  mvprintw(34, COLS / 2 - len + 17, "**");
-  mvprintw(34, COLS / 2 - len + 20, "**");
-  mvprintw(34, COLS / 2 - len + 27, "**");
+  mvprintw(34, COLS / 2 - len + 13, "******");
+  mvprintw(34, COLS / 2 - len + 22, "**");
+  mvprintw(34, COLS / 2 - len + 29, "**");
   attroff(COLOR_PAIR(3));
   // attron(COLOR_PAIR(4) | A_UNDERLINE);
   // mvprintw(35, COLS / 2 - len, "                              ");
@@ -157,15 +156,35 @@ void help()
 {
   int len;
 
-  len = my_strlen("_    _   ____         ____") / 2;
+  len = 34 / 2;
   attron(COLOR_PAIR(3));
-  mvprintw(40, COLS / 2 - len, "_    _   ____         ____");
-  mvprintw(41, COLS / 2 - len, "|    |  |       |     |   \\");
-  mvprintw(42, COLS / 2 - len, "|====|  |___    |     |___/");
-  mvprintw(43, COLS / 2 - len, "|    |  |       |     |");
-  mvprintw(44, COLS / 2 - len, "|    |  |_____  |____ |");
+  mvprintw(40, COLS / 2 - len, "**");
+  mvprintw(40, COLS / 2 - len + 6, "**");
+  mvprintw(40, COLS / 2 - len + 9, "********");
+  mvprintw(40, COLS / 2 - len + 18, "**");
+  mvprintw(40, COLS / 2 - len + 25, "********");
+  mvprintw(41, COLS / 2 - len, "**");
+  mvprintw(41, COLS / 2 - len + 6, "**");
+  mvprintw(41, COLS / 2 - len + 9, "**");
+  mvprintw(41, COLS / 2 - len + 18, "**");
+  mvprintw(41, COLS / 2 - len + 25, "**");
+  mvprintw(41, COLS / 2 - len + 31, "**");
+  mvprintw(42, COLS / 2 - len, "********");
+  mvprintw(42, COLS / 2 - len + 9, "******");
+  mvprintw(42, COLS / 2 - len + 18, "**");
+  mvprintw(42, COLS / 2 - len + 25, "********");
+  mvprintw(43, COLS / 2 - len, "**");
+  mvprintw(43, COLS / 2 - len + 6, "**");
+  mvprintw(43, COLS / 2 - len + 9, "**");
+  mvprintw(43, COLS / 2 - len + 18, "**");
+  mvprintw(43, COLS / 2 - len + 25, "**");
+  mvprintw(44, COLS / 2 - len, "**");
+  mvprintw(44, COLS / 2 - len + 6, "**");
+  mvprintw(44, COLS / 2 - len + 9, "********");
+  mvprintw(44, COLS / 2 - len + 18, "********");
+  mvprintw(44, COLS / 2 - len + 25, "**");
   attroff(COLOR_PAIR(3));
-  attron(COLOR_PAIR(4) | A_UNDERLINE);
-  mvprintw(45, COLS / 2 - len, "                          ");
-  attroff(COLOR_PAIR(4) | A_UNDERLINE);
+//   attron(COLOR_PAIR(4) | A_UNDERLINE);
+//   mvprintw(45, COLS / 2 - len, "                          ");
+//   attroff(COLOR_PAIR(4) | A_UNDERLINE);
 }
