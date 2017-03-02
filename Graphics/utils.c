@@ -5,16 +5,14 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Thu Feb  9 11:44:14 2017 augustin leconte
-** Last update Mon Feb 20 10:41:58 2017 augustin leconte
+** Last update Wed Mar  1 15:14:47 2017 Benjamin Viguier
 */
 
-#include "tetris.h"
+#include "libmy.h"
 
-int my_strlen(char *str)
+void	rtrim(char *str)
 {
-  int a;
-
-  a = -1;
-  while (str[++a] != '\0');
-  return (a);
-}
+  str += my_strlen(str);
+  while (*(--str) == ' ')
+    *str = '\0';
+} 

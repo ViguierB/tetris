@@ -5,13 +5,14 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Tue Feb 21 14:57:54 2017 Benjamin Viguier
+** Last update Wed Mar  1 15:22:03 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
 #include <fcntl.h>
+#include "tetris.h"
 #include "tetrimino.h"
 
 int	set_sharp(t_tetrimino *tetri)
@@ -22,6 +23,8 @@ int	set_sharp(t_tetrimino *tetri)
   if (!splited)
     return (-1);
   tetri->sharp = splited;
+  while (*splited)
+    rtrim(*(splited++));
   return (0);
 }
 
@@ -80,7 +83,19 @@ int		open_tetrimino(char *file, t_tetrimino *tetri)
   return (0);
 }
 
-t_clist		*get_all_tetriminos(void)
+int	tetrimino_name_cmp(void *ptr1, void *ptr2)
+{
+  char	*n1;
+  char	*n2;
+  int	res;
+
+  n1 = ((t_tetrimino*) ptr1)->name;
+  n2 = ((t_tetrimino*) ptr2)->name;
+  res = my_memcmp(n1, n2, my_strlen(n1));
+  return (res);
+}
+
+t_clist		*get_all_tetriminos(t_data *data)
 {
   t_tetrimino	*elm;
   char		*file_path;
@@ -102,21 +117,7 @@ t_clist		*get_all_tetriminos(void)
 	  list = clist_push(list, (void*) elm);
 	}
     }
+  clist_sort(list, &tetrimino_name_cmp);
+  tetrims_check(list, data);
   return (list);
-}
-
-int		debug_tetrimino(t_clist *list)
-{
-  t_clist_elm	*elm;
-  t_tetrimino	*tetri;
-  
-  elm = list;
-  while (elm)
-    {
-      tetri = elm->ptr;
-      my_printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n%s\n",
-	    tetri->name, tetri->w, tetri->h, tetri->color, tetri->buffer);
-      elm = CLIST_NEXT(list, elm);
-    }
-  return (0);
 }
