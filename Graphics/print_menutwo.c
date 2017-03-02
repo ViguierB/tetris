@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Thu Mar  2 12:08:04 2017 augustin leconte
-** Last update Thu Mar  2 13:10:34 2017 augustin leconte
+** Last update Thu Mar  2 16:15:21 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -47,17 +47,17 @@ void end_name(int len)
   mvprintw(5, COLS / 2 - len + 31, "**");
   mvprintw(5, COLS / 2 - len + 37, "**");
   attron(COLOR_PAIR(6));
-  mvprintw(1, COLS / 2 - len + 42, "**");
-  mvprintw(2, COLS / 2 - len + 42, "**");
-  mvprintw(3, COLS / 2 - len + 42, "**");
-  mvprintw(4, COLS / 2 - len + 42, "**");
-  mvprintw(5, COLS / 2 - len + 42, "**");
+  mvprintw(1, COLS / 2 - len + 40, "**");
+  mvprintw(2, COLS / 2 - len + 40, "**");
+  mvprintw(3, COLS / 2 - len + 40, "**");
+  mvprintw(4, COLS / 2 - len + 40, "**");
+  mvprintw(5, COLS / 2 - len + 40, "**");
   attron(COLOR_PAIR(8));
-  mvprintw(1, COLS / 2 - len + 45, "******");
-  mvprintw(2, COLS / 2 - len + 45, "**");
-  mvprintw(3, COLS / 2 - len + 45, "******");
-  mvprintw(4, COLS / 2 - len + 49, "**");
-  mvprintw(5, COLS / 2 - len + 45, "******");
+  mvprintw(1, COLS / 2 - len + 43, "******");
+  mvprintw(2, COLS / 2 - len + 43, "**");
+  mvprintw(3, COLS / 2 - len + 43, "******");
+  mvprintw(4, COLS / 2 - len + 47, "**");
+  mvprintw(5, COLS / 2 - len + 43, "******");
 }
 
 void print_name()
