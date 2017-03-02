@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Mon Feb 27 11:00:46 2017 augustin leconte
+## Last update Thu Mar  2 12:08:23 2017 augustin leconte
 ##
 
 CC	=	gcc
@@ -18,6 +18,7 @@ SRC	= 	main.c							\
 				menu_mecanics.c			\
 				play.c							\
 				print_menu.c				\
+				print_menutwo.c			\
 				prints.c						\
 				quit.c							\
 				redirections.c			\
