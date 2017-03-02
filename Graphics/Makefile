@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Thu Mar  2 14:06:29 2017 augustin leconte
+## Last update Thu Mar  2 15:53:08 2017 augustin leconte
 ##
 
 CC	=	gcc
@@ -25,7 +25,6 @@ SRC	= debug.c						\
 			prints.c					\
 			quit.c						\
 			redirections.c		\
-			term_conf.c				\
 			tetrimino_ext.c		\
 			tetrimino.c				\
 			tetrims_transf.c	\

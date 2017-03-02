@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Mar  2 13:59:25 2017 augustin leconte
+** Last update Thu Mar  2 16:07:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -40,11 +40,13 @@ char *fire(int pos, int ac, char **av)
 
 void cursor(int i)
 {
-  mvprintw(i, COLS - 10, "   //");
-  mvprintw(i + 1, COLS - 10, "  //");
+  attron(COLOR_PAIR(1) | A_BOLD);
+  mvprintw(i, COLS - 10 + 3, "//");
+  mvprintw(i + 4, COLS - 10 + 3, "\\\\");
+  mvprintw(i + 1, COLS - 10 + 2, "//");
+  mvprintw(i + 3, COLS - 10 + 2, "\\\\");
   mvprintw(i + 2, COLS - 10, "<>");
-  mvprintw(i + 3, COLS - 10, "  \\\\");
-  mvprintw(i + 4, COLS - 10, "   \\\\");
+  attroff(COLOR_PAIR(1) | A_BOLD);
 }
 
 void print_cursor(int pos)

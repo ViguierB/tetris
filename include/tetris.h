@@ -20,12 +20,12 @@
 typedef struct	s_params
 {
   int		l;
-  char		*kl;
-  char		*kr;
-  char		*kt;
-  char		*kd;
-  char		*kq;
-  char		*kp;
+  int   kl;
+  int   kr;
+  int   kt;
+  int   kd;
+  int   kq;
+  int   kp;
   int		row;
   int		col;
   int		d;
