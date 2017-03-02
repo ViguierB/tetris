@@ -10,18 +10,22 @@
 #ifndef TETRIS_H_
 # define TETRIS_H_
 
-#include <SFML/Audio.h>
+# include <SFML/Audio.h>
 # include "libmy.h"
+
+# define SET 1
+# define RESET 0
+# define INIT 2
 
 typedef struct	s_params
 {
   int		l;
-  int		kl;
-  int		kr;
-  int		kt;
-  int		kd;
-  int		kq;
-  int		kp;
+  char		*kl;
+  char		*kr;
+  char		*kt;
+  char		*kd;
+  char		*kq;
+  char		*kp;
   int		row;
   int		col;
   int		d;
