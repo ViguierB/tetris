@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Mar  2 12:58:53 2017 augustin leconte
+** Last update Thu Mar  2 13:59:25 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,12 +27,12 @@ void move_forward(int i, int *pos)
     *pos = 2;
 }
 
-char *fire(int pos)
+char *fire(int pos, int ac, char **av)
 {
   if (pos == 0)
-    playing();
+    playing(ac, av);
   else if (pos == 1)
-    helping();
+    helping(ac, av);
   else
     exiting();
   return (NULL);
@@ -62,12 +62,12 @@ cursor(40);
   attroff(COLOR_PAIR(1));
 }
 
-char *ncurses(int *pos, int c)
+char *ncurses(int *pos, int c, int ac, char **av)
 {
     if (c == KEY_DOWN)
 	move_forward(1, pos);
       else if (c == KEY_UP)
 	move_forward(-1, pos);
       else if (c == 10)
-        return (fire(*pos));
+        return (fire(*pos, ac, av));
 }

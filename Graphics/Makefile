@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Thu Mar  2 12:08:23 2017 augustin leconte
+## Last update Thu Mar  2 13:43:20 2017 augustin leconte
 ##
 
 CC	=	gcc
@@ -22,6 +22,9 @@ SRC	= 	main.c							\
 				prints.c						\
 				quit.c							\
 				redirections.c			\
+				params_simple.c		\
+				params.c						\
+				tetrimino.c					\
 
 OBJS	=	$(SRC:.c=.o)
 

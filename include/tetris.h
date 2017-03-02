@@ -71,9 +71,9 @@ ncurse
 */
 void init_game();
 void move_forward(int, int *);
-char *fire(int);
+char *fire(int, int, char **);
 void print_cursor(int);
-char *ncurses(int *, int);
+char *ncurses(int *, int, int , char **);
 void print_line(int);
 void print_name();
 void play();
@@ -81,14 +81,15 @@ void quit();
 void help();
 void cursor(int);
 void  exiting();
-int playing();
-int helping();
+int playing(int ac, char **av);
+int helping(int ac, char **av);
 void init(int *pos);
 void print_ufo();
 void print_tab(char tab[30][40]);
-int  ntetris();
+int  ntetris(int ac, char **av);
 void fill_tab(char tab[30][40]);
 void error();
+t_data create_tetris(int ac, char **av, t_data);
 t_score info_scores();
 
 /*

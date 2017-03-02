@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Wed Mar  1 09:46:57 2017 augustin leconte
+** Last update Thu Mar  2 13:52:53 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -23,7 +23,7 @@ void init_game()
   print_line(7);
   play();
   quit();
-  help(); 
+  help();
   print_line(LINES - 7);
 }
 
@@ -39,7 +39,7 @@ void init(int *pos)
   refresh();
 }
 
-int  ntetris()
+int  ntetris(int ac, char **av)
 {
   int i;
   int c;
@@ -56,7 +56,7 @@ int  ntetris()
         error();
       clear();
       init_game();
-      ncurses(&pos, c);
+      ncurses(&pos, c, ac, av);
       print_cursor(pos);
       refresh();
     }
