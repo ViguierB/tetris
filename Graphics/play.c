@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Mar  2 13:59:43 2017 augustin leconte
+** Last update Thu Mar  2 16:46:24 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -37,33 +37,40 @@ t_score info_scores()
   return (scores);
 }
 
-void init_play(char tab[30][40])
+void init_play(t_data tetris, int **tab)
 {
-  fill_tab(tab);
   clear();
+  print_tab(tetris, tab);
   print_ufo();
-  print_tab(tab);
   info_scores();
 }
 
 int playing(int ac, char **av)
 {
+  int i;
   int c;
-  char tab[30][40];
+  int **tab;
   t_data	tetris;
 
-  init_play(tab);
+  i = -1;
+  if ((tab = malloc(sizeof(int) * tetris.params.row)) == NULL)
+    return (84);
+    while (++i < tetris.params.row)
+      if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
+        return (84);
   create_tetris(ac, av, tetris);
+  init_play(tetris, tab);
   while ((c = getch()) != 10)
   {
     clear();
+    print_tab(tetris, tab);
     info_scores();
     if (c == 98)
       return (ntetris(ac, av));
     print_ufo();
-    print_tab(tab);
     refresh();
   }
   endwin();
+  exit(0);
   return (0);
 }
