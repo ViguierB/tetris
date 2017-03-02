@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Feb 23 14:30:17 2017 augustin leconte
+** Last update Thu Mar  2 12:58:53 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -31,7 +31,7 @@ char *fire(int pos)
 {
   if (pos == 0)
     playing();
-  else if (pos == 2)
+  else if (pos == 1)
     helping();
   else
     exiting();
