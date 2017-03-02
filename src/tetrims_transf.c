@@ -1,9 +1,9 @@
 /*
 ** tetrims_transf.c for tetris in /home/benji_epitech/System_Unix/PSU_2016_tetris
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Wed Mar  1 16:09:21 2017 Benjamin Viguier
 ** Last update Wed Mar  1 16:40:29 2017 Benjamin Viguier
 */

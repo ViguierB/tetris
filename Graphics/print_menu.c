@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:03:30 2017 augustin leconte
-** Last update Wed Mar  1 10:00:25 2017 augustin leconte
+** Last update Thu Mar  2 10:58:15 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -38,12 +38,40 @@ void print_name()
   start_color();
   init_pair(3, COLOR_BLUE, COLOR_BLUE);
   attron(COLOR_PAIR(3));
-  len = my_strlen("_______  ______   _______    ____            _____") / 2;
-  mvprintw(1, COLS / 2 - len, "_______  ______  _______  ____          ___");
-  mvprintw(2, COLS / 2 - len + 3, "|     |          |     |   \\   |    / ");
-  mvprintw(3, COLS / 2 - len + 3, "|     |__        |     |_  /   |    \\__");
-  mvprintw(4, COLS / 2 - len + 3, "|     |          |     |  \\    |       \\");
-  mvprintw(5, COLS / 2 - len + 3, "|     |_____     |     |   \\   |    ___/");
+  len = 53 / 2;
+  mvprintw(1, COLS / 2 - len, "**********");
+  mvprintw(1, COLS / 2 - len + 11, "********");
+  mvprintw(1, COLS / 2 - len + 20, "**********");
+  mvprintw(1, COLS / 2 - len + 31, "******");
+  mvprintw(1, COLS / 2 - len + 42, "**");
+  mvprintw(1, COLS / 2 - len + 45, "******");
+  mvprintw(2, COLS / 2 - len + 4, "**");
+  mvprintw(2, COLS / 2 - len + 11, "**");
+  mvprintw(2, COLS / 2 - len + 24, "**");
+  mvprintw(2, COLS / 2 - len + 31, "**");
+  mvprintw(2, COLS / 2 - len + 37, "**");
+  mvprintw(2, COLS / 2 - len + 42, "**");
+  mvprintw(2, COLS / 2 - len + 45, "**");
+  mvprintw(3, COLS / 2 - len + 4, "**");
+  mvprintw(3, COLS / 2 - len + 11, "******");
+  mvprintw(3, COLS / 2 - len + 24, "**");
+  mvprintw(3, COLS / 2 - len + 31, "******");
+  mvprintw(3, COLS / 2 - len + 42, "**");
+  mvprintw(3, COLS / 2 - len + 45, "******");
+  mvprintw(4, COLS / 2 - len + 4, "**");
+  mvprintw(4, COLS / 2 - len + 11, "**");
+  mvprintw(4, COLS / 2 - len + 24, "**");
+  mvprintw(4, COLS / 2 - len + 31, "**");
+  mvprintw(4, COLS / 2 - len + 37, "**");
+  mvprintw(4, COLS / 2 - len + 42, "**");
+  mvprintw(4, COLS / 2 - len + 49, "**");
+  mvprintw(5, COLS / 2 - len + 4, "**");
+  mvprintw(5, COLS / 2 - len + 11, "********");
+  mvprintw(5, COLS / 2 - len + 24, "**");
+  mvprintw(5, COLS / 2 - len + 31, "**");
+  mvprintw(5, COLS / 2 - len + 37, "**");
+  mvprintw(5, COLS / 2 - len + 42, "**");
+  mvprintw(5, COLS / 2 - len + 45, "******");
   attroff(COLOR_PAIR(3));
 }
 

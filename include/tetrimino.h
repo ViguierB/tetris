@@ -1,11 +1,11 @@
 /*
 ** tetrimino.h for bs in /home/benji_epitech/System_Unix/PSU_2016_bstetris
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Tue Feb 21 09:45:25 2017 Benjamin Viguier
-** Last update Wed Mar  1 16:28:55 2017 Benjamin Viguier
+** Last update Wed Mar  1 17:21:19 2017 augustin leconte
 */
 
 #ifndef TETRIMINO_H_
@@ -13,7 +13,7 @@
 
 # include "libmy.h"
 
-# define DEF_TETRI_PATH "./tetriminos/" 
+# define DEF_TETRI_PATH "./tetriminos/"
 
 typedef struct	s_pt
 {
