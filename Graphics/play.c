@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Mar  2 16:46:24 2017 augustin leconte
+** Last update Fri Mar  3 08:14:47 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -20,6 +20,22 @@
 
 int my_strlen();
 
+void rectangles()
+{
+  attron(COLOR_PAIR(3));
+  mvprintw(LINES /2 - 3, 0, "*****************");
+  mvprintw(LINES / 2 - 2, 15, "**");
+  mvprintw(LINES / 2 - 1, 15, "**");
+  mvprintw(LINES / 2, 15, "**");
+  mvprintw(LINES / 2 + 1, 15, "**");
+  mvprintw(LINES / 2 + 2, 15, "**");
+  mvprintw(LINES /2 + 3, 0, "*****************");
+  mvprintw(LINES - 4, COLS - 16, "****************");
+  mvprintw(LINES - 5, COLS - 16, "**");
+  mvprintw(LINES - 6, COLS - 16, "****************");
+  attroff(COLOR_PAIR(3));
+}
+
 t_score info_scores()
 {
   t_score scores;
@@ -31,6 +47,7 @@ t_score info_scores()
   mvprintw(LINES / 2, 0, "HScore = %d", scores.hs);
   mvprintw(LINES / 2 + 1, 0, "Lines = %d", scores.lines);
   mvprintw(LINES - 5, COLS - 12, "Go Back = B");
+  rectangles();
   refresh();
   if (COLS < 57 || LINES < 55)
     error();
