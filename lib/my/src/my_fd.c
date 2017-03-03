@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Dec 22 16:23:15 2016 Benjamin Viguier
-** Last update Thu Jan 19 13:59:08 2017 Benjamin Viguier
+** Last update Fri Mar  3 10:12:22 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include "libmy.h"
 
+#ifdef ALLOW_OPEN
 t_my_fd		*my_fopen(char *path, int flags)
 {
   t_my_fd	*res;
@@ -35,6 +36,7 @@ t_my_fd		*my_fopen(char *path, int flags)
     }
   return (res);
 }
+#endif /* !ALLOW_OPEN */
 
 t_my_fd		*my_fd_from_fd(const int fd)
 {
@@ -58,6 +60,7 @@ t_my_fd		*my_fd_from_fd(const int fd)
   return (res);
 }
 
+#ifdef ALLOW_OPEN
 void	my_fclose(t_my_fd *to_free)
 {
   if (to_free)
@@ -66,3 +69,4 @@ void	my_fclose(t_my_fd *to_free)
       free(to_free);
     }
 }
+#endif /* !ALLOW_OPEN */

@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.net>
 ## 
 ## Started on  Tue Nov  8 18:23:40 2016 Benjamin Viguier
-## Last update Tue Feb 28 13:46:36 2017 Benjamin Viguier
+## Last update Fri Mar  3 10:16:40 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -58,6 +58,13 @@ SRC	=	my_strlen.c		\
 		my_errno.c
 
 CFLAGS	+=	-I./include/
+
+ifeq	($(ALLOW_LSEEK), true)
+ CFLAGS	+=	-D ALLOW_LSEEK
+endif
+ifeq	($(ALLOW_OPEN), true)
+ CFLAGS	+=	-D ALLOW_OPEN
+endif
 
 _OBJ    =	$(SRC:.c=.o)
 
