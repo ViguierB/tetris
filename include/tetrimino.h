@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Tue Feb 21 09:45:25 2017 Benjamin Viguier
-** Last update Wed Mar  1 17:21:19 2017 augustin leconte
+** Last update Fri Mar  3 11:24:27 2017 Benjamin Viguier
 */
 
 #ifndef TETRIMINO_H_
@@ -40,5 +40,6 @@ t_clist	*get_all_tetriminos(t_data *data);
 void	tetrims_check(t_clist *list, t_data *data);
 void	delete_bad_tetriminos(t_clist **list);
 int	set_tetrimino_pts(t_clist *list);
+int	open_tetrimino_file(char *file, t_tetrimino *t, t_my_fd **fd);
 
 #endif /* TETRIMINO_H_ */

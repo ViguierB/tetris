@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ## 
 ## Started on  Wed Nov  9 17:16:44 2016 Benjamin Viguier
-## Last update Mon Feb 20 13:49:24 2017 Benjamin Viguier
+## Last update Fri Mar  3 10:18:56 2017 Benjamin Viguier
 ##
 
 CC		=	gcc
@@ -16,9 +16,9 @@ WALL		=	true
 
 RELEASE		=	false
 
-ODIR		=	obj
+ALLOW_LSEEK	=	false
 
-SDIR		=	src
+ALLOW_OPEN	=	true
 
 ifeq	($(WALL),true)
  CFLAGS		+=	-W -Wall -Wextra
@@ -34,3 +34,7 @@ endif
 ifeq	($(DEBUG),true)
  CFLAGS		+=	-g
 endif
+
+ODIR		=	obj
+
+SDIR		=	src

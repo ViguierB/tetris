@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Fri Mar  3 08:14:47 2017 augustin leconte
+** Last update Fri Mar  3 12:02:28 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -75,7 +75,7 @@ int playing(int ac, char **av)
     while (++i < tetris.params.row)
       if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
         return (84);
-  create_tetris(ac, av, tetris);
+  create_tetris(ac, av, &tetris);
   init_play(tetris, tab);
   while ((c = getch()) != 10)
   {

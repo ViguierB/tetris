@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Wed Mar  1 15:22:03 2017 Benjamin Viguier
+** Last update Fri Mar  3 11:27:29 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -62,8 +62,7 @@ int		open_tetrimino(char *file, t_tetrimino *tetri)
   char		**splited;
   int		nb_params;
 
-  my_memset(tetri, 0, sizeof(t_tetrimino));
-  if ((fd = my_fopen(file, O_RDONLY)) == NULL)
+  if (open_tetrimino_file(file, tetri, &fd) < 0)
     return (-1);
   if ((line = my_getline(fd)) == NULL)
     return (-1);
@@ -76,8 +75,7 @@ int		open_tetrimino(char *file, t_tetrimino *tetri)
   free(*splited);
   free(splited);
   free(line);
-  if (!(get_name(file, tetri) >= 0 &&
-	my_fread_to_end(fd, &(tetri->buffer)) >= 0 &&
+  if (!(my_fread_to_end(fd, &(tetri->buffer)) >= 0 &&
 	set_sharp(tetri) >= 0))
     return (-1);
   return (0);
@@ -111,10 +109,10 @@ t_clist		*get_all_tetriminos(t_data *data)
       if (dirent->d_type != DT_DIR)
 	{
 	  if (!(elm = malloc(sizeof(t_tetrimino))) ||
-	      !(file_path = my_strconca(DEF_TETRI_PATH, dirent->d_name)) ||
-	      open_tetrimino(file_path, elm) < 0)
+	      !(file_path = my_strconca(DEF_TETRI_PATH, dirent->d_name)))
 	    return (NULL);
-	  list = clist_push(list, (void*) elm);
+	  if (open_tetrimino(file_path, elm) >= 0)
+	    list = clist_push(list, (void*) elm);
 	}
     }
   clist_sort(list, &tetrimino_name_cmp);

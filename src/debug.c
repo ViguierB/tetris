@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Wed Mar  1 15:01:56 2017 Benjamin Viguier
+** Last update Thu Mar  2 16:32:10 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -57,6 +57,20 @@ int	debug_params(t_params *parms)
   return (0);
 }
 
+void	print_tetrimino_data(t_tetrimino *t)
+{
+  char	**cur;
+
+  cur = t->sharp;
+  my_printf("Size %d*%d : Color %d :\n",
+	    t->w, t->h, t->color);
+  while (*cur)
+    {
+      my_printf("%s\n", *cur);
+      cur++;
+    }
+}
+
 int		debug_tetrimino(t_clist *list)
 {
   t_clist_elm	*elm;
@@ -80,8 +94,7 @@ int		debug_tetrimino(t_clist *list)
       if (tetri->error)
 	my_printf("error\n");
       else
-	my_printf("Size %d*%d : Color %d :\n%s\n",
-	    tetri->w, tetri->h, tetri->color, tetri->buffer);
+	print_tetrimino_data(tetri);
       elm = CLIST_NEXT(list, elm);
     }
   return (0);

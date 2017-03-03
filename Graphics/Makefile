@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Thu Mar  2 15:53:08 2017 augustin leconte
+## Last update Thu Mar  2 16:20:30 2017 Benjamin Viguier
 ##
 
 CC	=	gcc
@@ -35,7 +35,7 @@ OBJS	=	$(SRC:.c=.o)
 NAME	=	menu
 
 all:
-		$(CC) $(FLAGS) $(SRC) -o $(NAME) -lncurses -lmy -lcsfml-audio
+		$(CC) $(FLAGS) $(SRC) -o $(NAME) -lncurses -lmy
 
 clean:
 		rm -f $(OBJS)

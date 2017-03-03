@@ -51,7 +51,7 @@ typedef struct	s_score
 {
   int		hs;
   int		score;
-  int   lines;
+  int		lines;
 }		t_score;
 
 /*
@@ -88,7 +88,7 @@ void print_ufo();
 void print_tab(t_data tetris, int **tab);
 int  ntetris(int ac, char **av);
 void error();
-t_data create_tetris(int ac, char **av, t_data);
+int create_tetris(int ac, char **av, t_data *);
 t_score info_scores();
 
 /*
