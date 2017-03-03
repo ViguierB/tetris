@@ -51,7 +51,7 @@ typedef struct	s_score
 {
   int		hs;
   int		score;
-  int   lines;
+  int		lines;
 }		t_score;
 
 /*
