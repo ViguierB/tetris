@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Mon Mar  6 12:51:15 2017 Benjamin Viguier
+** Last update Mon Mar  6 13:29:19 2017 Benjamin Viguier
 */
 
 #ifndef TETRIS_H_
@@ -18,15 +18,17 @@
 # define RESET 0
 # define INIT 2
 
+# define ESCAPE_ASCII 0x1B
+
 typedef struct	s_params
 {
   int		l;
-  int   kl;
-  int   kr;
-  int   kt;
-  int   kd;
-  int   kq;
-  int   kp;
+  char		*kl;
+  char		*kr;
+  char		*kt;
+  char		*kd;
+  char		*kq;
+  char		*kp;
   int		row;
   int		col;
   int		d;

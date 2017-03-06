@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Mon Mar  6 12:49:30 2017 Benjamin Viguier
+** Last update Mon Mar  6 13:32:34 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -13,22 +13,29 @@
 #include "libmy.h"
 #include "tetrimino.h"
 
-char	*get_char_str(int key)
+char	*get_char_str(char *key)
 {
   char	*res;
+  char	*cur;
 
-  if (key > 32 && key < 127)
-    {
-      if (!(res = malloc(sizeof(char) * 2)))
-	return (NULL);
-      *res = key;
-      res[1] = '\0';
-      return (res);
-    }
-  else if (key == ' ')
+  if (!my_strcmp(key, " "))
     return (my_strdup("(space)"));
-  else
-    return ((char*) unctrl(key));
+  if (!(res = malloc(sizeof(char) * 255)))
+    return (NULL);
+  cur = res;
+  while (*key)
+    {
+      if (*key == ESCAPE_ASCII)
+	{
+	  *(cur++) = '^';
+	  *(cur++) = 'E';
+	}
+      else
+	*(cur++) = *key;
+      key++;
+    }
+  *cur = '\0';
+  return (res);
 }
 
 int	debug_params(t_params *parms)
