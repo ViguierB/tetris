@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Mon Mar  6 13:32:34 2017 Benjamin Viguier
+** Last update Mon Mar  6 13:46:44 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -41,6 +41,7 @@ char	*get_char_str(char *key)
 int	debug_params(t_params *parms)
 {
   char	*str[6];
+  int	i;
 
   str[0] = get_char_str(parms->kl);
   str[1] = get_char_str(parms->kr);
@@ -59,6 +60,10 @@ int	debug_params(t_params *parms)
 	    "Size : %d*%d\n",
 	    str[0], str[1], str[2], str[3], str[4], str[5],
 	    (parms->w == 1) ? "Yes" : "No", parms->l, parms->row, parms->col);
+  i = 0;
+  while (i < 6)
+    if (str[i])
+      free(str[i++]);
   return (0);
 }
 

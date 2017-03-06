@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Mon Mar  6 13:23:13 2017 Benjamin Viguier
+** Last update Mon Mar  6 13:46:58 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -65,9 +65,9 @@ int	init_params(t_params *params)
   my_memset(params, 0, sizeof(t_params));
   params->l = 1;
   params->kl = tigetstr("kcub1");
-  params->kr = tigetstr("kcuf1");;
-  params->kt = tigetstr("kcuu1");;
-  params->kd = tigetstr("kcud1");;
+  params->kr = tigetstr("kcuf1");
+  params->kt = tigetstr("kcuu1");
+  params->kd = tigetstr("kcud1");
   params->kq = "q";
   params->kp = " ";
   params->row = 20;
