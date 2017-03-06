@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Dec 12 13:19:11 2016 Benjamin Viguier
-** Last update Tue Feb 28 13:46:55 2017 Benjamin Viguier
+** Last update Mon Mar  6 12:51:55 2017 Benjamin Viguier
 */
 
 #ifndef LIBMY_H_
@@ -20,7 +20,7 @@
 # define PSQ(x) ((x) * (x))
 # define MIN(a, b) (((a) < (b)) ? (a) : (b))
 # define MAX(a, b) (((a) > (b)) ? (a) : (b))
-# define CLIST_NEXT(l, e) ((((e)->next) == (l)) ? ((void*) 0) : ((e)->next)) 
+# define CLIST_NEXT(l, e) ((((e)->next) == (l)) ? ((void*) 0) : ((e)->next))
 
 typedef struct	s_my_fd
 {
@@ -29,7 +29,6 @@ typedef struct	s_my_fd
   int		rest;
   int		len;
 }		t_my_fd;
-
 
 typedef struct		s_clist
 {
@@ -53,7 +52,8 @@ void	clist_swap_val(t_clist_elm *elm1, t_clist_elm *elm2);
 void	clist_free(t_clist *l);
 void	clist_free_data(t_clist *l, void (*myfree)(void*));
 t_clist	*clist_remove(t_clist *list, t_clist_elm *elm);
-t_clist	*clist_rem_fdata(t_clist *list, t_clist_elm *elm, void (*my_free)(void*));
+t_clist	*clist_rem_fdata(t_clist *list, t_clist_elm *elm,
+			 void (*my_free)(void*));
 void	clist_sort(t_clist *list, t_elm_cmp cmp_fct);
 t_clist_elm	*clist_at(t_clist *list, int at);
 

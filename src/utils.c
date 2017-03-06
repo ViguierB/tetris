@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Thu Feb  9 11:44:14 2017 augustin leconte
-** Last update Wed Mar  1 15:14:47 2017 Benjamin Viguier
+** Last update Mon Mar  6 12:50:28 2017 Benjamin Viguier
 */
 
 #include "libmy.h"
@@ -15,4 +15,4 @@ void	rtrim(char *str)
   str += my_strlen(str);
   while (*(--str) == ' ')
     *str = '\0';
-} 
+}

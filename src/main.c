@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Fri Mar  3 11:55:42 2017 Benjamin Viguier
+** Last update Mon Mar  6 12:48:58 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -17,7 +17,7 @@ int	set_smkx(char **env)
 {
   char	*s;
   int	ret;
-  
+
   while (env)
     {
       if (my_memcmp(*env, "TERM=", 5) == 0)

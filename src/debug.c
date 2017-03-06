@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Thu Mar  2 16:32:10 2017 Benjamin Viguier
+** Last update Mon Mar  6 12:49:30 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -16,7 +16,7 @@
 char	*get_char_str(int key)
 {
   char	*res;
-  
+
   if (key > 32 && key < 127)
     {
       if (!(res = malloc(sizeof(char) * 2)))
@@ -31,12 +31,10 @@ char	*get_char_str(int key)
     return ((char*) unctrl(key));
 }
 
-
-
 int	debug_params(t_params *parms)
 {
   char	*str[6];
-  
+
   str[0] = get_char_str(parms->kl);
   str[1] = get_char_str(parms->kr);
   str[2] = get_char_str(parms->kt);
@@ -97,5 +95,14 @@ int		debug_tetrimino(t_clist *list)
 	print_tetrimino_data(tetri);
       elm = CLIST_NEXT(list, elm);
     }
+  return (0);
+}
+
+int	debug_parms(t_params *params, int *i, int ac, char **av)
+{
+  i = (void*) i;
+  (void) ac;
+  av = (void*) av;
+  params->d = 1;
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Thu Mar  2 16:36:29 2017 Benjamin Viguier
+** Last update Mon Mar  6 12:49:39 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -96,15 +96,6 @@ int	without_next_parms(t_params *params, int *i, int ac, char **av)
   (void) ac;
   av = (void*) av;
   params->w = 1;
-  return (0);
-}
-
-int	debug_parms(t_params *params, int *i, int ac, char **av)
-{
-  i = (void*) i;
-  (void) ac;
-  av = (void*) av;
-  params->d = 1;
   return (0);
 }
 
