@@ -5,12 +5,37 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Fri Mar  3 11:41:49 2017 Benjamin Viguier
+** Last update Mon Mar  6 10:56:06 2017 Benjamin Viguier
 */
 
 #include <fcntl.h>
 #include "tetris.h"
 #include "tetrimino.h"
+
+static int	check_rl(t_tetrimino *t)
+{
+  int		i;
+  int		lok;
+  int		rok;
+
+  i = 0;
+  lok = 0;
+  rok = 0;
+  my_printf("%s =\n", t->name);
+  while (t->sharp[i])
+    {
+      if (t->sharp[i][0] == '*')
+	lok = 1;
+      if (my_strlen(t->sharp[i]) == t->w &&
+	  t->sharp[i][t->w - 1] == '*')
+	rok = 1;
+      my_printf("|%s|\n", t->sharp[i]);
+      
+      rtrim(t->sharp[i]);
+      i++;
+    }
+  return (rok && lok);
+}
 
 static int	multi_check(t_tetrimino *t, t_data *d)
 {
@@ -18,12 +43,13 @@ static int	multi_check(t_tetrimino *t, t_data *d)
   int		j;
 
   i = 0;
-  if (t->w >= d->params.col || t->h >= d->params.row)
+  if (t->w >= d->params.col || t->h >= d->params.row ||
+      !check_rl(t))
     return (0);
   while (i < t->h)
     {
       j = 0;
-      if (my_strlen(t->sharp[i]) > t->w)
+      if (t->sharp[i] == NULL || my_strlen(t->sharp[i]) > t->w)
 	return (0);
       while (j < my_strlen(t->sharp[i]))
 	{
