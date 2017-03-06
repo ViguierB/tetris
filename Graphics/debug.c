@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Wed Mar  1 15:01:56 2017 Benjamin Viguier
+** Last update Mon Mar  6 13:32:34 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -13,30 +13,35 @@
 #include "libmy.h"
 #include "tetrimino.h"
 
-char	*get_char_str(int key)
+char	*get_char_str(char *key)
 {
   char	*res;
-  
-  if (key > 32 && key < 127)
-    {
-      if (!(res = malloc(sizeof(char) * 2)))
-	return (NULL);
-      *res = key;
-      res[1] = '\0';
-      return (res);
-    }
-  else if (key == ' ')
+  char	*cur;
+
+  if (!my_strcmp(key, " "))
     return (my_strdup("(space)"));
-  else
-    return ((char*) unctrl(key));
+  if (!(res = malloc(sizeof(char) * 255)))
+    return (NULL);
+  cur = res;
+  while (*key)
+    {
+      if (*key == ESCAPE_ASCII)
+	{
+	  *(cur++) = '^';
+	  *(cur++) = 'E';
+	}
+      else
+	*(cur++) = *key;
+      key++;
+    }
+  *cur = '\0';
+  return (res);
 }
-
-
 
 int	debug_params(t_params *parms)
 {
   char	*str[6];
-  
+
   str[0] = get_char_str(parms->kl);
   str[1] = get_char_str(parms->kr);
   str[2] = get_char_str(parms->kt);
@@ -55,6 +60,20 @@ int	debug_params(t_params *parms)
 	    str[0], str[1], str[2], str[3], str[4], str[5],
 	    (parms->w == 1) ? "Yes" : "No", parms->l, parms->row, parms->col);
   return (0);
+}
+
+void	print_tetrimino_data(t_tetrimino *t)
+{
+  char	**cur;
+
+  cur = t->sharp;
+  my_printf("Size %d*%d : Color %d :\n",
+	    t->w, t->h, t->color);
+  while (*cur)
+    {
+      my_printf("%s\n", *cur);
+      cur++;
+    }
 }
 
 int		debug_tetrimino(t_clist *list)
@@ -80,9 +99,17 @@ int		debug_tetrimino(t_clist *list)
       if (tetri->error)
 	my_printf("error\n");
       else
-	my_printf("Size %d*%d : Color %d :\n%s\n",
-	    tetri->w, tetri->h, tetri->color, tetri->buffer);
+	print_tetrimino_data(tetri);
       elm = CLIST_NEXT(list, elm);
     }
+  return (0);
+}
+
+int	debug_parms(t_params *params, int *i, int ac, char **av)
+{
+  i = (void*) i;
+  (void) ac;
+  av = (void*) av;
+  params->d = 1;
   return (0);
 }
