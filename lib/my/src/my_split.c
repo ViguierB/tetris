@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Dec  7 11:25:33 2016 Benjamin Viguier
-** Last update Mon Jan 30 16:51:53 2017 Benjamin Viguier
+** Last update Mon Mar  6 11:32:44 2017 Benjamin Viguier
 */
 
 #include "my.h"
@@ -47,7 +47,7 @@ char	**my_split(char *inp, char sep, int *nb_lines)
       i += 1;
     }
   tmp = my_strdup(inp);
-  res = malloc(sizeof(char*) * (lines + 1));
+  res = malloc(sizeof(char*) * (lines + 2));
   if (!tmp || !res)
     return (NULL);
   res[lines] = NULL;

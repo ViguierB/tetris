@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Nov  9 16:23:22 2016 Benjamin Viguier
-** Last update Tue Nov 29 11:02:07 2016 Benjamin Viguier
+** Last update Mon Mar  6 11:41:57 2017 Benjamin Viguier
 */
 
 #include "my.h"
@@ -19,12 +19,12 @@ char		*my_strdup(char *str)
   if (res == NULL)
     return (NULL);
   i = 0;
-  while (str[i] != 0)
+  while (*(str))
     {
-      res[i] = str[i];
+      res[i] = *(str++);
       i += 1;
     }
-  res[i] = str[i];
+  res[i] = '\0';
   return (res);
 }
 

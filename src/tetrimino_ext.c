@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Mon Mar  6 11:06:45 2017 Benjamin Viguier
+** Last update Mon Mar  6 11:44:53 2017 Benjamin Viguier
 */
 
 #include <fcntl.h>
@@ -21,16 +21,19 @@ static int	check_rl(t_tetrimino *t)
   i = 0;
   lok = 0;
   rok = 0;
-  while (t->sharp[i])
+  while (i < t->h)
     {
       if (t->sharp[i][0] == '*')
 	lok = 1;
-      if (my_strlen(t->sharp[i]) == t->w &&
-	  t->sharp[i][t->w - 1] == '*')
-	rok = 1;
+      if (my_strlen(t->sharp[i]) == t->w)
+	if (t->sharp[i][t->w - 1] == '*')
+	  rok = 1;
+      if (!t->sharp[i])
+	return (0);
       rtrim(t->sharp[i]);
       i++;
     }
+  t->sharp[i] = NULL;
   return (rok && lok);
 }
 
@@ -56,7 +59,7 @@ static int	multi_check(t_tetrimino *t, t_data *d)
 	}
       i++;
     }
-  if (t->sharp[i])
+  if (t->sharp[i] && my_strcmp(t->sharp[i], ""))
     return (0);
   return (1);
 }
