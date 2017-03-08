@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Wed Mar  8 10:00:42 2017 augustin leconte
+** Last update Wed Mar  8 16:09:13 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,12 +27,15 @@ void move_forward(int i, int *pos)
     *pos = 2;
 }
 
-char *fire(int pos, int ac, char **av)
+char *fire(int pos, int ac, char **av, char **env)
 {
   if (pos == 0)
-    playing(ac, av);
+  {
+    playing(ac, av, env);
+    exiting();
+  }
   else if (pos == 1)
-    helping(ac, av);
+    helping(ac, av, env);
   else
     exiting();
   return (NULL);
@@ -64,12 +67,15 @@ cursor(40);
   attroff(COLOR_PAIR(1));
 }
 
-char *ncurses(int *pos, int c, int ac, char **av)
+char *ncurses(int *pos, char *c, int ac, t_chars chars)
 {
-    if (c == KEY_DOWN)
+  t_data *tetris;
+
+  create_tetris(ac, chars.av, tetris, chars.env);
+    if (c == tetris->params.kt)
 	move_forward(1, pos);
-      else if (c == KEY_UP)
+      else if (c == tetris->params.kd)
 	move_forward(-1, pos);
       else if (c == 10)
-        return (fire(*pos, ac, av));
+        return (fire(*pos, ac, chars.av, chars.env));
 }

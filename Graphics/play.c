@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar  8 10:22:09 2017 augustin leconte
+** Last update Wed Mar  8 15:54:35 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -44,11 +44,11 @@ t_score info_scores(time_t timer)
 
   scores.score = 0;
   scores.hs = 0;
-  scores.lines = 0;
+  scores.nlines = 0;
   scores.timer = time(NULL) - timer;
   mvprintw(LINES / 2 - 1, 0, "Score = %d", scores.score);
   mvprintw(LINES / 2, 0, "HScore = %d", scores.hs);
-  mvprintw(LINES / 2 + 1, 0, "Lines = %d", scores.lines);
+  mvprintw(LINES / 2 + 1, 0, "Lines = %d", scores.nlines);
   mvprintw(LINES / 2 + 2, 0, "Time = %d", scores.timer);
   rectangles();
   refresh();
@@ -66,24 +66,24 @@ void init_play(t_data tetris, int **tab, time_t timer)
   refresh();
 }
 
-int playing(int ac, char **av)
+int playing(int ac, char **av, char **env)
 {
   int i;
-  int c;
+  char *c;
   int **tab;
   time_t timer;
   t_data	tetris;
 
   i = -1;
   timer = time(NULL);
-  if ((tab = malloc(sizeof(int) * tetris.params.row)) == NULL)
+  if ((tab = malloc(sizeof(int *) * tetris.params.row)) == NULL)
     return (84);
   while (++i < tetris.params.row)
     if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
       return (84);
-  create_tetris(ac, av, &tetris);
+  create_tetris(ac, av, &tetris, env);
   init_play(tetris, tab, timer);
-  while ((c = getch()) != 10)
+  while ((c = get_key(&tetris.params)) != tetris.params.ke)
   {
     clear();
     print_tab(tetris, tab);

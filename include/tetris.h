@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Wed Mar  8 11:53:47 2017 Benjamin Viguier
+** Last update Wed Mar  8 15:51:50 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -52,11 +52,17 @@ typedef struct	s_data
   int		counter;
 }		t_data;
 
+typedef struct chars
+ {
+   char **av;
+   char **env;
+ }      t_chars;
+
 typedef struct	s_score
 {
   int		hs;
   int		score;
-  int		lines;
+  int		nlines;
   time_t timer;
 }		t_score;
 
@@ -83,9 +89,9 @@ ncurse
 */
 void init_game();
 void move_forward(int, int *);
-char *fire(int, int, char **);
+char *fire(int, int, char **, char **env);
 void print_cursor(int);
-char *ncurses(int *, int, int , char **);
+char *ncurses(int *, char *, int , t_chars);
 void print_line(int);
 void print_name();
 void play();
@@ -93,14 +99,15 @@ void quit();
 void help();
 void cursor(int);
 void  exiting();
-int playing(int ac, char **av);
-int helping(int ac, char **av);
+int playing(int ac, char **av, char **env);
+int helping(int ac, char **av, char **env);
 void init(int *pos);
 void print_ufo();
-void print_tab(t_data tetris, int **tab);
-int  ntetris(int ac, char **av);
+void print_tab(t_data tetris, int **);
+int  ntetris(int ac, char **av, char **env);
 void error();
-int create_tetris(int ac, char **av, t_data *);
+int create_tetris(int ac, char **av, t_data *, char **);
+void init_play(t_data tetris, int **, time_t timer);
 t_score info_scores(time_t);
 
 /*

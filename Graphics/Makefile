@@ -5,10 +5,10 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Wed Mar  8 09:49:32 2017 augustin leconte
+## Last update Wed Mar  8 16:12:30 2017 augustin leconte
 ##
 
-CC	=	gcc
+CC	=	gcc -g3
 
 CFLAGS	=	-I../include
 
@@ -24,6 +24,7 @@ SRC	= debug.c						\
 			print_menutwo.c		\
 			prints.c					\
 			quit.c						\
+			term_conf.c				\
 			print_play.c			\
 			tetrimino_ext.c		\
 			tetrimino.c				\
