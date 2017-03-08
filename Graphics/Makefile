@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Tue Mar  7 11:05:09 2017 augustin leconte
+## Last update Wed Mar  8 09:49:32 2017 augustin leconte
 ##
 
 CC	=	gcc
@@ -36,6 +36,7 @@ NAME	=	menu
 
 all: $(OBJS)
 		$(CC) -L../lib/my/ $(OBJS) -o $(NAME) -lncurses -lmy
+		make clean
 
 clean:
 		rm -f $(OBJS)
