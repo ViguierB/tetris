@@ -5,10 +5,10 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Wed Mar  8 11:57:56 2017 Augustin Leconte
+** Last update Wed Mar  8 17:48:01 2017 Benjamin Viguier
 */
 
-#include <ncurses.h>
+#include <ncurses/curses.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <termios.h>
@@ -26,8 +26,8 @@ void			my_configure(int opt)
       ioctl(0, TCGETS, &new);
       new.c_lflag &= ~ICANON;
       new.c_lflag &= ~ECHO;
-      //new.c_cc[VTIME] = 0;
-      new.c_cc[VMIN] = 1;
+      new.c_cc[VTIME] = 25;
+      new.c_cc[VMIN] = 255;
       ioctl(0, TCSETS, &new);
     }
   if (opt & RESET)
@@ -43,7 +43,7 @@ int	iskey(char *key, size_t size, t_params *p, char **res)
 		    p->kp, p->ke, p->kb, NULL};
   while (*keys)
     {
-      if (!my_memcmp(key, *keys, size))
+      if (!(my_memcmp(key, *keys, size)))
 	{
 	  if (*res)
 	    return (0);
@@ -66,11 +66,11 @@ char		*get_key(t_params *param)
   int		ftcres;
 
   size = 0;
-  while ((len = read(1, key + size, 1)) != 0)
+  while (size < 256 && (len = read(1, key + size, 256)) != 0)
     {
       size += len;
       ftcres = iskey(key, size, param, &res);
-      if (ftcres != 0)
+      if (ftcres != 0 && (!res || res[size] == '\0'))
 	break;
     }
   if (ftcres == 1)
