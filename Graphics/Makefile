@@ -5,12 +5,12 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Fri Mar  3 12:12:37 2017 augustin leconte
+## Last update Tue Mar  7 11:05:09 2017 augustin leconte
 ##
 
 CC	=	gcc
 
-FLAGS	=	-I../include -L../lib/my/
+CFLAGS	=	-I../include
 
 SRC	= debug.c						\
 			errors.c					\
@@ -34,8 +34,8 @@ OBJS	=	$(SRC:.c=.o)
 
 NAME	=	menu
 
-all:
-		$(CC) $(FLAGS) $(SRC) -o $(NAME) -lncurses -lmy
+all: $(OBJS)
+		$(CC) -L../lib/my/ $(OBJS) -o $(NAME) -lncurses -lmy
 
 clean:
 		rm -f $(OBJS)
@@ -44,3 +44,4 @@ fclean:	clean
 		rm -f $(NAME)
 
 re: fclean all
+		make clean

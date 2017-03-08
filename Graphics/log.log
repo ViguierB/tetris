@@ -1,0 +1,49 @@
+==6570== Memcheck, a memory error detector
+==6570== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==6570== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==6570== Command: ./menu
+==6570== Parent PID: 6101
+==6570== 
+==6570== Conditional jump or move depends on uninitialised value(s)
+==6570==    at 0x4C2DB3C: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6570==    by 0x4021A1: playing (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x4014F1: fire (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40170F: ncurses (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x403B01: ntetris (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40144C: main (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570== 
+==6570== Conditional jump or move depends on uninitialised value(s)
+==6570==    at 0x40220E: playing (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x4014F1: fire (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40170F: ncurses (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x403B01: ntetris (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40144C: main (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570== 
+==6570== Argument 'size' of function malloc has a fishy (possibly negative) value: -4
+==6570==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6570==    by 0x4021A1: playing (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x4014F1: fire (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40170F: ncurses (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x403B01: ntetris (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x4022D6: playing (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x4014F1: fire (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40170F: ncurses (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x403B01: ntetris (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570==    by 0x40144C: main (in /home/augustin/Bureau/augustin/projets_groupes/Tetris/PSU_2016_tetris/Graphics/menu)
+==6570== 
+==6570== 
+==6570== HEAP SUMMARY:
+==6570==     in use at exit: 387,556 bytes in 446 blocks
+==6570==   total heap usage: 455 allocs, 9 frees, 396,537 bytes allocated
+==6570== 
+==6570== LEAK SUMMARY:
+==6570==    definitely lost: 0 bytes in 0 blocks
+==6570==    indirectly lost: 0 bytes in 0 blocks
+==6570==      possibly lost: 0 bytes in 0 blocks
+==6570==    still reachable: 387,556 bytes in 446 blocks
+==6570==         suppressed: 0 bytes in 0 blocks
+==6570== Rerun with --leak-check=full to see details of leaked memory
+==6570== 
+==6570== For counts of detected and suppressed errors, rerun with: -v
+==6570== Use --track-origins=yes to see where uninitialised values come from
+==6570== ERROR SUMMARY: 4 errors from 3 contexts (suppressed: 0 from 0)
