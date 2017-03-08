@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar  8 15:54:35 2017 augustin leconte
+** Last update Wed Mar  8 17:16:06 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -66,13 +66,12 @@ void init_play(t_data tetris, int **tab, time_t timer)
   refresh();
 }
 
-int playing(int ac, char **av, char **env)
+int playing(t_data tetris)
 {
   int i;
   char *c;
   int **tab;
   time_t timer;
-  t_data	tetris;
 
   i = -1;
   timer = time(NULL);
@@ -81,7 +80,6 @@ int playing(int ac, char **av, char **env)
   while (++i < tetris.params.row)
     if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
       return (84);
-  create_tetris(ac, av, &tetris, env);
   init_play(tetris, tab, timer);
   while ((c = get_key(&tetris.params)) != tetris.params.ke)
   {
