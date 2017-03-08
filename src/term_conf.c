@@ -5,33 +5,76 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Mon Mar  6 12:50:10 2017 Benjamin Viguier
+** Last update Wed Mar  8 11:51:48 2017 Benjamin Viguier
 */
 
 #include <ncurses/curses.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <termios.h>
 #include "tetris.h"
 
 void			my_configure(int opt)
 {
   static struct termios	old;
-  struct termios new;
-
-  if (opt == INIT)
+  struct termios	new;
+  
+  if (opt & INIT)
     ioctl(0, TCGETS, &old);
-  else if (opt == SET)
+  if (opt & SET)
     {
       ioctl(0, TCGETS, &new);
-      new.c_lflag &= ~ICANNON;
+      new.c_lflag &= ~ICANON;
       new.c_lflag &= ~ECHO;
-      ioclt(0, TCSETS, &new);
+      //new.c_cc[VTIME] = 0;
+      new.c_cc[VMIN] = 1;
+      ioctl(0, TCSETS, &new);
     }
-  else if (opt == RESET)
+  if (opt & RESET)
     ioctl(0, TCSETS, &old);
 }
 
-char	*get_keycode()
+int	iskey(char *key, size_t size, t_params *p, char **res)
 {
-  
+  char	**keys;
+
+  *res = NULL;
+  keys = (char*[]) {p->kl, p->kr, p->kt, p->kd, p->kq,
+		    p->kp, p->ke, p->kb, NULL};
+  while (*keys)
+    {
+      if (!my_memcmp(key, *keys, size))
+	{
+	  if (*res)
+	    return (0);
+	  *res = *keys;
+	}
+      keys++;
+    }
+  if (*res)
+    return (1);
+  else
+    return (-1);
+}
+
+char		*get_key(t_params *param)
+{
+  char		key[256];
+  size_t	len;
+  size_t	size;
+  char		*res;
+  int		ftcres;
+
+  size = 0;
+  while ((len = read(1, key + size, 1)) != 0)
+    {
+      size += len;
+      ftcres = iskey(key, size, param, &res);
+      if (ftcres != 0)
+	break;
+    }
+  if (ftcres == 1)
+    return (res);
+  else
+    return (NULL);
 }

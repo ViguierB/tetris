@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Mon Mar  6 13:46:44 2017 Benjamin Viguier
+** Last update Tue Mar  7 11:00:22 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -20,7 +20,7 @@ char	*get_char_str(char *key)
 
   if (!my_strcmp(key, " "))
     return (my_strdup("(space)"));
-  if (!(res = malloc(sizeof(char) * 255)))
+  if (!(res = malloc(sizeof(char) * 256)))
     return (NULL);
   cur = res;
   while (*key)

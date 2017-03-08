@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Mon Mar  6 13:46:58 2017 Benjamin Viguier
+** Last update Wed Mar  8 11:50:55 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -70,6 +70,8 @@ int	init_params(t_params *params)
   params->kd = tigetstr("kcud1");
   params->kq = "q";
   params->kp = " ";
+  params->ke = "\n";
+  params->kb = "b";
   params->row = 20;
   params->col = 10;
   params->d = 0;

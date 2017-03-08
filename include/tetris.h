@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Mon Mar  6 13:29:19 2017 Benjamin Viguier
+** Last update Wed Mar  8 11:49:43 2017 Benjamin Viguier
 */
 
 #ifndef TETRIS_H_
@@ -14,9 +14,9 @@
 # include <SFML/Audio.h>
 # include "libmy.h"
 
-# define SET 1
-# define RESET 0
-# define INIT 2
+# define INIT  0x1
+# define SET  0x2
+# define RESET  0x4
 
 # define ESCAPE_ASCII 0x1B
 
@@ -29,6 +29,8 @@ typedef struct	s_params
   char		*kd;
   char		*kq;
   char		*kp;
+  char		*ke;
+  char		*kb;
   int		row;
   int		col;
   int		d;
@@ -56,6 +58,12 @@ typedef struct	s_score
   int		score;
   int		lines;
 }		t_score;
+
+/*
+** Terminal IO
+*/
+char	*get_key(t_params *param);
+void	my_configure(int opt);
 
 /*
 ** Params
