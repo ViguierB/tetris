@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Wed Mar  8 11:47:28 2017 Benjamin Viguier
+** Last update Wed Mar  8 18:13:24 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -54,8 +54,14 @@ int		main(int ac, char **av, char **env)
   set_tetrimino_pts(tetris.tetrims);
   my_configure(INIT | SET);
   char *tmp;
-  while ((tmp = get_key(&(tetris.params))) != NULL) 
-    my_printf("%S\n", my_strdup(tmp));
+  int	i = 0;
+  while (i++ < 999)
+    if ((tmp = get_key(&(tetris.params))) != NULL)
+      {
+	my_printf("%S\n", my_strdup(tmp));
+      }
+    else
+      my_printf("Pas d'entrée\n");
   my_configure(RESET);
   return (0);
 }
