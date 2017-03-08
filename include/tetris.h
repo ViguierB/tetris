@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Wed Mar  8 15:51:50 2017 augustin leconte
+** Last update Wed Mar  8 17:25:55 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -56,6 +56,7 @@ typedef struct chars
  {
    char **av;
    char **env;
+   t_data tetris;
  }      t_chars;
 
 typedef struct	s_score
@@ -89,7 +90,7 @@ ncurse
 */
 void init_game();
 void move_forward(int, int *);
-char *fire(int, int, char **, char **env);
+char *fire(int, int, t_chars chars);
 void print_cursor(int);
 char *ncurses(int *, char *, int , t_chars);
 void print_line(int);
@@ -99,7 +100,7 @@ void quit();
 void help();
 void cursor(int);
 void  exiting();
-int playing(int ac, char **av, char **env);
+int playing(t_data tetris);
 int helping(int ac, char **av, char **env);
 void init(int *pos);
 void print_ufo();
