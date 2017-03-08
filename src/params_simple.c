@@ -1,11 +1,11 @@
 /*
 ** params_simple.c for tetris in /home/benji_epitech/System_Unix/PSU_2016_tetris
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Mon Mar  6 13:20:46 2017 Benjamin Viguier
+** Last update Wed Mar  8 12:01:35 2017 augustin leconte
 */
 
 #include "tetris.h"
@@ -59,6 +59,10 @@ int	key_parms(t_params *params, int *i, int ac, char **av)
     params->kq = c;
   if (key == 'p')
     params->kp = c;
+  if (key == 'b')
+    params->kb = c;
+  if (key == 'e')
+    params->ke = c;
   return (0);
 }
 

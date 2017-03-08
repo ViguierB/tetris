@@ -1,11 +1,11 @@
 /*
 ** params.c for tetris in /home/benji_epitech/System_Unix/PSU_2016_tetris
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Wed Mar  8 11:50:55 2017 Benjamin Viguier
+** Last update Wed Mar  8 12:00:44 2017 augustin leconte
 */
 
 #include <ncurses.h>
@@ -27,6 +27,10 @@ static const t_fct_parms	g_fct_tab[] =
     {"-kq", &key_parms},
     {"--key-quit", &key_parms},
     {"-kp", &key_parms},
+    {"--key-back", &key_parms},
+    {"-kb", &key_parms},
+    {"--key-enter", &key_parms},
+    {"-ke", &key_parms},
     {"-key-pause", &key_parms},
     {"--map-size", &size_parms},
     {"-w", &without_next_parms},

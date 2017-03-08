@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar  8 10:20:55 2017 augustin leconte
+** Last update Wed Mar  8 10:22:09 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -92,6 +92,5 @@ int playing(int ac, char **av)
     refresh();
   }
   endwin();
-  exit(0);
   return (0);
 }

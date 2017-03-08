@@ -5,10 +5,10 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Wed Mar  8 11:51:48 2017 Benjamin Viguier
+** Last update Wed Mar  8 11:57:56 2017 Augustin Leconte
 */
 
-#include <ncurses/curses.h>
+#include <ncurses.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <termios.h>
