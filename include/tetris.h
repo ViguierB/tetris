@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Mon Mar  6 13:29:19 2017 Benjamin Viguier
+** Last update Wed Mar  8 10:20:12 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -55,6 +55,7 @@ typedef struct	s_score
   int		hs;
   int		score;
   int		lines;
+  time_t timer;
 }		t_score;
 
 /*
@@ -92,7 +93,7 @@ void print_tab(t_data tetris, int **tab);
 int  ntetris(int ac, char **av);
 void error();
 int create_tetris(int ac, char **av, t_data *);
-t_score info_scores();
+t_score info_scores(time_t);
 
 /*
 ** utils
