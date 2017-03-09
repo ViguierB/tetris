@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Wed Mar  8 14:34:28 2017 augustin leconte
+** Last update Thu Mar  9 11:24:24 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -73,5 +73,4 @@ void print_tab(t_data tetris, int **tab)
   mvprintw((LINES / 2) + i - 5, (COLS / 2) - (tetris.params.col / 2)
    + j, "-");
   attroff(COLOR_PAIR(4));
-  mvprintw(0, 0, "\n%d\n%d", tetris.params.row, tetris.params.col);
 }
