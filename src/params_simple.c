@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Thu Mar  9 11:15:25 2017 Benjamin Viguier
+** Last update Thu Mar  9 11:20:28 2017 Benjamin Viguier
 */
 
 #include <stddef.h>
@@ -69,7 +69,7 @@ int		key_parms(t_params *params, int *i,
     {
       if (cur->c == key)
 	{
-	  key_ptr = (char **) (((char *) params) + cur->offset);
+	  key_ptr = (char**) (((char*) params) + cur->offset);
 	  *key_ptr = c;
 	}
       cur++;
