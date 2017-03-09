@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Thu Mar  9 10:00:51 2017 augustin leconte
+** Last update Thu Mar  9 10:03:48 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -62,8 +62,8 @@ int  ntetris(int ac, char **av, char **env)
         error();
       clear();
       init_game();
-      print_cursor(pos);
       ncurses(&pos, c, ac, chars);
+      print_cursor(pos);
       refresh();
     }
   endwin();
