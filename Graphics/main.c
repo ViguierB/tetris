@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:39:04 2017 augustin leconte
-** Last update Thu Mar  9 10:06:02 2017 augustin leconte
+** Last update Thu Mar  9 10:11:50 2017 Benjamin Viguier
 */
 
 #include <sys/stat.h>
@@ -43,24 +43,20 @@ int create_tetris(int ac, char **av, t_data *tetris, char **env)
 {
   char *tmp;
 
-  my_memset(tetris, 0, sizeof(tetris));
+  my_memset(tetris, 0, sizeof(t_data));
   set_smkx(env);
-  get_params(&tetris->params, ac, av);
+  get_params(&(tetris->params), ac, av);
   if (tetris->params.h)
     return (0);
-  tetris->tetrims = get_all_tetriminos(&tetris);
+  tetris->tetrims = get_all_tetriminos(tetris);
   if (tetris->params.d)
     {
       my_printf("*** DEBUG MODE ***\n");
-      debug_params(&tetris->params);
+      debug_params(&(tetris->params));
       debug_tetrimino(tetris->tetrims);
     }
-  delete_bad_tetriminos(&tetris->tetrims);
+  delete_bad_tetriminos(&(tetris->tetrims));
   set_tetrimino_pts(tetris->tetrims);
-  my_configure(INIT | SET);
-  while ((tmp = get_key(&tetris->params)) != NULL)
-    my_printf("%S\n", my_strdup(tmp));
-  my_configure(RESET);
   return (0);
 }
 
