@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Wed Mar  8 18:13:02 2017 Benjamin Viguier
+** Last update Thu Mar  9 10:51:31 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -65,6 +65,7 @@ char		*get_key(t_params *param)
   char		*res;
   int		ftcres;
 
+  ftcres = 0;
   size = 0;
   while (size < 256 && (len = read(1, key + size, 1)) != 0)
     {

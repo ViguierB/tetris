@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Thu Mar  9 08:36:47 2017 augustin leconte
+** Last update Thu Mar  9 10:50:07 2017 Benjamin Viguier
 */
 
 #ifndef TETRIS_H_
@@ -22,6 +22,7 @@
 
 typedef struct	s_params
 {
+  char		*my_name;
   int		l;
   char		*kl;
   char		*kr;
@@ -88,31 +89,33 @@ int	debug_params(t_params *parms);
 /*
 ncurse
 */
-void init_game();
-void move_forward(int, int *);
-char *fire(int, int, t_chars chars);
-void print_cursor(int);
-char *ncurses(int *, char *, int , t_chars);
-void print_line(int);
-void print_name();
-void play();
-void quit();
-void help();
-void cursor(int);
-void  exiting();
-int playing(t_data tetris);
-int helping(int ac, char **av, char **env, t_data tetris);
-void init(int *pos);
-void print_ufo();
-void print_tab(t_data tetris, int **);
-int  ntetris(int ac, char **av, char **env);
-void error();
-int create_tetris(int ac, char **av, t_data *, char **);
-void init_play(t_data tetris, int **, time_t timer);
-t_score info_scores(time_t);
+void	init_game();
+void	move_forward(int, int *);
+char	*fire(int, int, t_chars chars);
+void	print_cursor(int);
+char	*ncurses(int *, char *, int , t_chars);
+void	print_line(int);
+void	print_name();
+void	play();
+void	quit();
+void	help();
+void	cursor(int);
+void	exiting();
+int	playing(t_data tetris);
+int	helping(int ac, char **av, char **env, t_data tetris);
+void	init(int *pos);
+void	print_ufo();
+void	print_tab(t_data tetris, int **);
+int	ntetris(int ac, char **av, char **env);
+void	error();
+int	create_tetris(int ac, char **av, t_data *, char **);
+void	init_play(t_data tetris, int **, time_t timer);
+t_score	info_scores(time_t);
 
 /*
 ** utils
 */
 void	rtrim(char *str);
+char	*my_getenv(char **env, char *key);
+
 #endif /* !TETRIS_H_ */

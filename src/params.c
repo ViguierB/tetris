@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Wed Mar  8 12:00:44 2017 augustin leconte
+** Last update Thu Mar  9 10:44:47 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -64,7 +64,7 @@ int		exec_fct(t_params *params, int *i, int ac, char **av)
   return (-1);
 }
 
-int	init_params(t_params *params)
+int	init_params(t_params *params, char *name)
 {
   my_memset(params, 0, sizeof(t_params));
   params->l = 1;
@@ -80,6 +80,7 @@ int	init_params(t_params *params)
   params->col = 10;
   params->d = 0;
   params->w = 0;
+  params->my_name = name;
   return (0);
 }
 
@@ -87,7 +88,7 @@ int	get_params(t_params *params, int ac, char **av)
 {
   int	i;
 
-  init_params(params);
+  init_params(params, av[0]);
   i = 1;
   while (i < ac)
     {

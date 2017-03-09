@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Wed Mar  8 18:13:24 2017 Benjamin Viguier
+** Last update Thu Mar  9 10:18:53 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -58,10 +58,10 @@ int		main(int ac, char **av, char **env)
   while (i++ < 999)
     if ((tmp = get_key(&(tetris.params))) != NULL)
       {
-	my_printf("%S\n", my_strdup(tmp));
+	my_printf("%p -> %S\n", tmp, my_strdup(tmp));
       }
     else
-      my_printf("Pas d'entrée\n");
+      my_printf("%p Pas d'entrée\n", tmp);
   my_configure(RESET);
   return (0);
 }

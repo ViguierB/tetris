@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Wed Mar  8 12:01:35 2017 augustin leconte
+** Last update Thu Mar  9 10:46:14 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -109,7 +109,7 @@ int	help_parms(t_params *params, int *i, int ac, char **av)
   (void) ac;
   av = (void*) av;
   params->h = 1;
-  my_printf("Usage: ./tetris [OPTION] ...\n"
+  my_printf("Usage: %s [OPTION] ...\n"
 	    "Options:\n"
 	    "  --help\t\tDisplay this help\n"
 	    "  -l --level={num}\tStart Tetris at level num\n"
@@ -121,6 +121,6 @@ int	help_parms(t_params *params, int *i, int ac, char **av)
 	    "  -kp --key-pause={K}\tPause and restart game when press key K\n"
 	    "  --map-size={row,col}\tSet game size at row, col\n"
 	    "  -w --without-next\tHide next tetrimino\n"
-	    "  -d --debug\t\tDebug mode\n");
+	    "  -d --debug\t\tDebug mode\n", params->my_name);
   return (0);
 }
