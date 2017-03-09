@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Mar  9 10:13:28 2017 augustin leconte
+** Last update Thu Mar  9 10:25:48 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -82,13 +82,15 @@ int playing(t_data tetris)
     if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
       return (84);
   init_play(tetris, tab, timer);
-  while ((c = get_key(&tetris.params)) != tetris.params.ke)
+  while (c)
   {
     clear();
     print_tab(tetris, tab);
     info_scores(timer);
     print_ufo();
     refresh();
+    if (get_key(&tetris.params) == tetris.params.ke)
+        exiting();
   }
   endwin();
   return (0);
