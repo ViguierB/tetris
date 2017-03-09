@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:39:04 2017 augustin leconte
-** Last update Wed Mar  8 15:46:55 2017 augustin leconte
+** Last update Thu Mar  9 10:06:02 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -15,6 +15,7 @@
 #include <curses.h>
 #include <ncurses.h>
 #include "tetris.h"
+#include "tetrimino.h"
 #include "term.h"
 
 int	set_smkx(char **env)
