@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Wed Mar  8 15:48:23 2017 augustin leconte
+** Last update Thu Mar  9 08:37:18 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -35,7 +35,7 @@ void helpe()
   	    "  \t-d --debug\t\tDebug mode\n");
 }
 
-int  helping(int ac, char **av, char **env)
+int  helping(int ac, char **av, char **env, t_data tetris)
 {
   clear();
   print_name();
@@ -46,7 +46,7 @@ int  helping(int ac, char **av, char **env)
   refresh();
   if (COLS < 57 || LINES < 55)
     error();
-  while (getch() != 98)
+  while (get_key(&(tetris.params)) != tetris.params.ke)
   {
     if (COLS < 57 || LINES < 55)
       error();

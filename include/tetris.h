@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Wed Mar  8 17:25:55 2017 augustin leconte
+** Last update Thu Mar  9 08:36:47 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -101,7 +101,7 @@ void help();
 void cursor(int);
 void  exiting();
 int playing(t_data tetris);
-int helping(int ac, char **av, char **env);
+int helping(int ac, char **av, char **env, t_data tetris);
 void init(int *pos);
 void print_ufo();
 void print_tab(t_data tetris, int **);

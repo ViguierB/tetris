@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Wed Mar  8 17:28:16 2017 augustin leconte
+** Last update Thu Mar  9 08:36:26 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -35,7 +35,7 @@ char *fire(int pos, int ac, t_chars chars)
     exiting();
   }
   else if (pos == 1)
-    helping(ac, chars.av, chars.env);
+    helping(ac, chars.av, chars.env, chars.tetris);
   else
     exiting();
   return (NULL);
