@@ -5,11 +5,25 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Thu Mar  9 10:46:14 2017 Benjamin Viguier
+** Last update Thu Mar  9 11:15:25 2017 Benjamin Viguier
 */
 
+#include <stddef.h>
 #include "tetris.h"
 #include "libmy.h"
+
+const t_char_key	g_keys[] =
+  {
+    {'l', offsetof(t_params, kl)},
+    {'r', offsetof(t_params, kr)},
+    {'t', offsetof(t_params, kt)},
+    {'d', offsetof(t_params, kd)},
+    {'q', offsetof(t_params, kq)},
+    {'p', offsetof(t_params, kp)},
+    {'e', offsetof(t_params, ke)},
+    {'b', offsetof(t_params, kb)},
+    {'\0', 0}
+  };
 
 int	lvl_parms(t_params *params, int *i, int ac, char **av)
 {
@@ -33,10 +47,13 @@ int	lvl_parms(t_params *params, int *i, int ac, char **av)
   return (0);
 }
 
-int	key_parms(t_params *params, int *i, int ac, char **av)
+int		key_parms(t_params *params, int *i,
+			  int ac, char **av)
 {
-  char	*c;
-  char	key;
+  char		*c;
+  char		key;
+  t_char_key	*cur;
+  char		**key_ptr;
 
   (void) ac;
   key = av[*i][2];
@@ -47,22 +64,16 @@ int	key_parms(t_params *params, int *i, int ac, char **av)
     }
   else
     c = av[++(*i)];
-  if (key == 'l')
-    params->kl = c;
-  if (key == 'r')
-    params->kr = c;
-  if (key == 't')
-    params->kt = c;
-  if (key == 'd')
-    params->kd = c;
-  if (key == 'q')
-    params->kq = c;
-  if (key == 'p')
-    params->kp = c;
-  if (key == 'b')
-    params->kb = c;
-  if (key == 'e')
-    params->ke = c;
+  cur = (t_char_key*) g_keys;
+  while (cur->c != '\0')
+    {
+      if (cur->c == key)
+	{
+	  key_ptr = (char **) (((char *) params) + cur->offset);
+	  *key_ptr = c;
+	}
+      cur++;
+    }
   return (0);
 }
 

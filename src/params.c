@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Thu Mar  9 10:44:47 2017 Benjamin Viguier
+** Last update Thu Mar  9 11:15:59 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -21,7 +21,7 @@ static const t_fct_parms	g_fct_tab[] =
     {"-kr", &key_parms},
     {"--key-right", &key_parms},
     {"-kt", &key_parms},
-    {"--key-top", &key_parms},
+    {"--key-turn", &key_parms},
     {"-kd", &key_parms},
     {"--key-drop", &key_parms},
     {"-kq", &key_parms},
@@ -31,7 +31,7 @@ static const t_fct_parms	g_fct_tab[] =
     {"-kb", &key_parms},
     {"--key-enter", &key_parms},
     {"-ke", &key_parms},
-    {"-key-pause", &key_parms},
+    {"--key-pause", &key_parms},
     {"--map-size", &size_parms},
     {"-w", &without_next_parms},
     {"--without-next", &without_next_parms},
