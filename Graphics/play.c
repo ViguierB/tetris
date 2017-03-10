@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Mar  9 10:25:48 2017 augustin leconte
+** Last update Thu Mar  9 11:54:02 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -50,7 +50,7 @@ t_score info_scores(time_t timer)
   mvprintw(LINES / 2, 0, "HScore = %d", scores.hs);
   mvprintw(LINES / 2 + 1, 0, "Lines = %d", scores.nlines);
   mvprintw(LINES / 2 + 2, 0, "Time = %d", scores.timer);
-  mvprintw(LINES - 5, COLS - 14, "Go Back = B");
+  mvprintw(LINES - 5, COLS - 12, "Go Back = B");
   rectangles();
   refresh();
   if (COLS < 57 || LINES < 55)
@@ -65,6 +65,15 @@ void init_play(t_data tetris, int **tab, time_t timer)
   print_ufo();
   info_scores(timer);
   refresh();
+}
+
+bool verif_mov(char *c, t_data tetris)
+{
+  if (c != tetris.params.kl && c != tetris.params.kr && c != tetris.params.kt
+    && c != tetris.params.kd && c != tetris.params.kq && c != tetris.params.kp
+    && c != tetris.params.kb)
+    return (TRUE);
+  return (FALSE);
 }
 
 int playing(t_data tetris)
@@ -89,8 +98,9 @@ int playing(t_data tetris)
     info_scores(timer);
     print_ufo();
     refresh();
-    if (get_key(&tetris.params) == tetris.params.ke)
-        exiting();
+    // if (get_key(&tetris.params) == tetris.params.ke &&
+    // verif_mov(get_key(&tetris.params), tetris) == TRUE)
+    //     exiting();
   }
   endwin();
   return (0);
