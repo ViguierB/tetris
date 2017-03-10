@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Thu Mar  9 11:56:47 2017 augustin leconte
+** Last update Fri Mar 10 09:15:40 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,23 +27,23 @@ void print_ufo()
   str = "/                                                             \\";
   len = my_strlen(str) / 2;
   attron(COLOR_PAIR(3));
-  mvprintw(1, COLS / 2 - len + 24, " ______________");
-  mvprintw(2, COLS / 2 - len + 23, "/              \\");
+  mvprintw(1, COLS / 2 - len + 25, "______________");
+  mvprintw(2, COLS / 2 - len + 24, "/              \\");
   mvprintw(3, COLS / 2 - len + 13, "__________/________________\\_");
   printw("_________");
-  mvprintw(4, COLS / 2 - len, "          __/                                ");
+  mvprintw(4, COLS / 2 - len + 10, "__/                                ");
   printw("      \\__");
-  mvprintw(5, COLS / 2 - len, "       __/                                 ");
+  mvprintw(5, COLS / 2 - len + 7, "__/                                 ");
   printw("           \\__");
-  mvprintw(6, COLS / 2 - len, " _____/_____________________________________");
+  mvprintw(6, COLS / 2 - len + 1, "_____/_____________________________________");
   printw("_____________\\____");
   mvprintw(7, COLS / 2 - len, "/                                      ");
   printw("                       \\");
   mvprintw(8, COLS / 2 - len, "\\______________________________________");
   printw("_______________________/");
-  mvprintw(9, COLS / 2 - len, "   \\                                 ");
+  mvprintw(9, COLS / 2 - len + 3, "\\                                 ");
   printw("                     /");
-  mvprintw(10, COLS / 2 - len, "    \\______________________________");
+  mvprintw(10, COLS / 2 - len + 4, "\\______________________________");
   printw("______________________/");
   attroff(COLOR_PAIR(3));
 }

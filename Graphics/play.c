@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Mar  9 11:54:02 2017 augustin leconte
+** Last update Fri Mar 10 09:13:00 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -23,6 +23,8 @@ int my_strlen();
 
 void rectangles()
 {
+  start_color();
+  init_pair(3, COLOR_WHITE, COLOR_WHITE);
   attron(COLOR_PAIR(3));
   mvprintw(LINES /2 - 3, 0, "*****************");
   mvprintw(LINES / 2 - 2, 15, "**");
@@ -100,8 +102,12 @@ int playing(t_data tetris)
     refresh();
     // if (get_key(&tetris.params) == tetris.params.ke &&
     // verif_mov(get_key(&tetris.params), tetris) == TRUE)
-    //     exiting();
+        // exiting();
   }
+  i = -1;
+  while (++i < tetris.params.row)
+    free(tab[i]);
+  free(tab);
   endwin();
   return (0);
 }

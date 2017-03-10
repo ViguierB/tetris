@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Thu Mar  9 10:21:13 2017 augustin leconte
+** Last update Fri Mar 10 09:14:07 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -34,8 +34,8 @@ void init(int *pos)
   noecho();
   curs_set(FALSE);
   keypad(stdscr, TRUE);
-  init_game();
-  print_cursor(*pos);
+  // init_game();
+  // print_cursor(*pos);
   refresh();
 }
 
@@ -49,11 +49,15 @@ int  ntetris(int ac, char **av, char **env)
 
   i = 0;
   pos = 0;
+  init(&pos);
   create_tetris(ac, av, &tetris, env);
+  playing(tetris);
+  clear();
+  endwin();
+  return (0);
   chars.av = av;
   chars.env = env;
   chars.tetris = tetris;
-  init(&pos);
   if (COLS < 57 || LINES < 55)
     error();
   while (c)
