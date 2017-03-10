@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Thu Mar  9 11:20:50 2017 Benjamin Viguier
+** Last update Fri Mar 10 13:23:43 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -36,18 +36,17 @@ void			my_configure(int opt)
 
 int	iskey(char *key, size_t size, t_params *p, char **res)
 {
-  char	**keys;
+  char	***keys;
 
   *res = NULL;
-  keys = (char*[]) {p->kl, p->kr, p->kt, p->kd, p->kq,
-		    p->kp, p->ke, p->kb, NULL};
+  keys = p->all;
   while (*keys)
     {
-      if (!(my_memcmp(key, *keys, size)))
+      if (!(my_memcmp(key, **keys, size)))
 	{
 	  if (*res)
 	    return (0);
-	  *res = *keys;
+	  *res = **keys;
 	}
       keys++;
     }

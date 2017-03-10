@@ -5,13 +5,13 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Fri Mar 10 11:15:14 2017 augustin leconte
+** Last update Fri Mar 10 14:27:00 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
 # define TETRIS_H_
 
-# include <SFML/Audio.h>
+# include <stddef.h>
 # include "libmy.h"
 
 # define INIT  0x1
@@ -43,6 +43,7 @@ typedef struct	s_params
   int		d;
   int		w;
   int		h;
+  char		**all[9];
 }		t_params;
 
 typedef struct  s_fct_parms
@@ -91,6 +92,7 @@ int	debug_parms(t_params *params, int *i, int ac, char **av);
 int	help_parms(t_params *params, int *i, int ac, char **av);
 int	get_params(t_params *params, int ac, char **av);
 int	debug_params(t_params *parms);
+int	verif_all_seq(char **seqs[]);
 
 /*
 ncurse
