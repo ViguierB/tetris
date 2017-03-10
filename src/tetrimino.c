@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Mon Mar  6 10:48:45 2017 Benjamin Viguier
+** Last update Fri Mar 10 16:08:36 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -63,10 +63,10 @@ int		open_tetrimino(char *file, t_tetrimino *tetri)
   if (open_tetrimino_file(file, tetri, &fd) < 0)
     return (-1);
   if ((line = my_getline(fd)) == NULL)
-    return (-1);
+    return (rerr_and_free(fd, (void (*)(void*)) &my_fclose));
   splited = my_split(line, ' ', &nb_params);
   if (!splited || nb_params != 3)
-    return (-1);
+    return (rerr_and_free(fd, (void (*)(void*)) &my_fclose));
   tetri->w = my_atoi(splited[0]);
   tetri->h = my_atoi(splited[1]);
   tetri->color = my_atoi(splited[2]);
@@ -76,6 +76,7 @@ int		open_tetrimino(char *file, t_tetrimino *tetri)
   if (!(my_fread_to_end(fd, &(tetri->buffer)) >= 0 &&
 	set_sharp(tetri) >= 0))
     return (-1);
+  my_fclose(fd);
   return (0);
 }
 
@@ -113,6 +114,7 @@ t_clist		*get_all_tetriminos(t_data *data)
 	    list = clist_push(list, (void*) elm);
 	}
     }
+  closedir(dir);
   clist_sort(list, &tetrimino_name_cmp);
   tetrims_check(list, data);
   return (list);

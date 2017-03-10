@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Thu Feb  9 11:44:14 2017 augustin leconte
-** Last update Thu Mar  9 10:44:29 2017 Benjamin Viguier
+** Last update Fri Mar 10 16:07:19 2017 Benjamin Viguier
 */
 
 #include "libmy.h"
@@ -29,4 +29,10 @@ char		*my_getenv(char **env, char *key)
       env++;
     }
    return (NULL);
+}
+
+int	rerr_and_free(void *to_free, void (*my_free)(void *))
+{
+  my_free(to_free);
+  return (-1);
 }

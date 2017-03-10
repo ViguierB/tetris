@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Thu Mar  9 16:36:05 2017 Benjamin Viguier
+** Last update Fri Mar 10 15:59:11 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -52,5 +52,6 @@ int		main(int ac, char **av, char **env)
     }
   delete_bad_tetriminos(&(tetris.tetrims));
   set_tetrimino_pts(tetris.tetrims);
+  pause();
   return (0);
 }
