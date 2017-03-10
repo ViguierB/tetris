@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Fri Mar 10 10:50:45 2017 augustin leconte
-** Last update Fri Mar 10 15:52:39 2017 augustin leconte
+** Last update Fri Mar 10 16:33:18 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -21,11 +21,15 @@
 #include "tetrimino.h"
 #include "term.h"
 
-void print_pts(t_pt pts)
+void print_pts(t_tetrimino *tetrimino)
 {
-  attron(COLOR_PAIR(3));
-  mvprintw(20, COLS - 20, "%s\n", "coucou");
-  attroff(COLOR_PAIR(3));
+  int i;
+  i = -1;
+
+  // attron(COLOR_PAIR(3));
+  while (++i < tetrimino->h)
+    mvprintw(20, COLS - 20, "%s\n", "coucou");
+  // attroff(COLOR_PAIR(3));
   refresh();
 }
 
@@ -39,13 +43,11 @@ t_tetrimino *choose_tetrim(t_data tetris)
 
 int choose_thems(t_data tetris)
 {
-  int i;
   t_tetrimino *t;
 
   t = choose_tetrim(tetris);
   i = -1;
-  while (++i < t->h)
-    print_pts(t->pts[i]);
+  print_pts(t);
   choose_tetrim(tetris);
   sleep(5);
 }
