@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Thu Mar  9 10:55:28 2017 Benjamin Viguier
+** Last update Thu Mar  9 16:36:05 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
