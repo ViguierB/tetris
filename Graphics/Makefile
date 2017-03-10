@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Wed Mar  8 16:12:30 2017 augustin leconte
+## Last update Fri Mar 10 10:58:14 2017 augustin leconte
 ##
 
 CC	=	gcc -g3
@@ -13,6 +13,7 @@ CC	=	gcc -g3
 CFLAGS	=	-I../include
 
 SRC	= debug.c						\
+			choose_tetrimino.c\
 			errors.c					\
 			help.c						\
 			main.c						\

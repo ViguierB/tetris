@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Thu Mar  9 11:05:05 2017 Benjamin Viguier
+** Last update Fri Mar 10 11:15:14 2017 augustin leconte
 */
 
 #ifndef TETRIS_H_
@@ -117,6 +117,8 @@ void	error();
 int	create_tetris(int ac, char **av, t_data *, char **);
 void	init_play(t_data tetris, int **, time_t timer);
 t_score	info_scores(time_t);
+t_tetrimino *choose_tetrim(t_data tetris);
+int choose_thems(t_data tetris);
 
 /*
 ** utils

@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 11:01:37 2017 augustin leconte
-** Last update Fri Mar 10 09:14:07 2017 augustin leconte
+** Last update Fri Mar 10 09:20:54 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -52,9 +52,7 @@ int  ntetris(int ac, char **av, char **env)
   init(&pos);
   create_tetris(ac, av, &tetris, env);
   playing(tetris);
-  clear();
-  endwin();
-  return (0);
+  exiting();
   chars.av = av;
   chars.env = env;
   chars.tetris = tetris;

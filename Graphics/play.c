@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Fri Mar 10 09:13:00 2017 augustin leconte
+** Last update Fri Mar 10 09:36:47 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -96,18 +96,20 @@ int playing(t_data tetris)
   while (c)
   {
     clear();
+    print_ufo();
     print_tab(tetris, tab);
     info_scores(timer);
-    print_ufo();
     refresh();
     // if (get_key(&tetris.params) == tetris.params.ke &&
     // verif_mov(get_key(&tetris.params), tetris) == TRUE)
         // exiting();
+    if (getch() == 10)
+      exiting();
   }
   i = -1;
   while (++i < tetris.params.row)
     free(tab[i]);
   free(tab);
-  endwin();
+  exiting();
   return (0);
 }
