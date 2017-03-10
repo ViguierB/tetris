@@ -5,24 +5,36 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Wed Mar  1 15:59:12 2017 Benjamin Viguier
+** Last update Mon Mar  6 16:44:11 2017 Benjamin Viguier
 */
 
+#include <fcntl.h>
 #include "tetris.h"
 #include "tetrimino.h"
 
-static int	duplicata(t_tetrimino *t, t_clist *list)
+static int	check_rl(t_tetrimino *t)
 {
-  t_clist_elm	*elm;
+  int		i;
+  int		lok;
+  int		rok;
 
-  elm = list;
-  while (elm->ptr != (void*) t)
+  i = 0;
+  lok = 0;
+  rok = 0;
+  while (i < t->h && t->sharp[i] != NULL)
     {
-      if (!(my_strcmp(t->name, ((t_tetrimino*) elm->ptr)->name)))
-	return (1);
-      elm = elm->next;
+      if (t->sharp[i][0] == '*')
+	lok = 1;
+      if (my_strlen(t->sharp[i]) == t->w)
+	if (t->sharp[i][t->w - 1] == '*')
+	  rok = 1;
+      if (!t->sharp[i])
+	return (0);
+      rtrim(t->sharp[i]);
+      i++;
     }
-  return (0);
+  t->sharp[i] = NULL;
+  return (rok && lok);
 }
 
 static int	multi_check(t_tetrimino *t, t_data *d)
@@ -31,12 +43,13 @@ static int	multi_check(t_tetrimino *t, t_data *d)
   int		j;
 
   i = 0;
-  if (t->w >= d->params.col || t->h >= d->params.row)
+  if (t->w > d->params.col || t->h > d->params.row ||
+      !check_rl(t))
     return (0);
   while (i < t->h)
     {
       j = 0;
-      if (my_strlen(t->sharp[i]) > t->w)
+      if (t->sharp[i] == NULL || my_strlen(t->sharp[i]) > t->w)
 	return (0);
       while (j < my_strlen(t->sharp[i]))
 	{
@@ -46,7 +59,7 @@ static int	multi_check(t_tetrimino *t, t_data *d)
 	}
       i++;
     }
-  if (t->sharp[i])
+  if (t->sharp[i] && my_strcmp(t->sharp[i], ""))
     return (0);
   return (1);
 }
@@ -60,8 +73,7 @@ void		tetrims_check(t_clist *list, t_data *data)
   while (elm)
     {
       cur = elm->ptr;
-      if (!(cur->error = duplicata(cur, list)))
-	cur->error = !multi_check(cur, data);
+      cur->error = !multi_check(cur, data);
       if (cur->error)
 	{
 	  free(cur->buffer);
@@ -89,4 +101,29 @@ void	delete_bad_tetriminos(t_clist **list)
 	}
       elm = tmp;
     }
+}
+
+int		open_tetrimino_file(char *file, t_tetrimino *t, t_my_fd **fd)
+{
+  const char	ext[] = ".tetrimino";
+  int		offset;
+  char		*str;
+
+  my_memset(t, 0, sizeof(t_tetrimino));
+  str = file;
+  offset = my_strlen(str) - sizeof(ext) + 1;
+  str += offset;
+  if (my_strcmp(str, (char*) ext))
+    return (-1);
+  if ((*fd = my_fopen(file, O_RDONLY)) == NULL)
+    return (-1);
+  str = file;
+  str += offset + 1;
+  while ((str - 1) != file && *(str - 1) != '/')
+    str--;
+  if (!(str = my_strdup(str)))
+    return (-1);
+  str[my_strlen(str) - sizeof(ext) + 1] = '\0';
+  t->name = str;
+  return (0);
 }

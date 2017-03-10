@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Thu Mar  9 11:22:55 2017 augustin leconte
+** Last update Thu Mar  9 11:54:02 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -50,7 +50,7 @@ t_score info_scores(time_t timer)
   mvprintw(LINES / 2, 0, "HScore = %d", scores.hs);
   mvprintw(LINES / 2 + 1, 0, "Lines = %d", scores.nlines);
   mvprintw(LINES / 2 + 2, 0, "Time = %d", scores.timer);
-  mvprintw(LINES - 5, COLS - 14, "Go Back = B");
+  mvprintw(LINES - 5, COLS - 12, "Go Back = B");
   rectangles();
   refresh();
   if (COLS < 57 || LINES < 55)

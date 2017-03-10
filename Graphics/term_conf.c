@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Wed Mar  8 18:13:02 2017 Benjamin Viguier
+** Last update Thu Mar  9 11:20:50 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -18,7 +18,7 @@ void			my_configure(int opt)
 {
   static struct termios	old;
   struct termios	new;
-  
+
   if (opt & INIT)
     ioctl(0, TCGETS, &old);
   if (opt & SET)
@@ -65,6 +65,7 @@ char		*get_key(t_params *param)
   char		*res;
   int		ftcres;
 
+  ftcres = 0;
   size = 0;
   while (size < 256 && (len = read(1, key + size, 1)) != 0)
     {
