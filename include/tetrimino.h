@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Tue Feb 21 09:45:25 2017 Benjamin Viguier
-** Last update Fri Mar 10 11:15:04 2017 augustin leconte
+** Last update Fri Mar 10 14:30:05 2017 augustin leconte
 */
 
 #ifndef TETRIMINO_H_
@@ -42,4 +42,5 @@ void	delete_bad_tetriminos(t_clist **list);
 int	set_tetrimino_pts(t_clist *list);
 int	open_tetrimino_file(char *file, t_tetrimino *t, t_my_fd **fd);
 
+t_tetrimino *choose_tetrim(t_data tetris);
 #endif /* TETRIMINO_H_ */

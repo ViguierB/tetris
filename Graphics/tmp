@@ -1,20 +1,59 @@
-==23592== Memcheck, a memory error detector
-==23592== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
-==23592== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==23592== Command: ./menu
-==23592== 
-==23592== 
-==23592== HEAP SUMMARY:
-==23592==     in use at exit: 370,723 bytes in 452 blocks
-==23592==   total heap usage: 473 allocs, 21 frees, 389,930 bytes allocated
-==23592== 
-==23592== LEAK SUMMARY:
-==23592==    definitely lost: 208 bytes in 1 blocks
-==23592==    indirectly lost: 6,706 bytes in 7 blocks
-==23592==      possibly lost: 0 bytes in 0 blocks
-==23592==    still reachable: 363,809 bytes in 444 blocks
-==23592==         suppressed: 0 bytes in 0 blocks
-==23592== Rerun with --leak-check=full to see details of leaked memory
-==23592== 
-==23592== For counts of detected and suppressed errors, rerun with: -v
-==23592== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==4103== Memcheck, a memory error detector
+==4103== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==4103== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==4103== Command: ./menu
+==4103== 
+==4103== Invalid read of size 1
+==4103==    at 0x404846: check_rl (tetrimino_ext.c:29)
+==4103==    by 0x404949: multi_check (tetrimino_ext.c:47)
+==4103==    by 0x404ADB: tetrims_check (tetrimino_ext.c:76)
+==4103==    by 0x405113: get_all_tetriminos (tetrimino.c:117)
+==4103==    by 0x401695: create_tetris (main.c:51)
+==4103==    by 0x403EA7: ntetris (prints.c:53)
+==4103==    by 0x401730: main (main.c:65)
+==4103==  Address 0x58bc8af is 1 bytes before a block of size 3 alloc'd
+==4103==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4103==    by 0x406A74: my_strdup (my_basic_funct.c:18)
+==4103==    by 0x405722: my_split (my_split.c:49)
+==4103==    by 0x404D59: set_sharp (tetrimino.c:22)
+==4103==    by 0x404FB1: open_tetrimino (tetrimino.c:77)
+==4103==    by 0x4050B9: get_all_tetriminos (tetrimino.c:112)
+==4103==    by 0x401695: create_tetris (main.c:51)
+==4103==    by 0x403EA7: ntetris (prints.c:53)
+==4103==    by 0x401730: main (main.c:65)
+==4103== 
+==4103== Invalid read of size 1
+==4103==    at 0x405342: rtrim (utils.c:16)
+==4103==    by 0x40489A: check_rl (tetrimino_ext.c:33)
+==4103==    by 0x404949: multi_check (tetrimino_ext.c:47)
+==4103==    by 0x404ADB: tetrims_check (tetrimino_ext.c:76)
+==4103==    by 0x405113: get_all_tetriminos (tetrimino.c:117)
+==4103==    by 0x401695: create_tetris (main.c:51)
+==4103==    by 0x403EA7: ntetris (prints.c:53)
+==4103==    by 0x401730: main (main.c:65)
+==4103==  Address 0x58bc8af is 1 bytes before a block of size 3 alloc'd
+==4103==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4103==    by 0x406A74: my_strdup (my_basic_funct.c:18)
+==4103==    by 0x405722: my_split (my_split.c:49)
+==4103==    by 0x404D59: set_sharp (tetrimino.c:22)
+==4103==    by 0x404FB1: open_tetrimino (tetrimino.c:77)
+==4103==    by 0x4050B9: get_all_tetriminos (tetrimino.c:112)
+==4103==    by 0x401695: create_tetris (main.c:51)
+==4103==    by 0x403EA7: ntetris (prints.c:53)
+==4103==    by 0x401730: main (main.c:65)
+==4103== 
+==4103== 
+==4103== HEAP SUMMARY:
+==4103==     in use at exit: 444,597 bytes in 675 blocks
+==4103==   total heap usage: 811 allocs, 136 frees, 466,460 bytes allocated
+==4103== 
+==4103== LEAK SUMMARY:
+==4103==    definitely lost: 63,872 bytes in 100 blocks
+==4103==    indirectly lost: 5,296 bytes in 14 blocks
+==4103==      possibly lost: 1,496 bytes in 1 blocks
+==4103==    still reachable: 373,933 bytes in 560 blocks
+==4103==         suppressed: 0 bytes in 0 blocks
+==4103== Rerun with --leak-check=full to see details of leaked memory
+==4103== 
+==4103== For counts of detected and suppressed errors, rerun with: -v
+==4103== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

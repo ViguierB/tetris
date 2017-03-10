@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Fri Mar 10 09:36:47 2017 augustin leconte
+** Last update Fri Mar 10 14:35:29 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -81,7 +81,7 @@ bool verif_mov(char *c, t_data tetris)
 int playing(t_data tetris)
 {
   int i;
-  char *c;
+  // char *c;
   int **tab;
   time_t timer;
 
@@ -93,18 +93,14 @@ int playing(t_data tetris)
     if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
       return (84);
   init_play(tetris, tab, timer);
-  while (c)
+  while (1)
   {
     clear();
     print_ufo();
     print_tab(tetris, tab);
     info_scores(timer);
     refresh();
-    // if (get_key(&tetris.params) == tetris.params.ke &&
-    // verif_mov(get_key(&tetris.params), tetris) == TRUE)
-        // exiting();
-    if (getch() == 10)
-      exiting();
+    choose_thems(tetris);
   }
   i = -1;
   while (++i < tetris.params.row)
