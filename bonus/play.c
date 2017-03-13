@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 13 16:40:09 2017 augustin leconte
+** Last update Mon Mar 13 19:47:02 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -33,10 +33,17 @@ void rectangles()
   mvprintw(LINES / 2 + 1, 15, "**");
   mvprintw(LINES / 2 + 2, 15, "**");
   mvprintw(LINES / 2 + 3, 15, "**");
+  mvprintw(LINES / 2 - 2, 0, "**");
+  mvprintw(LINES / 2 - 1, 0, "**");
+  mvprintw(LINES / 2, 0, "**");
+  mvprintw(LINES / 2 + 1, 0, "**");
+  mvprintw(LINES / 2 + 2, 0, "**");
+  mvprintw(LINES / 2 + 3, 0, "**");
   mvprintw(LINES /2 + 4, 0, "*****************");
-  mvprintw(LINES - 4, COLS - 16, "****************");
-  mvprintw(LINES - 5, COLS - 16, "**");
-  mvprintw(LINES - 6, COLS - 16, "****************");
+  mvprintw(LINES - 4, COLS - 18, "******************");
+  mvprintw(LINES - 5, COLS - 18, "**");
+  mvprintw(LINES - 6, COLS - 18, "******************");
+  mvprintw(LINES - 5, COLS - 2, "**");
   attroff(COLOR_PAIR(3));
 }
 
@@ -48,11 +55,11 @@ t_score info_scores(time_t timer)
   scores.hs = 0;
   scores.nlines = 0;
   scores.timer = time(NULL) - timer;
-  mvprintw(LINES / 2 - 1, 0, "Score = %d", scores.score);
-  mvprintw(LINES / 2, 0, "HScore = %d", scores.hs);
-  mvprintw(LINES / 2 + 1, 0, "Lines = %d", scores.nlines);
-  mvprintw(LINES / 2 + 2, 0, "Time = %d", scores.timer);
-  mvprintw(LINES - 5, COLS - 12, "Go Back = B");
+  mvprintw(LINES / 2 - 1, 3, "Score = %d", scores.score);
+  mvprintw(LINES / 2, 3, "HScore = %d", scores.hs);
+  mvprintw(LINES / 2 + 1, 3, "Lines = %d", scores.nlines);
+  mvprintw(LINES / 2 + 2, 3, "Time = %d", scores.timer);
+  mvprintw(LINES - 5, COLS - 14, "Go Back = B");
   rectangles();
   refresh();
   if (COLS < 57 || LINES < 55)
@@ -110,7 +117,7 @@ int playing(t_data tetris)
       previous = next;
       next = choose_tetrim(tetris);
     }
-    print_pts(next);
+    print_pts(next, tetris);
     next  = NULL;
   }
   i = -1;

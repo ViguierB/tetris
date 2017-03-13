@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Mon Mar 13 16:32:41 2017 augustin leconte
+** Last update Mon Mar 13 19:35:05 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -26,7 +26,6 @@ void print_ufo()
 
   str = "/                                                             \\";
   len = my_strlen(str) / 2;
-  attron(COLOR_PAIR(3));
   mvprintw(1, COLS / 2 - len + 25, "______________");
   mvprintw(2, COLS / 2 - len + 24, "/              \\");
   mvprintw(3, COLS / 2 - len + 13, "__________/________________\\_");
@@ -45,7 +44,6 @@ void print_ufo()
   printw("                     /");
   mvprintw(10, COLS / 2 - len + 4, "\\______________________________");
   printw("______________________/");
-  attroff(COLOR_PAIR(3));
 }
 
 void print_tab(t_data tetris, int **tab)
