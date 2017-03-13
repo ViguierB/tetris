@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Fri Mar 10 10:50:45 2017 augustin leconte
-** Last update Mon Mar 13 14:40:41 2017 augustin leconte
+** Last update Mon Mar 13 14:52:30 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -26,10 +26,18 @@ void print_pts(t_tetrimino *tetrimino)
   int i;
 
   i = -1;
-  attron(COLOR_PAIR(3));
+  start_color();
+  init_pair(1, COLOR_YELLOW, COLOR_YELLOW);
+  init_pair(2, COLOR_CYAN, COLOR_CYAN);
+  init_pair(3, COLOR_WHITE, COLOR_WHITE);
+  init_pair(4, COLOR_RED, COLOR_RED);
+  init_pair(5, COLOR_BLUE, COLOR_BLUE);
+  init_pair(6, COLOR_GREEN, COLOR_GREEN);
+  init_pair(7, COLOR_MAGENTA, COLOR_MAGENTA);
+  attron(COLOR_PAIR(tetrimino->color));
   while (tetrimino->pts[++i].x != -1)
     mvprintw(20 + tetrimino->pts[i].y, COLS - 40 + (tetrimino->pts[i].x * 2), "%s\n", "**");
-  attroff(COLOR_PAIR(3));
+  attroff(COLOR_PAIR(tetrimino->color));
   refresh();
 }
 
