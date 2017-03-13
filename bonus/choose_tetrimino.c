@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Fri Mar 10 10:50:45 2017 augustin leconte
-** Last update Mon Mar 13 20:23:43 2017 augustin leconte
+** Last update Mon Mar 13 20:28:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -27,12 +27,14 @@ void print_cadre(t_tetrimino *tetrimino, t_data tetris)
   int j;
 
   i = -1;
-  mvprintw((LINES / 2) - 6, COLS / 2 + ((tetris.params.col * 2) / 2) + 4, "NEXT :");
+  mvprintw((LINES / 2) - 6, COLS / 2 + ((tetris.params.col * 2) / 2) + 4,
+  "NEXT :");
   attron(COLOR_PAIR(3));
   while (++i < tetrimino->h + 3)
   {
     mvprintw((LINES / 2) + i - 5, COLS / 2 + tetris.params.col + 4, "**");
-    mvprintw((LINES / 2) + i - 5, COLS / 2 + tetris.params.col + (tetrimino->w * 2) + 10, "**");
+    mvprintw((LINES / 2) + i - 5, COLS / 2 + tetris.params.col +
+    (tetrimino->w * 2) + 10, "**");
   }
   j = -1;
   while (++j < (tetrimino->w * 2) + 7)
@@ -51,7 +53,6 @@ void print_pts(t_tetrimino *tetrimino, t_data tetris)
     return;
   i = -1;
   start_color();
-  print_cadre(tetrimino, tetris);
   init_pair(1, COLOR_YELLOW, COLOR_YELLOW);
   init_pair(2, COLOR_CYAN, COLOR_CYAN);
   init_pair(3, COLOR_WHITE, COLOR_WHITE);
@@ -64,6 +65,7 @@ void print_pts(t_tetrimino *tetrimino, t_data tetris)
     mvprintw((LINES / 2) - 3 + tetrimino->pts[i].y, (COLS / 2) +
     tetris.params.col + 8 + (tetrimino->pts[i].x * 2), "%s\n", "**");
   attroff(COLOR_PAIR(tetrimino->color));
+  print_cadre(tetrimino, tetris);
   refresh();
   sleep(1);
 }
