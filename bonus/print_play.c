@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Mon Mar 13 19:35:05 2017 augustin leconte
+** Last update Mon Mar 13 20:52:53 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -19,6 +19,17 @@
 
 int my_strlen();
 
+void print_ufo2(int len)
+{
+  attron(COLOR_PAIR(3));
+  mvprintw(9, COLS / 2 - len + 3, "\\                                 ");
+  printw("                     /");
+  mvprintw(10, COLS / 2 - len + 4, "\\______________________________");
+  printw("______________________/");
+  attroff(COLOR_PAIR(3));
+}
+
+
 void print_ufo()
 {
   int len;
@@ -26,6 +37,7 @@ void print_ufo()
 
   str = "/                                                             \\";
   len = my_strlen(str) / 2;
+  attron(COLOR_PAIR(3));
   mvprintw(1, COLS / 2 - len + 25, "______________");
   mvprintw(2, COLS / 2 - len + 24, "/              \\");
   mvprintw(3, COLS / 2 - len + 13, "__________/________________\\_");
@@ -34,16 +46,50 @@ void print_ufo()
   printw("      \\__");
   mvprintw(5, COLS / 2 - len + 7, "__/                                 ");
   printw("           \\__");
+  attron(COLOR_PAIR(6));
   mvprintw(6, COLS / 2 - len + 1, "_____/_____________________________________");
   printw("_____________\\____");
   mvprintw(7, COLS / 2 - len, "/                                      ");
   printw("                       \\");
   mvprintw(8, COLS / 2 - len, "\\______________________________________");
   printw("_______________________/");
-  mvprintw(9, COLS / 2 - len + 3, "\\                                 ");
-  printw("                     /");
-  mvprintw(10, COLS / 2 - len + 4, "\\______________________________");
-  printw("______________________/");
+  attroff(COLOR_PAIR(6));
+  print_ufo2(len);
+}
+
+void rectangles()
+{
+  start_color();
+  init_pair(3, COLOR_WHITE, COLOR_WHITE);
+  attron(COLOR_PAIR(3));
+  mvprintw(LINES /2 - 3, 0, "*****************");
+  mvprintw(LINES / 2 - 2, 15, "**");
+  mvprintw(LINES / 2 - 1, 15, "**");
+  mvprintw(LINES / 2, 15, "**");
+  mvprintw(LINES / 2 + 1, 15, "**");
+  mvprintw(LINES / 2 + 2, 15, "**");
+  mvprintw(LINES / 2 + 3, 15, "**");
+  mvprintw(LINES / 2 - 2, 0, "**");
+  mvprintw(LINES / 2 - 1, 0, "**");
+  mvprintw(LINES / 2, 0, "**");
+  mvprintw(LINES / 2 + 1, 0, "**");
+  mvprintw(LINES / 2 + 2, 0, "**");
+  mvprintw(LINES / 2 + 3, 0, "**");
+  mvprintw(LINES /2 + 4, 0, "*****************");
+  mvprintw(LINES - 4, COLS - 18, "******************");
+  mvprintw(LINES - 5, COLS - 18, "**");
+  mvprintw(LINES - 6, COLS - 18, "******************");
+  mvprintw(LINES - 5, COLS - 2, "**");
+  attroff(COLOR_PAIR(3));
+}
+
+bool verif_mov(char *c, t_data tetris)
+{
+  if (c != tetris.params.kl && c != tetris.params.kr && c != tetris.params.kt
+    && c != tetris.params.kd && c != tetris.params.kq && c != tetris.params.kp
+    && c != tetris.params.kb)
+    return (TRUE);
+  return (FALSE);
 }
 
 void print_tab(t_data tetris, int **tab)

@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 13 19:47:02 2017 augustin leconte
+** Last update Mon Mar 13 21:00:34 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -20,32 +20,6 @@
 #include "tetrimino.h"
 
 int my_strlen();
-
-void rectangles()
-{
-  start_color();
-  init_pair(3, COLOR_WHITE, COLOR_WHITE);
-  attron(COLOR_PAIR(3));
-  mvprintw(LINES /2 - 3, 0, "*****************");
-  mvprintw(LINES / 2 - 2, 15, "**");
-  mvprintw(LINES / 2 - 1, 15, "**");
-  mvprintw(LINES / 2, 15, "**");
-  mvprintw(LINES / 2 + 1, 15, "**");
-  mvprintw(LINES / 2 + 2, 15, "**");
-  mvprintw(LINES / 2 + 3, 15, "**");
-  mvprintw(LINES / 2 - 2, 0, "**");
-  mvprintw(LINES / 2 - 1, 0, "**");
-  mvprintw(LINES / 2, 0, "**");
-  mvprintw(LINES / 2 + 1, 0, "**");
-  mvprintw(LINES / 2 + 2, 0, "**");
-  mvprintw(LINES / 2 + 3, 0, "**");
-  mvprintw(LINES /2 + 4, 0, "*****************");
-  mvprintw(LINES - 4, COLS - 18, "******************");
-  mvprintw(LINES - 5, COLS - 18, "**");
-  mvprintw(LINES - 6, COLS - 18, "******************");
-  mvprintw(LINES - 5, COLS - 2, "**");
-  attroff(COLOR_PAIR(3));
-}
 
 t_score info_scores(time_t timer)
 {
@@ -69,20 +43,35 @@ t_score info_scores(time_t timer)
 
 void init_play(t_data tetris, int **tab, time_t timer)
 {
+  int i;
+
+  i = -1;
   clear();
+  if ((tab = malloc(sizeof(int *) * tetris.params.row)) == NULL)
+    return;
+  while (++i < tetris.params.row)
+    if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
+      return;
   print_tab(tetris, tab);
   print_ufo();
   info_scores(timer);
   refresh();
 }
 
-bool verif_mov(char *c, t_data tetris)
+void init_colorsandmore(t_tetrimino *next, t_tetrimino *previous,
+  time_t *timer)
 {
-  if (c != tetris.params.kl && c != tetris.params.kr && c != tetris.params.kt
-    && c != tetris.params.kd && c != tetris.params.kq && c != tetris.params.kp
-    && c != tetris.params.kb)
-    return (TRUE);
-  return (FALSE);
+  start_color();
+  init_pair(1, COLOR_YELLOW, COLOR_YELLOW);
+  init_pair(2, COLOR_CYAN, COLOR_CYAN);
+  init_pair(3, COLOR_WHITE, COLOR_WHITE);
+  init_pair(4, COLOR_RED, COLOR_RED);
+  init_pair(5, COLOR_BLUE, COLOR_BLUE);
+  init_pair(6, COLOR_GREEN, COLOR_GREEN);
+  init_pair(7, COLOR_MAGENTA, COLOR_MAGENTA);
+  *timer = time(NULL);
+  previous = NULL;
+  next = NULL;
 }
 
 int playing(t_data tetris)
@@ -93,15 +82,7 @@ int playing(t_data tetris)
   int **tab;
   time_t timer;
 
-  i = -1;
-  timer = time(NULL);
-  previous = NULL;
-  next = NULL;
-  if ((tab = malloc(sizeof(int *) * tetris.params.row)) == NULL)
-    return (84);
-  while (++i < tetris.params.row)
-    if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
-      return (84);
+  init_colorsandmore(next, previous, &timer);
   init_play(tetris, tab, timer);
   while (1)
   {
@@ -109,7 +90,6 @@ int playing(t_data tetris)
     print_ufo();
     print_tab(tetris, tab);
     info_scores(timer);
-    refresh();
     if (next == NULL)
       next = choose_tetrim(tetris);
     if (previous == NULL)
@@ -120,10 +100,5 @@ int playing(t_data tetris)
     print_pts(next, tetris);
     next  = NULL;
   }
-  i = -1;
-  while (++i < tetris.params.row)
-    free(tab[i]);
-  free(tab);
-  exiting();
   return (0);
 }
