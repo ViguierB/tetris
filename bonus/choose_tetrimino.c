@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Fri Mar 10 10:50:45 2017 augustin leconte
-** Last update Mon Mar 13 14:00:01 2017 Benjamin Viguier
+** Last update Mon Mar 13 14:40:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -28,7 +28,7 @@ void print_pts(t_tetrimino *tetrimino)
   i = -1;
   attron(COLOR_PAIR(3));
   while (tetrimino->pts[++i].x != -1)
-    mvprintw(20 + tetrimino->pts[i].x, COLS - 20 + tetrimino->pts[i].y, "%s\n", "*");
+    mvprintw(20 + tetrimino->pts[i].y, COLS - 40 + (tetrimino->pts[i].x * 2), "%s\n", "**");
   attroff(COLOR_PAIR(3));
   refresh();
 }
@@ -48,5 +48,5 @@ int choose_thems(t_data tetris)
   t = choose_tetrim(tetris);
   print_pts(t);
   choose_tetrim(tetris);
-  sleep(5);
+  sleep(1);
 }

@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Fri Mar 10 14:35:29 2017 augustin leconte
+** Last update Mon Mar 13 14:21:06 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -81,7 +81,6 @@ bool verif_mov(char *c, t_data tetris)
 int playing(t_data tetris)
 {
   int i;
-  // char *c;
   int **tab;
   time_t timer;
 
