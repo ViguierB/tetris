@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Fri Mar 10 09:37:35 2017 augustin leconte
+** Last update Mon Mar 13 16:32:41 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -58,11 +58,11 @@ void print_tab(t_data tetris, int **tab)
   {
     j = -1;
     attron(COLOR_PAIR(3));
-    mvprintw((LINES / 2) + i - 5, (COLS / 2) - (tetris.params.col / 2)
+    mvprintw((LINES / 2) + i - 5, (COLS / 2) - ((tetris.params.col * 2) / 2)
      + j -1, "||");
      attroff(COLOR_PAIR(3));
-    while (++j < tetris.params.col)
-      mvprintw((LINES / 2) + i - 5, (COLS / 2) - (tetris.params.col / 2)
+    while (++j < tetris.params.col * 2)
+      mvprintw((LINES / 2) + i - 5, (COLS / 2) - ((tetris.params.col * 2) / 2)
        + j, " ");
        attron(COLOR_PAIR(3));
        printw("||");
@@ -70,8 +70,8 @@ void print_tab(t_data tetris, int **tab)
   }
   attron(COLOR_PAIR(3));
   j = -3;
-  while (++j < tetris .params.col + 2)
-  mvprintw((LINES / 2) + i - 5, (COLS / 2) - (tetris.params.col / 2)
+  while (++j < (tetris.params.col * 2) + 2)
+  mvprintw((LINES / 2) + i - 5, (COLS / 2) - ((tetris.params.col * 2) / 2)
    + j, "-");
   attroff(COLOR_PAIR(3));
 }
