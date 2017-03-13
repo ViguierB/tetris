@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Thu Mar  9 11:20:28 2017 Benjamin Viguier
+** Last update Mon Mar 13 13:56:46 2017 Benjamin Viguier
 */
 
 #include <stddef.h>
@@ -120,7 +120,7 @@ int	help_parms(t_params *params, int *i, int ac, char **av)
   (void) ac;
   av = (void*) av;
   params->h = 1;
-  my_printf("Usage: %s [OPTION] ...\n"
+  my_printf("Usage:\t%s [options]\n"
 	    "Options:\n"
 	    "  --help\t\tDisplay this help\n"
 	    "  -l --level={num}\tStart Tetris at level num\n"
