@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Mon Mar 13 13:21:14 2017 Benjamin Viguier
+** Last update Mon Mar 13 15:45:50 2017 Benjamin Viguier
 */
 
 #include <unistd.h>
@@ -40,9 +40,10 @@ int	game(t_data *data, char **env)
 {
   char	buffer[256];
 
+  data = (void*) data;
+  env = (void*) env;
   my_printf("Press any key to start Tetris\n");
   my_configure(INIT | SET);
-  set_smkx(env, 1);
   while (read(1, buffer, 256) == 0);
   my_configure(RESET);
   return (0);
