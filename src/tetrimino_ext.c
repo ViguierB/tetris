@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Mon Mar  6 16:44:11 2017 Benjamin Viguier
+** Last update Mon Mar 13 14:53:02 2017 Benjamin Viguier
 */
 
 #include <fcntl.h>
@@ -73,7 +73,8 @@ void		tetrims_check(t_clist *list, t_data *data)
   while (elm)
     {
       cur = elm->ptr;
-      cur->error = !multi_check(cur, data);
+      cur->error = !multi_check(cur, data) |
+	(cur->color > 7 || cur->color < 1);
       if (cur->error)
 	{
 	  free(cur->buffer);
