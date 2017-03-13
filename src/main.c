@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Fri Mar 10 16:11:26 2017 Benjamin Viguier
+** Last update Mon Mar 13 13:07:26 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -13,7 +13,7 @@
 #include "tetrimino.h"
 #include "term.h"
 
-int	set_smkx(char **env)
+int	set_smkx(char **env, int print_smkx)
 {
   char	*s;
   int	ret;
@@ -26,7 +26,8 @@ int	set_smkx(char **env)
 	    return (-1);
 	  if (!(s = tigetstr("smkx")))
 	    return (-1);
-	  putp(s);
+	  if (print_smkx)
+	    putp(s);
 	  return (0);
 	}
       env++;
@@ -39,7 +40,7 @@ int		main(int ac, char **av, char **env)
   t_data	tetris;
 
   my_memset(&tetris, 0, sizeof(tetris));
-  set_smkx(env);
+  set_smkx(env, 0);
   get_params(&(tetris.params), ac, av);
   if (tetris.params.h)
     return (0);
