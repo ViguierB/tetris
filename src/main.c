@@ -5,9 +5,10 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Mon Mar 13 13:07:26 2017 Benjamin Viguier
+** Last update Mon Mar 13 13:21:14 2017 Benjamin Viguier
 */
 
+#include <unistd.h>
 #include <ncurses.h>
 #include "tetris.h"
 #include "tetrimino.h"
@@ -35,6 +36,18 @@ int	set_smkx(char **env, int print_smkx)
   return (-1);
 }
 
+int	game(t_data *data, char **env)
+{
+  char	buffer[256];
+
+  my_printf("Press any key to start Tetris\n");
+  my_configure(INIT | SET);
+  set_smkx(env, 1);
+  while (read(1, buffer, 256) == 0);
+  my_configure(RESET);
+  return (0);
+}
+
 int		main(int ac, char **av, char **env)
 {
   t_data	tetris;
@@ -53,5 +66,6 @@ int		main(int ac, char **av, char **env)
     }
   delete_bad_tetriminos(&(tetris.tetrims));
   set_tetrimino_pts(tetris.tetrims);
+  game(&tetris, env);
   return (0);
 }
