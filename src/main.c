@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Mon Mar 13 15:45:50 2017 Benjamin Viguier
+** Last update Tue Mar 14 16:04:43 2017 Benjamin Viguier
 */
 
 #include <unistd.h>
@@ -19,14 +19,14 @@ int	set_smkx(char **env, int print_smkx)
   char	*s;
   int	ret;
 
-  while (env)
+  while (*env)
     {
       if (my_memcmp(*env, "TERM=", 5) == 0)
 	{
 	  if (setupterm(*env + 5, 1, &ret))
 	    return (-1);
 	  if (!(s = tigetstr("smkx")))
-	    return (-1);
+	    return (0);
 	  if (print_smkx)
 	    putp(s);
 	  return (0);
@@ -54,7 +54,11 @@ int		main(int ac, char **av, char **env)
   t_data	tetris;
 
   my_memset(&tetris, 0, sizeof(tetris));
-  set_smkx(env, 0);
+  if (set_smkx(env, 0) < 0)
+    {
+      my_printf("[ERROR] Bad env.\n");
+      return (84);
+    }
   get_params(&(tetris.params), ac, av);
   if (tetris.params.h)
     return (0);
