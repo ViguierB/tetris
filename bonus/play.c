@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Mar 14 16:23:42 2017 augustin leconte
+** Last update Tue Mar 14 16:26:42 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -58,7 +58,7 @@ void init_play(t_data tetris, int **tab, time_t timer)
   refresh();
 }
 
-void init_colorsandmore(t_tetrimino *next, t_tetrimino *previous,
+void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
   time_t *timer)
 {
   start_color();
@@ -70,8 +70,8 @@ void init_colorsandmore(t_tetrimino *next, t_tetrimino *previous,
   init_pair(6, COLOR_GREEN, COLOR_GREEN);
   init_pair(7, COLOR_MAGENTA, COLOR_MAGENTA);
   *timer = time(NULL);
-  previous = NULL;
-  next = NULL;
+  *previous = NULL;
+  *next = NULL;
 }
 
 int playing(t_data tetris)
@@ -82,10 +82,8 @@ int playing(t_data tetris)
   int **tab;
   time_t timer;
 
-  init_colorsandmore(next, previous, &timer);
+  init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
-  next = NULL;
-  previous = NULL;
   while (1)
   {
     clear();
@@ -100,7 +98,7 @@ int playing(t_data tetris)
       next = choose_tetrim(tetris);
     }
     print_pts(next, tetris);
-    // print_tetrimino(previous, tetris);
+    print_tetrimino(previous, tetris);
   }
   return (0);
 }
