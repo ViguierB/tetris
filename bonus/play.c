@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Mar 14 16:09:49 2017 augustin leconte
+** Last update Tue Mar 14 16:23:42 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -84,6 +84,8 @@ int playing(t_data tetris)
 
   init_colorsandmore(next, previous, &timer);
   init_play(tetris, tab, timer);
+  next = NULL;
+  previous = NULL;
   while (1)
   {
     clear();
