@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Fri Mar 10 10:50:45 2017 augustin leconte
-** Last update Tue Mar 14 16:22:51 2017 augustin leconte
+** Last update Tue Mar 14 16:30:51 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -68,13 +68,4 @@ t_tetrimino *choose_tetrim(t_data tetris)
 
   where = rand() % (100 - 1) + 1;
   return (((t_tetrimino*) clist_at(tetris.tetrims, where)->ptr));
-}
-
-int choose_thems(t_data tetris)
-{
-  t_tetrimino *t;
-
-  t = choose_tetrim(tetris);
-  print_pts(t, tetris);
-  choose_tetrim(tetris);
 }
