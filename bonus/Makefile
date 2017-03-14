@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Fri Mar 10 10:58:14 2017 augustin leconte
+## Last update Tue Mar 14 16:06:09 2017 augustin leconte
 ##
 
 CC	=	gcc -g3
@@ -31,6 +31,7 @@ SRC	= debug.c						\
 			tetrimino.c				\
 			tetrims_transf.c	\
 			utils.c						\
+			tetrimino_gravity.c	\
 
 OBJS	=	$(SRC:.c=.o)
 
