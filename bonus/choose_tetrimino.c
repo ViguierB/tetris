@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Fri Mar 10 10:50:45 2017 augustin leconte
-** Last update Tue Mar 14 18:47:45 2017 augustin leconte
+** Last update Tue Mar 14 19:19:25 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -59,7 +59,6 @@ void print_pts(t_tetrimino *tetrimino, t_data tetris)
   attroff(COLOR_PAIR(tetrimino->color));
   print_cadre(tetrimino, tetris);
   refresh();
-  sleep(1);
 }
 
 t_tetrimino *choose_tetrim(t_data tetris)
