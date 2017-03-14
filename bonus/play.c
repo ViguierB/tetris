@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Mar 14 16:07:01 2017 augustin leconte
+** Last update Tue Mar 14 16:09:49 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -98,7 +98,7 @@ int playing(t_data tetris)
       next = choose_tetrim(tetris);
     }
     print_pts(next, tetris);
-    print_tetrimino(previous, tetris);
+    // print_tetrimino(previous, tetris);
   }
   return (0);
 }
