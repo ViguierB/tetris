@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Tue Feb 21 09:45:25 2017 Benjamin Viguier
-** Last update Mon Mar 13 19:46:35 2017 augustin leconte
+** Last update Tue Mar 14 16:00:44 2017 Benjamin Viguier
 */
 
 #ifndef TETRIMINO_H_
@@ -31,6 +31,7 @@ typedef struct	s_tetrimino
   char		*buffer;
   char		**sharp;
   t_pt		center;
+  int		pnbr;
   t_pt		*pts;
 }		t_tetrimino;
 

@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Wed Mar  1 16:09:21 2017 Benjamin Viguier
-** Last update Mon Mar  6 16:56:13 2017 Benjamin Viguier
+** Last update Tue Mar 14 16:02:18 2017 Benjamin Viguier
 */
 
 #include "tetris.h"
@@ -36,6 +36,7 @@ static int	get_all_pts(t_tetrimino *t)
 	    t->pts[count++] = (t_pt) {.x = j, .y = i};
 	}
     }
+  t->pnbr = count;
   return (0);
 }
 
