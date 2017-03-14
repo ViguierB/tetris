@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Mar 14 16:26:42 2017 augustin leconte
+** Last update Tue Mar 14 16:36:51 2017 Benjamin Viguier
 */
 
 #include <sys/stat.h>
@@ -87,6 +87,7 @@ int playing(t_data tetris)
   while (1)
   {
     clear();
+    mvprintw(0, COLS - 10, "*", next->pnbr);
     print_ufo();
     print_tab(tetris, tab);
     info_scores(timer);
