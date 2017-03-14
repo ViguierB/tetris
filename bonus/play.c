@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Mar 14 16:36:51 2017 Benjamin Viguier
+** Last update Tue Mar 14 18:12:10 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -15,6 +15,7 @@
 #include <time.h>
 #include <curses.h>
 #include <ncurses.h>
+#include <unistd.h>
 #include <SFML/Audio.h>
 #include "tetris.h"
 #include "tetrimino.h"
@@ -87,7 +88,6 @@ int playing(t_data tetris)
   while (1)
   {
     clear();
-    mvprintw(0, COLS - 10, "*", next->pnbr);
     print_ufo();
     print_tab(tetris, tab);
     info_scores(timer);
@@ -98,8 +98,11 @@ int playing(t_data tetris)
       previous = next;
       next = choose_tetrim(tetris);
     }
+    mvprintw(0, COLS - 20, "%s %d\n", next->name, next->pnbr);
     print_pts(next, tetris);
     print_tetrimino(previous, tetris);
+    refresh();
+    next = NULL;
   }
   return (0);
 }
