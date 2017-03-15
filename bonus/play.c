@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar 15 15:52:50 2017 augustin leconte
+** Last update Wed Mar 15 17:51:46 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -75,11 +75,13 @@ void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
   *next = NULL;
 }
 
-int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino)
+int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int pos[2])
 {
-  if (key == tetris.params.kl && (COLS / 2) - 1 + tetrimino->w <= (COLS / 2) + tetris.params.col)
+  if (key == tetris.params.kl && pos[0] - 2 >= (COLS / 2) -
+  (tetris.params.col / 2) && pos[1] - 2 <= (COLS / 2) + (tetris.params.w / 2));
     return (-2);
-  if (key == tetris.params.kr && (COLS / 2) + 1 + tetrimino->w >= (COLS / 2) - tetris.params.col - 2)
+  if (key == tetris.params.kr && pos[0] + 2 >= (COLS / 2) -
+  (tetris.params.col / 2) && pos[1] + 2 <= (COLS / 2) + (tetris.params.w / 2))
     return (2);
   return (0);
 }
@@ -114,10 +116,8 @@ int playing(t_data tetris)
     print_pts(next, tetris);
     c = 0;
     animation(previous);
-    print_tetrimino(previous, tetris, j, c);
+    // print_tetrimino(previous, tetris, j, c);
     usleep(500000);
-    pos[0] = 0;
-    pos[1] = tetris.params.col / 2;
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
     {
@@ -126,10 +126,12 @@ int playing(t_data tetris)
       print_ufo();
       info_scores(timer);
       print_pts(next, tetris);
-      print_tetrimino(previous, tetris, j, c);
+      pos[1] = (COLS / 2) + (previous->w / 2) + c;
+      pos[0] = (COLS / 2) - (previous->w / 2) + c;
+      print_tetrimino(previous, tetris, j, pos);
       refresh();
       j += 1;
-      c += recup_touch(get_key(&(tetris.params)), tetris, previous);
+      c += recup_touch(get_key(&(tetris.params)), tetris, previous, pos);
       usleep(50000);
     }
     refresh();
