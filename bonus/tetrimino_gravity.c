@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Mar 14 15:55:35 2017 augustin leconte
-** Last update Wed Mar 15 11:40:16 2017 augustin leconte
+** Last update Wed Mar 15 11:45:00 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -24,15 +24,14 @@
 void animation(t_tetrimino *tetrimino)
 {
   attron(COLOR_PAIR(1));
-  mvprintw(12, (COLS / 2) - tetrimino->w - 2, "**");
+  mvprintw(12, (COLS / 2) - tetrimino->w - 4, "**");
   mvprintw(12, (COLS / 2) + tetrimino->w + 2, "**");
-  mvprintw(13, (COLS / 2) - tetrimino->w - 4, "**");
+  mvprintw(13, (COLS / 2) - tetrimino->w - 6, "**");
   mvprintw(13, (COLS / 2) + tetrimino->w + 4, "**");
-  mvprintw(14, (COLS / 2) - tetrimino->w - 6, "**");
+  mvprintw(14, (COLS / 2) - tetrimino->w - 8, "**");
   mvprintw(14, (COLS / 2) + tetrimino->w + 6, "**");
   attroff(COLOR_PAIR(1));
   refresh();
-  usleep(500000);
 }
 
 void print_tetrimino(t_tetrimino *tetrimino, t_data tetris, int j, int c)

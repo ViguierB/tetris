@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Wed Mar 15 10:26:20 2017 augustin leconte
+** Last update Wed Mar 15 11:49:01 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -34,7 +34,7 @@ void print_ufo()
   int len;
   char *str;
 
-  str = "/                                                             \\";
+  str = "/                                                               \\";
   len = my_strlen(str) / 2;
   attron(COLOR_PAIR(3));
   mvprintw(1, COLS / 2 - len + 25, "______________");
