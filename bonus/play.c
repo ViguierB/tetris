@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar 15 11:43:33 2017 augustin leconte
+** Last update Wed Mar 15 15:52:50 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -75,12 +75,12 @@ void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
   *next = NULL;
 }
 
-int recup_touch(char *key, t_data tetris)
+int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino)
 {
-  if (key == tetris.params.kl)
-    return (-1);
-  if (key == tetris.params.kr)
-    return (1);
+  if (key == tetris.params.kl && (COLS / 2) - 1 + tetrimino->w <= (COLS / 2) + tetris.params.col)
+    return (-2);
+  if (key == tetris.params.kr && (COLS / 2) + 1 + tetrimino->w >= (COLS / 2) - tetris.params.col - 2)
+    return (2);
   return (0);
 }
 
@@ -88,6 +88,7 @@ int playing(t_data tetris)
 {
   int i;
   int j;
+  int pos[2];
   int c;
   t_tetrimino *next;
   t_tetrimino *previous;
@@ -109,12 +110,14 @@ int playing(t_data tetris)
       previous = next;
       next = choose_tetrim(tetris);
     }
-    j = -12;
+    j = -14;
     print_pts(next, tetris);
     c = 0;
     animation(previous);
     print_tetrimino(previous, tetris, j, c);
     usleep(500000);
+    pos[0] = 0;
+    pos[1] = tetris.params.col / 2;
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
     {
@@ -126,7 +129,7 @@ int playing(t_data tetris)
       print_tetrimino(previous, tetris, j, c);
       refresh();
       j += 1;
-      c += recup_touch(get_key(&(tetris.params)), tetris);
+      c += recup_touch(get_key(&(tetris.params)), tetris, previous);
       usleep(50000);
     }
     refresh();
