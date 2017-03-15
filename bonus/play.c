@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Tue Mar 14 19:26:04 2017 augustin leconte
+** Last update Wed Mar 15 10:34:55 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -79,6 +79,7 @@ int playing(t_data tetris)
 {
   int i;
   int j;
+  int c;
   t_tetrimino *next;
   t_tetrimino *previous;
   int **tab;
@@ -86,6 +87,7 @@ int playing(t_data tetris)
 
   init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
+  c = 0;
   while (1)
   {
     clear();
@@ -101,16 +103,18 @@ int playing(t_data tetris)
     }
     j = 0;
     print_pts(next, tetris);
-    while (j < 20)
+    while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
+    tetris.params.row - 5)
     {
       clear();
       print_tab(tetris, tab);
       print_ufo();
       info_scores(timer);
       print_pts(next, tetris);
-      print_tetrimino(previous, tetris, j);
+      print_tetrimino(previous, tetris, j, c);
       refresh();
-      j+= 2;
+      j += 1;
+      c++;
       sleep(1);
     }
     refresh();
