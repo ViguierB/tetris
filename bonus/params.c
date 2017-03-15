@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Thu Mar  9 11:15:59 2017 Benjamin Viguier
+** Last update Thu Mar  9 16:49:26 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -64,6 +64,19 @@ int		exec_fct(t_params *params, int *i, int ac, char **av)
   return (-1);
 }
 
+void	set_all_seq(t_params *p)
+{ 
+  p->all[0] = &(p->kl);
+  p->all[1] = &(p->kr);
+  p->all[2] = &(p->kt);
+  p->all[3] = &(p->kd);
+  p->all[4] = &(p->kq);
+  p->all[5] = &(p->kp);
+  p->all[6] = &(p->ke);
+  p->all[7] = &(p->kb);
+  p->all[8] = NULL;
+}
+
 int	init_params(t_params *params, char *name)
 {
   my_memset(params, 0, sizeof(t_params));
@@ -81,6 +94,7 @@ int	init_params(t_params *params, char *name)
   params->d = 0;
   params->w = 0;
   params->my_name = name;
+  set_all_seq(params);
   return (0);
 }
 
@@ -100,6 +114,11 @@ int	get_params(t_params *params, int ac, char **av)
 	  break;
 	}
       i++;
+    }
+  if (!verif_all_seq(params->all))
+    {
+      my_printf("[%s] Key binding invalid.\n", av[0]);
+      exit(84);
     }
   return (0);
 }
