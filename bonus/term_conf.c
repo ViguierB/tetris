@@ -1,11 +1,11 @@
 /*
 ** term_conf.c for tetris in /home/benji_epitech/System_Unix/PSU_2016_tetris
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Thu Mar  9 11:20:50 2017 Benjamin Viguier
+** Last update Wed Mar 15 11:07:24 2017 augustin leconte
 */
 
 #include <ncurses.h>
@@ -26,7 +26,7 @@ void			my_configure(int opt)
       ioctl(0, TCGETS, &new);
       new.c_lflag &= ~ICANON;
       new.c_lflag &= ~ECHO;
-      new.c_cc[VTIME] = 1;
+      new.c_cc[VTIME] = 0;
       new.c_cc[VMIN] = 0;
       ioctl(0, TCSETS, &new);
     }
@@ -36,18 +36,17 @@ void			my_configure(int opt)
 
 int	iskey(char *key, size_t size, t_params *p, char **res)
 {
-  char	**keys;
+  char	***keys;
 
   *res = NULL;
-  keys = (char*[]) {p->kl, p->kr, p->kt, p->kd, p->kq,
-		    p->kp, p->ke, p->kb, NULL};
+  keys = p->all;
   while (*keys)
     {
-      if (!(my_memcmp(key, *keys, size)))
+      if (!(my_memcmp(key, **keys, size)))
 	{
 	  if (*res)
 	    return (0);
-	  *res = *keys;
+	  *res = **keys;
 	}
       keys++;
     }

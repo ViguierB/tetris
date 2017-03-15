@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar 15 10:34:55 2017 augustin leconte
+** Last update Wed Mar 15 11:02:39 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -75,6 +75,15 @@ void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
   *next = NULL;
 }
 
+int recup_touch(char *key, t_data tetris)
+{
+  if (key == tetris.params.kl)
+    return (-1);
+  if (key == tetris.params.kr)
+    return (1);
+  return (0);
+}
+
 int playing(t_data tetris)
 {
   int i;
@@ -87,7 +96,6 @@ int playing(t_data tetris)
 
   init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
-  c = 0;
   while (1)
   {
     clear();
@@ -103,6 +111,7 @@ int playing(t_data tetris)
     }
     j = 0;
     print_pts(next, tetris);
+    c = 0;
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
     {
@@ -114,8 +123,8 @@ int playing(t_data tetris)
       print_tetrimino(previous, tetris, j, c);
       refresh();
       j += 1;
-      c++;
-      sleep(1);
+      c += recup_touch(get_key(&(tetris.params)), tetris);
+      usleep(50000);
     }
     refresh();
     previous = NULL;
