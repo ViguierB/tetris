@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Wed Mar  1 14:41:23 2017 Benjamin Viguier
-** Last update Mon Mar 13 14:53:02 2017 Benjamin Viguier
+** Last update Fri Mar 17 10:43:20 2017 Benjamin Viguier
 */
 
 #include <fcntl.h>
@@ -43,8 +43,8 @@ static int	multi_check(t_tetrimino *t, t_data *d)
   int		j;
 
   i = 0;
-  if (t->w > d->params.col || t->h > d->params.row ||
-      !check_rl(t))
+  if (t->error || t->w > d->params.col ||
+      t->h > d->params.row || !check_rl(t))
     return (0);
   while (i < t->h)
     {
@@ -73,12 +73,15 @@ void		tetrims_check(t_clist *list, t_data *data)
   while (elm)
     {
       cur = elm->ptr;
-      cur->error = !multi_check(cur, data) |
-	(cur->color > 7 || cur->color < 1);
-      if (cur->error)
+      if (!(cur->error))
 	{
-	  free(cur->buffer);
-	  free(cur->sharp);
+	  cur->error = !multi_check(cur, data) ||
+	    (cur->color > 7 || cur->color < 1);
+	  if (cur->error)
+	    {
+	      free(cur->buffer);
+	      free(cur->sharp);
+	    }
 	}
       elm = CLIST_NEXT(list, elm);
     }
@@ -114,9 +117,8 @@ int		open_tetrimino_file(char *file, t_tetrimino *t, t_my_fd **fd)
   str = file;
   offset = my_strlen(str) - sizeof(ext) + 1;
   str += offset;
+  t->name = NULL;
   if (my_strcmp(str, (char*) ext))
-    return (-1);
-  if ((*fd = my_fopen(file, O_RDONLY)) == NULL)
     return (-1);
   str = file;
   str += offset + 1;
@@ -126,5 +128,10 @@ int		open_tetrimino_file(char *file, t_tetrimino *t, t_my_fd **fd)
     return (-1);
   str[my_strlen(str) - sizeof(ext) + 1] = '\0';
   t->name = str;
+  if ((*fd = my_fopen(file, O_RDONLY)) == NULL)
+    {
+      t->error = 1;
+      return (-1);
+    }
   return (0);
 }

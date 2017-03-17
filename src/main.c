@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Fri Mar 17 09:51:48 2017 Benjamin Viguier
+** Last update Fri Mar 17 10:56:10 2017 Benjamin Viguier
 */
 
 #include <unistd.h>
@@ -52,7 +52,7 @@ int		main(int ac, char **av, char **env)
 {
   t_data	tetris;
 
-  my_configure(INIT | SET);  
+  my_configure(INIT | SET);
   my_memset(&tetris, 0, sizeof(tetris));
   if (set_smkx(env, 1) < 0)
     {

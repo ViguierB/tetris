@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Fri Mar 10 16:08:36 2017 Benjamin Viguier
+** Last update Fri Mar 17 10:43:58 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -104,18 +104,18 @@ t_clist		*get_all_tetriminos(t_data *data)
   if ((dir = opendir(DEF_TETRI_PATH)) == NULL)
     return (NULL);
   while ((dirent = readdir(dir)) != NULL)
-    {
-      if (dirent->d_type != DT_DIR)
-	{
-	  if (!(elm = malloc(sizeof(t_tetrimino))) ||
-	      !(file_path = my_strconca(DEF_TETRI_PATH, dirent->d_name)))
-	    return (NULL);
-	  if (open_tetrimino(file_path, elm) >= 0)
-	    list = clist_push(list, (void*) elm);
-	}
-    }
+    if (dirent->d_type != DT_DIR)
+      {
+	if (!(elm = malloc(sizeof(t_tetrimino))) ||
+	    !(file_path = my_strconca(DEF_TETRI_PATH, dirent->d_name)))
+	  return (NULL);
+	if (open_tetrimino(file_path, elm) < 0)
+	  elm->error = 1;
+	if (elm->name)
+	  list = clist_push(list, (void*) elm);
+      }
   closedir(dir);
-  clist_sort(list, &tetrimino_name_cmp);
   tetrims_check(list, data);
+  clist_sort(list, &tetrimino_name_cmp);
   return (list);
 }

@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Fri Mar 17 09:39:09 2017 Benjamin Viguier
+** Last update Fri Mar 17 10:55:57 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
@@ -54,7 +54,11 @@ int		exec_fct(t_params *params, int *i, int ac, char **av)
       if (my_strcmp(elm->cmd, splited[0]) == 0)
 	{
 	  if ((elm->fct)(params, i, ac, av) < 0)
-	    my_printf("[%s] Bad value.\n", splited[0]);
+	    {
+	      my_configure(RESET);
+	      my_printf("[%s] Bad value.\n", splited[0]);
+	      exit(84);
+	    }
 	  return (0);
 	}
       free(*splited);
@@ -65,7 +69,7 @@ int		exec_fct(t_params *params, int *i, int ac, char **av)
 }
 
 void	set_all_seq(t_params *p)
-{ 
+{
   p->all[0] = &(p->kl);
   p->all[1] = &(p->kr);
   p->all[2] = &(p->kt);
@@ -117,6 +121,7 @@ int	get_params(t_params *params, int ac, char **av)
     }
   if (!verif_all_seq(params->all))
     {
+      my_configure(RESET);
       my_printf("[%s] Key binding invalid.\n", av[0]);
       exit(84);
     }
