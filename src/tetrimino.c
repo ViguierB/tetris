@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Tue Feb 21 09:48:23 2017 Benjamin Viguier
-** Last update Fri Mar 17 10:43:58 2017 Benjamin Viguier
+** Last update Fri Mar 17 11:25:11 2017 Benjamin Viguier
 */
 
 #include <sys/types.h>
@@ -19,11 +19,16 @@ int	set_sharp(t_tetrimino *tetri)
 {
   char	**splited;
 
-  splited = my_split(tetri->buffer, '\n', NULL);
-  if (!splited)
+  if (tetri->buffer)
+    {
+      splited = my_split(tetri->buffer, '\n', NULL);
+      if (!splited)
+	return (-1);
+      tetri->sharp = splited;
+      return (0);
+    }
+  else
     return (-1);
-  tetri->sharp = splited;
-  return (0);
 }
 
 int	get_name(char *file, t_tetrimino *tetri)
