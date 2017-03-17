@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:15:03 2017 augustin leconte
-** Last update Wed Mar 15 11:36:47 2017 augustin leconte
+** Last update Fri Mar 17 09:39:29 2017 Benjamin Viguier
 */
 
 #ifndef TETRIS_H_
@@ -74,6 +74,8 @@ typedef struct	s_score
   int		nlines;
   time_t timer;
 }		t_score;
+
+extern const t_fct_parms	g_fct_tab[];
 
 /*
 ** Terminal IO

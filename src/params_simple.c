@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:45:58 2017 Benjamin Viguier
-** Last update Mon Mar 13 14:50:54 2017 Benjamin Viguier
+** Last update Fri Mar 17 09:48:04 2017 Benjamin Viguier
 */
 
 #include <stddef.h>
@@ -54,6 +54,7 @@ int		key_parms(t_params *params, int *i,
   char		key;
   t_char_key	*cur;
   char		**key_ptr;
+  t_fct_parms	*fcts;
 
   (void) ac;
   key = av[*i][2];
@@ -63,7 +64,16 @@ int		key_parms(t_params *params, int *i,
       key = av[*i][6];
     }
   else
-    c = av[++(*i)];
+    {
+      c = av[++(*i)];
+      fcts = (t_fct_parms*) g_fct_tab;
+      while (fcts->cmd)
+        if (my_strcmp((fcts++)->cmd, c) == 0)
+	  {
+	    (*i)--;
+	    return (-1);
+	  }
+    }
   cur = (t_char_key*) g_keys;
   while (cur->c != '\0')
     {

@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 10:10:00 2017 augustin leconte
-** Last update Tue Mar 14 16:04:43 2017 Benjamin Viguier
+** Last update Fri Mar 17 09:51:48 2017 Benjamin Viguier
 */
 
 #include <unistd.h>
@@ -43,7 +43,6 @@ int	game(t_data *data, char **env)
   data = (void*) data;
   env = (void*) env;
   my_printf("Press any key to start Tetris\n");
-  my_configure(INIT | SET);
   while (read(1, buffer, 256) == 0);
   my_configure(RESET);
   return (0);
@@ -53,8 +52,9 @@ int		main(int ac, char **av, char **env)
 {
   t_data	tetris;
 
+  my_configure(INIT | SET);  
   my_memset(&tetris, 0, sizeof(tetris));
-  if (set_smkx(env, 0) < 0)
+  if (set_smkx(env, 1) < 0)
     {
       my_printf("[ERROR] Bad env.\n");
       return (84);
