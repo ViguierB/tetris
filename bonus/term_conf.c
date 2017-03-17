@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Thu Mar  2 11:09:46 2017 Benjamin Viguier
-** Last update Wed Mar 15 13:09:18 2017 Benjamin Viguier
+** Last update Fri Mar 17 19:14:57 2017 augustin leconte
 */
 
 #include <ncurses.h>
@@ -26,7 +26,7 @@ void			my_configure(int opt)
       ioctl(0, TCGETS, &new);
       new.c_lflag &= ~ICANON;
       new.c_lflag &= ~ECHO;
-      new.c_cc[VTIME] = 1;
+      new.c_cc[VTIME] = 0;
       new.c_cc[VMIN] = 0;
       ioctl(0, TCSETS, &new);
     }
@@ -59,7 +59,7 @@ int	iskey(char *key, size_t size, t_params *p, char **res)
 char		*get_key(t_params *param)
 {
   char		key[256];
-  size_t	len;
+  ssize_t	len;
   size_t	size;
   char		*res;
   int		ftcres;
@@ -71,7 +71,7 @@ char		*get_key(t_params *param)
       size += len;
       ftcres = iskey(key, size, param, &res);
       if (ftcres != 0)
-	break;
+	     break;
     }
   if (ftcres == 1)
     return (res);

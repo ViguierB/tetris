@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Fri Mar 17 16:40:45 2017 augustin leconte
+** Last update Fri Mar 17 19:13:01 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -77,11 +77,9 @@ void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
 
 int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int pos[2])
 {
-  if (key == tetris.params.kl && pos[0] - 2 >= (COLS / 2) -
-  (tetris.params.col / 2) && pos[1] - 2 <= (COLS / 2) + (tetris.params.w / 2));
+  if (key == tetris.params.kl)
     return (-2);
-  if (key == tetris.params.kr && pos[0] + 2 >= (COLS / 2) -
-  (tetris.params.col / 2) && pos[1] + 2 <= (COLS / 2) + (tetris.params.w / 2))
+  if (key == tetris.params.kr)
     return (2);
   return (0);
 }
@@ -99,6 +97,7 @@ int playing(t_data tetris)
 
   init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
+  my_configure(INIT | SET);
   while (1)
   {
     clear();
@@ -115,8 +114,10 @@ int playing(t_data tetris)
     j = -14;
     print_pts(next, tetris);
     c = 0;
+    pos[1] = (COLS / 2) + (previous->w / 2) + c;
+    pos[0] = (COLS / 2) - (previous->w / 2) + c;
     animation(previous);
-    print_tetrimino(previous, tetris, j, &c);
+    print_tetrimino(previous, tetris, j, pos);
     usleep(500000);
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
@@ -137,5 +138,6 @@ int playing(t_data tetris)
     refresh();
     previous = NULL;
   }
+  my_configure(RESET);
   return (0);
 }
