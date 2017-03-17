@@ -5,14 +5,14 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Mon Feb 20 15:21:54 2017 Benjamin Viguier
-** Last update Thu Mar  9 16:49:26 2017 Benjamin Viguier
+** Last update Fri Mar 17 15:39:14 2017 Benjamin Viguier
 */
 
 #include <ncurses.h>
 #include "libmy.h"
 #include "tetris.h"
 
-static const t_fct_parms	g_fct_tab[] =
+const t_fct_parms	g_fct_tab[] =
   {
     {"-l", &lvl_parms},
     {"--level", &lvl_parms},
