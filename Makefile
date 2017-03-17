@@ -5,7 +5,7 @@
 ## Login   <benjamin.viguier@epitech.eu>
 ##
 ## Started on  Wed Dec  7 12:45:32 2016 Benjamin Viguier
-## Last update Thu Mar  9 14:10:02 2017 Benjamin Viguier
+## Last update Fri Mar 17 11:17:03 2017 Benjamin Viguier
 ##
 
 include $(shell pwd)/include/depend.mk
@@ -14,6 +14,7 @@ SRC	= 	main.c			\
 		utils.c			\
 		params.c		\
 		params_simple.c		\
+		params_key.c		\
 		tetrimino.c		\
 		tetrimino_ext.c		\
 		tetrims_transf.c	\
