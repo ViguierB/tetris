@@ -1,11 +1,11 @@
 /*
 ** debug.c for tetris in /home/benji_epitech/System_Unix/PSU_2016_tetris/lib/my/src
-** 
+**
 ** Made by Benjamin Viguier
 ** Login   <benjamin.viguier@epitech.eu>
-** 
+**
 ** Started on  Tue Feb 28 09:59:16 2017 Benjamin Viguier
-** Last update Thu Mar  9 16:39:39 2017 Benjamin Viguier
+** Last update Fri Mar 17 09:22:28 2017 augustin leconte
 */
 
 #include <ncurses.h>
@@ -59,7 +59,7 @@ int	debug_params(t_params *parms)
 	    "Level : %d\n"
 	    "Size : %d*%d\n",
 	    str[0], str[1], str[2], str[3], str[4], str[5],
-	    (parms->w == 1) ? "Yes" : "No", parms->l, parms->row, parms->col);
+	    (parms->w == 1) ? "No" : "Yes", parms->l, parms->row, parms->col);
   i = 0;
   while (i < 6)
     if (str[i])
