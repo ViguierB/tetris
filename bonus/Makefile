@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Wed Mar 15 13:08:00 2017 Benjamin Viguier
+## Last update Fri Mar 17 16:31:43 2017 augustin leconte
 ##
 
 CC	=	gcc -g3
@@ -15,16 +15,10 @@ CFLAGS	=	-I../include
 SRC	= debug.c						\
 			choose_tetrimino.c\
 			errors.c					\
-			help.c						\
 			main.c						\
-			menu_mecanics.c		\
 			params_simple.c		\
 			params.c					\
 			play.c						\
-			print_menu.c			\
-			print_menutwo.c		\
-			prints.c					\
-			quit.c						\
 			term_conf.c				\
 			print_play.c			\
 			tetrimino_ext.c		\
@@ -36,7 +30,7 @@ SRC	= debug.c						\
 
 OBJS	=	$(SRC:.c=.o)
 
-NAME	=	menu
+NAME	=	tetris
 
 all: $(OBJS)
 		$(CC) -L../lib/my/ $(OBJS) -o $(NAME) -lncurses -lmy
