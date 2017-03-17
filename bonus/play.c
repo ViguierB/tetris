@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Wed Mar 15 17:53:05 2017 augustin leconte
+** Last update Fri Mar 17 16:40:45 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -116,7 +116,7 @@ int playing(t_data tetris)
     print_pts(next, tetris);
     c = 0;
     animation(previous);
-    print_tetrimino(previous, tetris, j, c);
+    print_tetrimino(previous, tetris, j, &c);
     usleep(500000);
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
