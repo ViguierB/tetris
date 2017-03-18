@@ -1,0 +1,98 @@
+*** DEBUG MODE ***
+Key Left : ^EOD
+Key Right : ^EOC
+Key Turn : ^EOA
+Key Drop : ^EOB
+Key Quit : q
+Key Pause : (space)
+Next : No
+Level : 1
+Size : 20*10
+Tetriminos : 24
+Tetriminos : Name 42 : error
+Tetriminos : Name 5 : Size 1*1 : Color 4 :
+*
+Tetriminos : Name 6 : Size 2*3 : Color 6 :
+ *
+**
+*
+Tetriminos : Name 7 : Size 5*4 : Color 3 :
+ * *
+* * *
+ * *
+  *
+Tetriminos : Name aaaerror : error
+Tetriminos : Name abcd : Size 5*4 : Color 3 :
+ * *
+* * *
+ * *
+  *
+Tetriminos : Name b_bar : Size 2*4 : Color 2 :
+ *
+ *
+*
+ *
+Tetriminos : Name bar : Size 1*4 : Color 2 :
+*
+*
+*
+*
+Tetriminos : Name big : Size 9*19 : Color 3 :
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+*********
+Tetriminos : Name bla : error
+Tetriminos : Name color : Size 3*3 : Color 10 :
+***
+***
+***
+Tetriminos : Name err2 : error
+Tetriminos : Name err3 : error
+Tetriminos : Name err4 : error
+Tetriminos : Name error1 : error
+Tetriminos : Name error2 : error
+Tetriminos : Name error_bar : error
+Tetriminos : Name error_bar2 : error
+Tetriminos : Name inverted-L : Size 2*3 : Color 5 :
+ *
+ *
+**
+Tetriminos : Name new : error
+Tetriminos : Name phal : Size 5*7 : Color 4 :
+ ***
+ ***
+ ***
+ ***
+ ***
+** **
+** **
+Tetriminos : Name small_42 : Size 10*5 : Color 2 :
+   *  ****
+  *      *
+ *    ****
+****  *
+  *   ****
+Tetriminos : Name square : Size 2*2 : Color 1 :
+**
+**
+Tetriminos : Name void : Size 3*3 : Color 1 :
+***
+
+***
+[?1h=

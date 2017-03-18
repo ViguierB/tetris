@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Sat Mar 18 18:02:03 2017 augustin leconte
+** Last update Sat Mar 18 19:34:36 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -75,11 +75,19 @@ void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
   *next = NULL;
 }
 
-int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int pos[2])
+int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
 {
-  if (key == tetris.params.kl)
+  int firmin[2];
+
+  firmin[1] = (COLS / 2) + tetris.params.col;
+  firmin[0] = (COLS / 2) - tetris.params.col - 2;
+  // mvprintw(20, (COLS / 2) - tetrimino->w + c - 2, "**");
+  // mvprintw(20, (COLS / 2) + (tetrimino->w / 2) + c + 2, "**");
+  // refresh();
+  // sleep(1);
+  if (key == tetris.params.kl && (COLS / 2) - (tetrimino->w * 2) + c - 2 >= firmin[0])
     return (-2);
-  if (key == tetris.params.kr)
+  if (key == tetris.params.kr && (COLS / 2) + (tetrimino->w / 2) + c + 2 <= firmin[1])
     return (2);
   return (0);
 }
@@ -139,7 +147,7 @@ int playing(t_data tetris)
       print_tetrimino(previous, tetris, j, pos);
       refresh();
       j += 1;
-      c += recup_touch(get_key(&(tetris.params)), tetris, previous, pos);
+      c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
       usleep(50000);
     }
     refresh();
