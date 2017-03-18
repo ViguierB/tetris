@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Fri Mar 17 19:13:01 2017 augustin leconte
+** Last update Sat Mar 18 18:02:03 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -84,6 +84,15 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int pos[2])
   return (0);
 }
 
+void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer)
+{
+  clear();
+  print_tab(tetris, tab);
+  print_ufo();
+  info_scores(timer);
+  print_pts(next, tetris);
+}
+
 int playing(t_data tetris)
 {
   int i;
@@ -98,7 +107,7 @@ int playing(t_data tetris)
   init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
   my_configure(INIT | SET);
-  while (1)
+  while (42)
   {
     clear();
     print_tab(tetris, tab);
@@ -113,7 +122,9 @@ int playing(t_data tetris)
     }
     j = -14;
     print_pts(next, tetris);
-    c = 0;
+      c = 1;
+    if (my_strcmp(previous->name, "void") == 0)
+      c = 0;
     pos[1] = (COLS / 2) + (previous->w / 2) + c;
     pos[0] = (COLS / 2) - (previous->w / 2) + c;
     animation(previous);
@@ -122,11 +133,7 @@ int playing(t_data tetris)
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
     {
-      clear();
-      print_tab(tetris, tab);
-      print_ufo();
-      info_scores(timer);
-      print_pts(next, tetris);
+      init_in_gameloop(tetris, tab, next, timer);
       pos[1] = (COLS / 2) + (previous->w / 2) + c;
       pos[0] = (COLS / 2) - (previous->w / 2) + c;
       print_tetrimino(previous, tetris, j, pos);
