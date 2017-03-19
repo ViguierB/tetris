@@ -1,0 +1,59 @@
+==19145== Memcheck, a memory error detector
+==19145== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==19145== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==19145== Command: ./menu
+==19145== 
+==19145== Invalid read of size 1
+==19145==    at 0x404E9F: check_rl (tetrimino_ext.c:29)
+==19145==    by 0x404FA2: multi_check (tetrimino_ext.c:47)
+==19145==    by 0x405137: tetrims_check (tetrimino_ext.c:76)
+==19145==    by 0x40579B: get_all_tetriminos (tetrimino.c:117)
+==19145==    by 0x4019C9: create_tetris (main.c:51)
+==19145==    by 0x404127: ntetris (prints.c:53)
+==19145==    by 0x401A64: main (main.c:65)
+==19145==  Address 0x58bc3ff is 1 bytes before a block of size 3 alloc'd
+==19145==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19145==    by 0x407216: my_strdup (my_basic_funct.c:18)
+==19145==    by 0x405EC4: my_split (my_split.c:49)
+==19145==    by 0x4053E1: set_sharp (tetrimino.c:22)
+==19145==    by 0x405639: open_tetrimino (tetrimino.c:77)
+==19145==    by 0x405741: get_all_tetriminos (tetrimino.c:112)
+==19145==    by 0x4019C9: create_tetris (main.c:51)
+==19145==    by 0x404127: ntetris (prints.c:53)
+==19145==    by 0x401A64: main (main.c:65)
+==19145== 
+==19145== Invalid read of size 1
+==19145==    at 0x4059D4: rtrim (utils.c:16)
+==19145==    by 0x404EF3: check_rl (tetrimino_ext.c:33)
+==19145==    by 0x404FA2: multi_check (tetrimino_ext.c:47)
+==19145==    by 0x405137: tetrims_check (tetrimino_ext.c:76)
+==19145==    by 0x40579B: get_all_tetriminos (tetrimino.c:117)
+==19145==    by 0x4019C9: create_tetris (main.c:51)
+==19145==    by 0x404127: ntetris (prints.c:53)
+==19145==    by 0x401A64: main (main.c:65)
+==19145==  Address 0x58bc3ff is 1 bytes before a block of size 3 alloc'd
+==19145==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==19145==    by 0x407216: my_strdup (my_basic_funct.c:18)
+==19145==    by 0x405EC4: my_split (my_split.c:49)
+==19145==    by 0x4053E1: set_sharp (tetrimino.c:22)
+==19145==    by 0x405639: open_tetrimino (tetrimino.c:77)
+==19145==    by 0x405741: get_all_tetriminos (tetrimino.c:112)
+==19145==    by 0x4019C9: create_tetris (main.c:51)
+==19145==    by 0x404127: ntetris (prints.c:53)
+==19145==    by 0x401A64: main (main.c:65)
+==19145== 
+==19145== 
+==19145== HEAP SUMMARY:
+==19145==     in use at exit: 444,544 bytes in 670 blocks
+==19145==   total heap usage: 807 allocs, 137 frees, 465,628 bytes allocated
+==19145== 
+==19145== LEAK SUMMARY:
+==19145==    definitely lost: 64,125 bytes in 103 blocks
+==19145==    indirectly lost: 6,096 bytes in 34 blocks
+==19145==      possibly lost: 1,496 bytes in 1 blocks
+==19145==    still reachable: 372,827 bytes in 532 blocks
+==19145==         suppressed: 0 bytes in 0 blocks
+==19145== Rerun with --leak-check=full to see details of leaked memory
+==19145== 
+==19145== For counts of detected and suppressed errors, rerun with: -v
+==19145== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

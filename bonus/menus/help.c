@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:23 2017 augustin leconte
-** Last update Thu Mar  9 08:37:18 2017 augustin leconte
+** Last update Sun Mar 19 13:35:35 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -46,7 +46,7 @@ int  helping(int ac, char **av, char **env, t_data tetris)
   refresh();
   if (COLS < 57 || LINES < 55)
     error();
-  while (get_key(&(tetris.params)) != tetris.params.ke)
+  while (get_key(&(tetris.params)) != tetris.params.kb)
   {
     if (COLS < 57 || LINES < 55)
       error();

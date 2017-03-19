@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Thu Mar  9 09:59:15 2017 augustin leconte
+** Last update Sun Mar 19 13:34:26 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -56,7 +56,6 @@ void print_cursor(int pos)
 {
   start_color();
   init_pair(1, COLOR_BLUE, COLOR_BLACK);
-  init_pair(2, COLOR_WHITE, COLOR_BLACK);
   attron(COLOR_PAIR(1));
   if (pos == 0)
 cursor(20);
@@ -73,6 +72,6 @@ char *ncurses(int *pos, char *c, int ac, t_chars chars)
 	move_forward(1, pos);
       else if (c == chars.tetris.params.kt)
 	move_forward(-1, pos);
-      else if (c == chars.tetris.params.ke)
+      else if (c == chars.tetris.params.kb)
         return (fire(*pos, ac, chars));
 }

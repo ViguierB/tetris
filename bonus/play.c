@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Sat Mar 18 20:02:37 2017 augustin leconte
+** Last update Sun Mar 19 15:59:58 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -47,16 +47,11 @@ void init_play(t_data tetris, int **tab, time_t timer)
   int i;
 
   i = -1;
-  clear();
   if ((tab = malloc(sizeof(int *) * tetris.params.row)) == NULL)
     return;
   while (++i < tetris.params.row)
     if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
       return;
-  print_tab(tetris, tab);
-  print_ufo();
-  info_scores(timer);
-  refresh();
 }
 
 void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
@@ -81,12 +76,14 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
 
   firmin[1] = (COLS / 2) + tetris.params.col;
   firmin[0] = (COLS / 2) - tetris.params.col - 2;
-  mvprintw(20, (COLS / 2) - tetrimino->w + c - 2, "**");
-  mvprintw(20, (COLS / 2) + (tetrimino->w / 2) + c + 2, "**");
+  mvprintw(20, (COLS / 2) - tetrimino->w, "**");
+  mvprintw(20, (COLS / 2) + tetrimino->w - 2, "**");
+  mvprintw(20, firmin[1], "||");
+  mvprintw(20, firmin[0], "||");
   refresh();
-  if (key == tetris.params.kl && (COLS / 2) - (tetrimino->w * 2) + c - 2 >= firmin[0])
+  if (key == tetris.params.kl && (COLS / 2) - tetrimino->w - 4  + c>= firmin[0])
     return (-2);
-  if (key == tetris.params.kr && (COLS / 2) + (tetrimino->w / 2) + c + 2 <= firmin[1])
+  if (key == tetris.params.kr && (COLS / 2) + tetrimino->w + c + 2 <= firmin[1])
     return (2);
   return (0);
 }
@@ -111,9 +108,10 @@ int playing(t_data tetris)
   int **tab;
   time_t timer;
 
+  my_configure(RESET);
+  my_configure(INIT | SET);
   init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
-  my_configure(INIT | SET);
   while (42)
   {
     clear();
