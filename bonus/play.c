@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Sun Mar 19 15:59:58 2017 augustin leconte
+** Last update Sun Mar 19 16:37:54 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -81,7 +81,7 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
   mvprintw(20, firmin[1], "||");
   mvprintw(20, firmin[0], "||");
   refresh();
-  if (key == tetris.params.kl && (COLS / 2) - tetrimino->w - 4  + c>= firmin[0])
+  if (key == tetris.params.kl && (COLS / 2) - tetrimino->w - 4 + c >= firmin[0])
     return (-2);
   if (key == tetris.params.kr && (COLS / 2) + tetrimino->w + c + 2 <= firmin[1])
     return (2);
@@ -108,10 +108,9 @@ int playing(t_data tetris)
   int **tab;
   time_t timer;
 
-  my_configure(RESET);
-  my_configure(INIT | SET);
   init_colorsandmore(&next, &previous, &timer);
   init_play(tetris, tab, timer);
+  my_configure(INIT | SET);
   while (42)
   {
     clear();
