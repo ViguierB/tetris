@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Mar 14 15:55:35 2017 augustin leconte
-** Last update Mon Mar 20 10:17:28 2017 augustin leconte
+** Last update Mon Mar 20 14:19:30 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -47,4 +47,52 @@ void print_tetrimino(t_tetrimino *tetrimino, t_data tetris, int j, int c)
     tetrimino->w + (tetrimino->pts[i].x * 2) + c, "%s", "**");
   attroff(COLOR_PAIR(tetrimino->color));
   refresh();
+}
+
+int **remove_line(int **tab, int k, t_data tetris)
+{
+  int i;
+  int j;
+  int res;
+  int l;
+
+  l = tetris.params.row + 1;
+  if ((res = malloc(sizeof(int *) * tetris.params.row + 1)) == NULL)
+    return (NULL);
+  i = -1;
+  while (++i < tetris.params.row)
+  {
+    j = -1;
+    if ((res[i] = malloc(sizeof(int) * (tetris.params.col * 2))) == NULL)
+      return (NULL);
+  }
+  while (--l > k)
+    res[l] = tab[l];
+  k--;
+  while (--l > 1)
+    res[l] = tab[--k];
+  k = -1;
+  while (++k < tetris.params.cols * 2)
+    res[0][k] = 0;
+  return (res);
+}
+
+int **verif_tab_lines(int **tab, t_data tetris)
+{
+  int i;
+  int j;
+  int nbzer;
+
+  i = -1;
+  while (++i < tetris.params.row)
+  {
+    j = -1;
+    nbzer = 0;
+    while (++j < tetris.params.col * 2)
+      if (tab[i][j] == 0)
+        nbzer++;
+    if (nbzer == 0)
+      tab = remove_line(tab, i, tetris);
+  }
+  return (tab);x
 }

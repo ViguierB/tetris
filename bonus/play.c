@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 13:23:56 2017 augustin leconte
+** Last update Mon Mar 20 13:53:50 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -143,15 +143,15 @@ int playing(t_data tetris)
       print_tetrimino(previous, tetris, j, c);
       refresh();
       j += 1;
-      memo = previous;
-      if (get_key(&(tetris.params)) == tetris.params.kb)
-      {
-        previous = rotate_tetri(previous);
-      if ((COLS / 2) - previous->w + c < (COLS / 2) - tetris.params.col - 2)
-        previous = memo;
-      if ((COLS / 2) + previous->w + c > (COLS / 2) + tetris.params.col)
-        previous = memo;
-      }
+      // memo = previous;
+      // if (get_key(&(tetris.params)) == tetris.params.kb)
+      // {
+      //   previous = rotate_tetri(previous);
+      // if ((COLS / 2) - previous->w + c < (COLS / 2) - tetris.params.col - 2)
+      //   previous = memo;
+      // if ((COLS / 2) + previous->w + c > (COLS / 2) + tetris.params.col)
+      //   previous = memo;
+      // }
       c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
       usleep(50000);
     }
