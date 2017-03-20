@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 17:15:36 2017 augustin leconte
+** Last update Mon Mar 20 17:30:12 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -22,11 +22,8 @@
 
 int my_strlen();
 
-t_score info_scores(time_t timer)
+t_score info_scores(time_t timer, t_score scores)
 {
-  t_score scores;
-
-  scores.score = 0;
   scores.hs = 0;
   scores.nlines = 0;
   scores.timer = time(NULL) - timer;
@@ -90,12 +87,12 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
   return (0);
 }
 
-void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer)
+void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer, t_score scores)
 {
   clear();
   print_tab(tetris, tab);
   print_ufo();
-  info_scores(timer);
+  info_scores(timer, scores);
   print_pts(next, tetris);
 }
 
@@ -104,6 +101,7 @@ int playing(t_data tetris)
   int i;
   int j;
   int c;
+  t_score scores;
   t_tetrimino *next;
   t_tetrimino *previous;
   t_tetrimino *memo;
@@ -111,6 +109,7 @@ int playing(t_data tetris)
   time_t timer;
 
   srand(time(NULL));
+  scores.score = 0;
   init_colorsandmore(&next, &previous, &timer);
   tab = init_play(tetris, tab, timer);
   my_configure(INIT | SET);
@@ -119,7 +118,7 @@ int playing(t_data tetris)
     clear();
     print_tab(tetris, tab);
     print_ufo();
-    info_scores(timer);
+    info_scores(timer, scores);
     if (next == NULL)
       next = choose_tetrim(tetris);
     if (previous == NULL)
@@ -139,25 +138,13 @@ int playing(t_data tetris)
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
     {
-      init_in_gameloop(tetris, tab, next, timer);
+      init_in_gameloop(tetris, tab, next, timer, scores);
       print_tetrimino(previous, tetris, j++, c);
-      //refresh();
-      //j += 1;
-      // memo = previous;
-      // if (get_key(&(tetris.params)) == tetris.params.kb)
-      // {
-      //   previous = rotate_tetri(previous);
-      // if ((COLS / 2) - previous->w + c < (COLS / 2) - tetris.params.col - 2)
-      //   previous = memo;
-      // if ((COLS / 2) + previous->w + c > (COLS / 2) + tetris.params.col)
-      //   previous = memo;
-      // }
       c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
       usleep(50000);
     }
-    tab = add_tetrim(previous, tab, j, c);
+    scores.score += previous->pnbr;
     refresh();
-    //refresh();
     previous = NULL;
   }
   my_configure(RESET);
