@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Sun Mar 19 16:37:54 2017 augustin leconte
+** Last update Mon Mar 20 10:18:37 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -42,16 +42,23 @@ t_score info_scores(time_t timer)
   return (scores);
 }
 
-void init_play(t_data tetris, int **tab, time_t timer)
+int  **init_play(t_data tetris, int **tab, time_t timer)
 {
   int i;
+  int j;
 
+  if ((tab = malloc(sizeof(int *) * tetris.params.row + 1)) == NULL)
+    return (NULL);
   i = -1;
-  if ((tab = malloc(sizeof(int *) * tetris.params.row)) == NULL)
-    return;
   while (++i < tetris.params.row)
-    if ((tab[i] = malloc(sizeof(int) * tetris.params.col)) == NULL)
-      return;
+  {
+    j = -1;
+    if ((tab[i] = malloc(sizeof(int) * (tetris.params.col * 2))) == NULL)
+      return (NULL);
+      while (++j < tetris.params.col * 2)
+        tab[i][j] = 0;
+  }
+  return (tab);
 }
 
 void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
@@ -76,8 +83,8 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
 
   firmin[1] = (COLS / 2) + tetris.params.col;
   firmin[0] = (COLS / 2) - tetris.params.col - 2;
-  mvprintw(20, (COLS / 2) - tetrimino->w, "**");
-  mvprintw(20, (COLS / 2) + tetrimino->w - 2, "**");
+  mvprintw(20, (COLS / 2) - tetrimino->w + c, "**");
+  mvprintw(20, (COLS / 2) + tetrimino->w - 2 + c, "**");
   mvprintw(20, firmin[1], "||");
   mvprintw(20, firmin[0], "||");
   refresh();
@@ -101,15 +108,15 @@ int playing(t_data tetris)
 {
   int i;
   int j;
-  int pos[2];
   int c;
   t_tetrimino *next;
   t_tetrimino *previous;
   int **tab;
   time_t timer;
 
+  srand(time(NULL));
   init_colorsandmore(&next, &previous, &timer);
-  init_play(tetris, tab, timer);
+  tab = init_play(tetris, tab, timer);
   my_configure(INIT | SET);
   while (42)
   {
@@ -129,18 +136,14 @@ int playing(t_data tetris)
       c = 1;
     if (my_strcmp(previous->name, "void") == 0)
       c = 0;
-    pos[1] = (COLS / 2) + (previous->w / 2) + c;
-    pos[0] = (COLS / 2) - (previous->w / 2) + c;
     animation(previous);
-    print_tetrimino(previous, tetris, j, pos);
+    print_tetrimino(previous, tetris, j, c);
     usleep(500000);
     while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
     tetris.params.row - 5)
     {
       init_in_gameloop(tetris, tab, next, timer);
-      pos[1] = (COLS / 2) + (previous->w / 2) + c;
-      pos[0] = (COLS / 2) - (previous->w / 2) + c;
-      print_tetrimino(previous, tetris, j, pos);
+      print_tetrimino(previous, tetris, j, c);
       refresh();
       j += 1;
       c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);

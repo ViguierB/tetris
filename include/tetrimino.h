@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Tue Feb 21 09:45:25 2017 Benjamin Viguier
-** Last update Wed Mar 15 17:50:56 2017 augustin leconte
+** Last update Mon Mar 20 10:21:30 2017 Augustin Leconte
 */
 
 #ifndef TETRIMINO_H_
@@ -46,7 +46,7 @@ int	open_tetrimino_file(char *file, t_tetrimino *t, t_my_fd **fd);
 t_tetrimino *choose_tetrim(t_data tetris);
 int choose_thems(t_data tetris);
 void print_pts(t_tetrimino *tetrimino, t_data tetris);
-void print_tetrimino(t_tetrimino *tetrimino, t_data tetris, int, int pos[2]);
+void print_tetrimino(t_tetrimino *tetrimino, t_data tetris, int, int);
 void animation(t_tetrimino *);
 
 #endif /* TETRIMINO_H_ */
