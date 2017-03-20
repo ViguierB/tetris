@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 13:15:46 2017 augustin leconte
+** Last update Mon Mar 20 13:23:56 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -99,13 +99,6 @@ void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer)
   print_pts(next, tetris);
 }
 
-t_tetrimino verif(t_tetrimino previous, t_data tetris)
-{
-  t_tetrimino memo;
-  memo = previous;
-
-}
-
 int playing(t_data tetris)
 {
   int i;
@@ -150,6 +143,7 @@ int playing(t_data tetris)
       print_tetrimino(previous, tetris, j, c);
       refresh();
       j += 1;
+      memo = previous;
       if (get_key(&(tetris.params)) == tetris.params.kb)
       {
         previous = rotate_tetri(previous);
