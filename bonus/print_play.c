@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Mon Feb 20 19:45:33 2017 augustin leconte
-** Last update Mon Mar 20 09:25:18 2017 augustin leconte
+** Last update Mon Mar 20 14:31:34 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -80,15 +80,6 @@ void rectangles()
   mvprintw(LINES - 6, COLS - 18, "******************");
   mvprintw(LINES - 5, COLS - 2, "**");
   attroff(COLOR_PAIR(3));
-}
-
-bool verif_mov(char *c, t_data tetris)
-{
-  if (c != tetris.params.kl && c != tetris.params.kr && c != tetris.params.kt
-    && c != tetris.params.kd && c != tetris.params.kq && c != tetris.params.kp
-    && c != tetris.params.kb)
-    return (TRUE);
-  return (FALSE);
 }
 
 void print_tab(t_data tetris, int **tab)
