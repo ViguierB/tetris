@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 13:53:50 2017 augustin leconte
+** Last update Mon Mar 20 15:21:33 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -155,6 +155,7 @@ int playing(t_data tetris)
       c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
       usleep(50000);
     }
+    tab = add_tetrim(previous, tab, j, c);
     refresh();
     previous = NULL;
   }
