@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 13:53:50 2017 augustin leconte
+** Last update Mon Mar 20 15:11:23 2017 Benjamin Viguier
 */
 
 #include <sys/stat.h>
@@ -140,9 +140,9 @@ int playing(t_data tetris)
     tetris.params.row - 5)
     {
       init_in_gameloop(tetris, tab, next, timer);
-      print_tetrimino(previous, tetris, j, c);
-      refresh();
-      j += 1;
+      print_tetrimino(previous, tetris, j++, c);
+      //refresh();
+      //j += 1;
       // memo = previous;
       // if (get_key(&(tetris.params)) == tetris.params.kb)
       // {
@@ -155,7 +155,7 @@ int playing(t_data tetris)
       c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
       usleep(50000);
     }
-    refresh();
+    //refresh();
     previous = NULL;
   }
   my_configure(RESET);

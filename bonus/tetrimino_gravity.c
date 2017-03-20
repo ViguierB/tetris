@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Mar 14 15:55:35 2017 augustin leconte
-** Last update Mon Mar 20 14:28:52 2017 Benjamin Viguier
+** Last update Mon Mar 20 14:39:49 2017 Benjamin Viguier
 */
 
 #include <sys/stat.h>
@@ -39,11 +39,11 @@ void print_tetrimino(t_tetrimino *tetrimino, t_data tetris, int j, int c)
 
   if (tetrimino == NULL)
     return;
-  i = -1;
+  i = 0;
   attron(COLOR_PAIR(tetrimino->color));
-  while (++i < tetrimino->pnbr)
-    mvprintw((LINES / 2) - 5 + tetrimino->pts[i].y + j, (COLS / 2) -
-    tetrimino->w + (tetrimino->pts[i].x * 2) + c, "%s", "**");
+  while (i < tetrimino->pnbr)
+    mvprintw((LINES / 2) - 5 + tetrimino->pts[i++].y + j, (COLS / 2)
+	     - tetrimino->w + (tetrimino->pts[i].x * 2) + c, "%s", "**");
   attroff(COLOR_PAIR(tetrimino->color));
   refresh();
 }
