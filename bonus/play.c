@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 10:18:37 2017 augustin leconte
+** Last update Mon Mar 20 10:35:22 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -133,9 +133,10 @@ int playing(t_data tetris)
     }
     j = -14;
     print_pts(next, tetris);
-      c = 1;
-    if (my_strcmp(previous->name, "void") == 0)
+    if (previous->w % 2 == 0)
       c = 0;
+    else
+      c = 1;
     animation(previous);
     print_tetrimino(previous, tetris, j, c);
     usleep(500000);
