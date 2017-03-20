@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Sun Mar 19 20:18:37 2017 Benjamin Viguier
-** Last update Sun Mar 19 20:41:40 2017 Benjamin Viguier
+** Last update Mon Mar 20 10:11:14 2017 Benjamin Viguier
 */
 
 #include "tetrimino.h"
@@ -26,8 +26,8 @@ t_tetrimino	*rotate_tetri(t_tetrimino *from)
   dest->center.y = (dest->h / 2) - (dest->h % 2);
   while (i < dest->pnbr)
     {
-      dest->pts[i].x = from->pts[i].y - from->center.y;
-      dest->pts[i].y = -(from->pts[i].x - from->center.x);
+      dest->pts[i].x = from->pts[i].y;
+      dest->pts[i].y = -(from->pts[i].x - from->center.x) - from->center.x;
       i++;
     }
   return (dest);
