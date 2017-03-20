@@ -5,9 +5,10 @@
 ** Login   <benjamin.viguier@epitech.eu>
 ** 
 ** Started on  Sun Mar 19 20:18:37 2017 Benjamin Viguier
-** Last update Mon Mar 20 10:11:14 2017 Benjamin Viguier
+** Last update Mon Mar 20 10:37:48 2017 Benjamin Viguier
 */
 
+#include "tetris.h"
 #include "tetrimino.h"
 
 t_tetrimino	*rotate_tetri(t_tetrimino *from)
@@ -17,7 +18,7 @@ t_tetrimino	*rotate_tetri(t_tetrimino *from)
   t_tetrimino	*dest;
 
   dest = malloc(sizeof(t_tetrimino));
-  my_memcpy(dest, from, sizeof(tetrimino));
+  my_memcpy(dest, from, sizeof(t_tetrimino));
   dest->w = from->h;
   dest->h = from->w;
   dest->pts = malloc(sizeof(t_pt) * from->pnbr);
