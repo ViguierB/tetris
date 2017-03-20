@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Mar 14 15:55:35 2017 augustin leconte
-** Last update Mon Mar 20 14:19:30 2017 augustin leconte
+** Last update Mon Mar 20 14:28:52 2017 Benjamin Viguier
 */
 
 #include <sys/stat.h>
@@ -19,7 +19,6 @@
 #include <SFML/Audio.h>
 #include "tetris.h"
 #include "tetrimino.h"
-#include "term.h"
 
 void animation(t_tetrimino *tetrimino)
 {
@@ -53,7 +52,7 @@ int **remove_line(int **tab, int k, t_data tetris)
 {
   int i;
   int j;
-  int res;
+  int **res;
   int l;
 
   l = tetris.params.row + 1;
@@ -72,7 +71,7 @@ int **remove_line(int **tab, int k, t_data tetris)
   while (--l > 1)
     res[l] = tab[--k];
   k = -1;
-  while (++k < tetris.params.cols * 2)
+  while (++k < tetris.params.col * 2)
     res[0][k] = 0;
   return (res);
 }
@@ -94,5 +93,5 @@ int **verif_tab_lines(int **tab, t_data tetris)
     if (nbzer == 0)
       tab = remove_line(tab, i, tetris);
   }
-  return (tab);x
+  return (tab);
 }
