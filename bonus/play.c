@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 11:52:54 2017 augustin leconte
+** Last update Mon Mar 20 13:15:46 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -99,17 +99,11 @@ void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer)
   print_pts(next, tetris);
 }
 
-void verif_rotation(t_tetrimino **tetrimino, t_data tetris, int c)
+t_tetrimino verif(t_tetrimino previous, t_data tetris)
 {
-  t_tetrimino *memo;
+  t_tetrimino memo;
+  memo = previous;
 
-  memo = *tetrimino;
-  if (get_key(&(tetris.params)) == tetris.params.kb)
-    *tetrimino = rotate_tetri(*tetrimino);
-  if ((COLS / 2) - *tetrimino->w + c < (COLS / 2) - tetris.params.col - 2)
-    *tetrimino = memo;
-  if ((COLS / 2) + *tetrimino->w + c > (COLS / 2) + tetris.params.col)
-    *tetrimino = memo;
 }
 
 int playing(t_data tetris)
@@ -119,6 +113,7 @@ int playing(t_data tetris)
   int c;
   t_tetrimino *next;
   t_tetrimino *previous;
+  t_tetrimino *memo;
   int **tab;
   time_t timer;
 
@@ -155,7 +150,14 @@ int playing(t_data tetris)
       print_tetrimino(previous, tetris, j, c);
       refresh();
       j += 1;
-      verif_rotation(&previous, tetris, c);
+      if (get_key(&(tetris.params)) == tetris.params.kb)
+      {
+        previous = rotate_tetri(previous);
+      if ((COLS / 2) - previous->w + c < (COLS / 2) - tetris.params.col - 2)
+        previous = memo;
+      if ((COLS / 2) + previous->w + c > (COLS / 2) + tetris.params.col)
+        previous = memo;
+      }
       c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
       usleep(50000);
     }
