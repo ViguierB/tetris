@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Tue Feb 21 16:04:35 2017 augustin leconte
-** Last update Mon Mar 20 17:30:12 2017 augustin leconte
+** Last update Tue Mar 21 09:53:22 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -22,8 +22,11 @@
 
 int my_strlen();
 
-t_score info_scores(time_t timer, t_score scores)
+t_score info_scores(time_t timer)
 {
+  t_score scores;
+
+  scores.score = 0;
   scores.hs = 0;
   scores.nlines = 0;
   scores.timer = time(NULL) - timer;
@@ -61,6 +64,7 @@ int  **init_play(t_data tetris, int **tab, time_t timer)
 void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
   time_t *timer)
 {
+  srand(time(NULL));
   start_color();
   init_pair(1, COLOR_YELLOW, COLOR_YELLOW);
   init_pair(2, COLOR_CYAN, COLOR_CYAN);
@@ -78,6 +82,7 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
 {
   int firmin[2];
 
+  refresh();
   firmin[1] = (COLS / 2) + tetris.params.col;
   firmin[0] = (COLS / 2) - tetris.params.col - 2;
   if (key == tetris.params.kl && (COLS / 2) - tetrimino->w - 4 + c >= firmin[0])
@@ -87,66 +92,11 @@ int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c)
   return (0);
 }
 
-void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer, t_score scores)
+void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer)
 {
   clear();
   print_tab(tetris, tab);
   print_ufo();
-  info_scores(timer, scores);
+  info_scores(timer);
   print_pts(next, tetris);
-}
-
-int playing(t_data tetris)
-{
-  int i;
-  int j;
-  int c;
-  t_score scores;
-  t_tetrimino *next;
-  t_tetrimino *previous;
-  t_tetrimino *memo;
-  int **tab;
-  time_t timer;
-
-  srand(time(NULL));
-  scores.score = 0;
-  init_colorsandmore(&next, &previous, &timer);
-  tab = init_play(tetris, tab, timer);
-  my_configure(INIT | SET);
-  while (42)
-  {
-    clear();
-    print_tab(tetris, tab);
-    print_ufo();
-    info_scores(timer, scores);
-    if (next == NULL)
-      next = choose_tetrim(tetris);
-    if (previous == NULL)
-    {
-      previous = next;
-      next = choose_tetrim(tetris);
-    }
-    j = -14;
-    print_pts(next, tetris);
-    if (previous->w % 2 == 0)
-      c = 0;
-    else
-      c = 1;
-    animation(previous);
-    print_tetrimino(previous, tetris, j, c);
-    usleep(500000);
-    while ((LINES / 2) - 5 + previous->h + j <= (LINES / 2) +
-    tetris.params.row - 5)
-    {
-      init_in_gameloop(tetris, tab, next, timer, scores);
-      print_tetrimino(previous, tetris, j++, c);
-      c += recup_touch(get_key(&(tetris.params)), tetris, previous, c);
-      usleep(50000);
-    }
-    scores.score += previous->pnbr;
-    refresh();
-    previous = NULL;
-  }
-  my_configure(RESET);
-  return (0);
 }

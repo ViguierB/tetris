@@ -5,7 +5,7 @@
 ## Login   <augustin.leconte@epitech.eu>
 ##
 ## Started on  Mon Feb 27 10:52:28 2017 augustin leconte
-## Last update Mon Mar 20 10:34:06 2017 Benjamin Viguier
+## Last update Tue Mar 21 09:39:17 2017 augustin leconte
 ##
 
 CC	=	gcc -g3
@@ -24,6 +24,7 @@ SRC	= debug.c						\
 			tetrimino_ext.c		\
 			tetrimino.c				\
 			tetrims_transf.c	\
+			play2.c						\
 			utils.c						\
 			tetrimino_gravity.c	\
 			params_verif.c		\

@@ -5,7 +5,7 @@
 ** Login   <benjamin.viguier@epitech.eu>
 **
 ** Started on  Tue Feb 21 09:45:25 2017 Benjamin Viguier
-** Last update Mon Mar 20 10:46:11 2017 augustin leconte
+** Last update Tue Mar 21 09:46:43 2017 augustin leconte
 */
 
 #ifndef TETRIMINO_H_
@@ -49,5 +49,9 @@ void print_pts(t_tetrimino *tetrimino, t_data tetris);
 void print_tetrimino(t_tetrimino *tetrimino, t_data tetris, int, int);
 void animation(t_tetrimino *);
 t_tetrimino	*rotate_tetri(t_tetrimino *from);
+void init_colorsandmore(t_tetrimino **next, t_tetrimino **previous,
+  time_t *timer);
+void init_in_gameloop(t_data tetris, int **tab, t_tetrimino *next, int timer);
+int recup_touch(char *key, t_data tetris, t_tetrimino *tetrimino, int c);
 
 #endif /* TETRIMINO_H_ */
