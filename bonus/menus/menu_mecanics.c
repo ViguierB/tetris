@@ -5,7 +5,7 @@
 ** Login   <augustin.leconte@epitech.eu>
 **
 ** Started on  Wed Feb  1 13:56:40 2017 augustin leconte
-** Last update Sun Mar 19 16:36:38 2017 augustin leconte
+** Last update Tue Mar 21 10:17:18 2017 augustin leconte
 */
 
 #include <sys/stat.h>
@@ -31,7 +31,6 @@ char *fire(int pos, int ac, t_chars chars)
 {
   if (pos == 0)
   {
-    my_configure(RESET);
     playing(chars.tetris);
     exiting();
   }
